@@ -1,5 +1,5 @@
 baseURL = 'https://gelzonexunsas.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Gelzone Unsas'
 theme = 'ananke'
 publishDir = "docs"
