@@ -3,3 +3,11 @@ languageCode = 'en-us'
 title = 'Gelzone Unsas'
 theme = 'ananke'
 publishDir = "docs"
+
+[[params.ananke_socials]]
+name = "Youtube"
+url = "https://www.youtube.com/channel/UCs_AJP0KDnVPcPugtp6k37Q"
+
+[[params.ananke_socials]]
+name = "Github"
+url = "https://github.com/GelzoneXUnsas"
