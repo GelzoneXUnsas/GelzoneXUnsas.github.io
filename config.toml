@@ -11,3 +11,13 @@ url = "https://www.youtube.com/channel/UCs_AJP0KDnVPcPugtp6k37Q"
 [[params.ananke_socials]]
 name = "Github"
 url = "https://github.com/GelzoneXUnsas"
+
+DefaultContentLanguage = "en"
+SectionPagesMenu = "main"
+Paginate = 10 # this is set low for demonstrating with dummy content. Set to a higher number
+googleAnalytics = ""
+enableRobotsTXT = true
+
+[taxonomies]
+   tag = "tags"
+   category = "categories"
