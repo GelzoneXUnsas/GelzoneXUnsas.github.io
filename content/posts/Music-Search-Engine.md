@@ -1,7 +1,7 @@
 ---
 title: "Music Search Engine"
 date: 2022-06-14T01:18:59-08:00
-draft: true
+draft: false
 author: "Lucas Li"
 tags: ["Projects"]
 featured_image: 'https://github.com/CSC-365-Project/Music-Search-Engine/blob/main/img/Songs%20Table.png?raw=true'

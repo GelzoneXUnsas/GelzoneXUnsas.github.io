@@ -1,7 +1,7 @@
 ---
 title: "Experience"
 date: 2022-03-10T01:18:59-08:00
-draft: true
+draft: false
 author: ["Lucas Li", "Alex Hartford", "Brett Hickman"]
 tags: ["Games","Projects"]
 featured_image: 'https://github.com/CPE-476/Experience/blob/main/Final/HTML/src/exp_cover.png?raw=true'
