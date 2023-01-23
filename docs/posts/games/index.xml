@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on Gelzone Unsas</title>
-    <link>https://gelzonexunsas.github.io/tags/projects/</link>
-    <description>Recent content in Projects on Gelzone Unsas</description>
+    <title>Games on Gelzone Unsas</title>
+    <link>https://gelzonexunsas.github.io/posts/games/</link>
+    <description>Recent content in Games on Gelzone Unsas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jul 2022 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/posts/games/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Experience</title>
       <link>https://gelzonexunsas.github.io/posts/games/experience/</link>
@@ -15,15 +15,6 @@
       <guid>https://gelzonexunsas.github.io/posts/games/experience/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/CPE-476/Experience&#34;&gt;Experience&lt;/a&gt; is a small expressive game about the process of trying to improve at something.
 The game involves walking through various environments which evoke feelings like those experienced when learning something new.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Music Search Engine</title>
-      <link>https://gelzonexunsas.github.io/posts/music-search-engine/</link>
-      <pubDate>Tue, 14 Jun 2022 01:18:59 -0800</pubDate>
-      
-      <guid>https://gelzonexunsas.github.io/posts/music-search-engine/</guid>
-      <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/CSC-365-Project/Music-Search-Engine&#34;&gt;music search engine&lt;/a&gt; that can not only search songs by filtering, but also store them as favorite for future lookup.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -42,15 +33,6 @@ The game involves walking through various environments which evoke feelings like
       
       <guid>https://gelzonexunsas.github.io/posts/games/2d_plane_shooter/</guid>
       <description>&lt;p&gt;One of my first games made during college. I had the opportunity to work on a 2D plane shooter game using Java with PApplet. It was an incredibly rewarding experience to work with my peers and the professor to bring this project to life.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Personal Homepage</title>
-      <link>https://gelzonexunsas.github.io/posts/personal-homepage/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gelzonexunsas.github.io/posts/personal-homepage/</guid>
-      <description>&lt;p&gt;We propose a &lt;a href=&#34;http://polypage.herokuapp.com/&#34;&gt;personal homepage&lt;/a&gt; webapp. It’s similar to a website builder, but it provides fundamental tools like bookmarks, to-do lists, and more.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -6,24 +6,33 @@
     <description>Recent content in Games on Gelzone Unsas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Mar 2022 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/games/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Jul 2022 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/games/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Experience</title>
-      <link>https://gelzonexunsas.github.io/posts/experience/</link>
-      <pubDate>Thu, 10 Mar 2022 01:18:59 -0800</pubDate>
+      <link>https://gelzonexunsas.github.io/posts/games/experience/</link>
+      <pubDate>Sun, 10 Jul 2022 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/experience/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/experience/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/CPE-476/Experience&#34;&gt;Experience&lt;/a&gt; is a small expressive game about the process of trying to improve at something.
 The game involves walking through various environments which evoke feelings like those experienced when learning something new.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Music Visualizer</title>
-      <link>https://gelzonexunsas.github.io/posts/music-visualizer/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/music-visualizer/</link>
       <pubDate>Thu, 30 Dec 2021 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/music-visualizer/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/music-visualizer/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/GelzoneXUnsas/MacOS-Music-Visualizer&#34;&gt;3D audio visualizer&lt;/a&gt; that reads in audio files, shows visualizations rendered with OpenGL. The visualizations will be rendered in real-time, and fade to black when it’s far from the viewport/camera.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2D Spaceship Shooter</title>
+      <link>https://gelzonexunsas.github.io/posts/games/2d_plane_shooter/</link>
+      <pubDate>Tue, 10 Nov 2020 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/games/2d_plane_shooter/</guid>
+      <description>&lt;p&gt;One of my first games made during college. I had the opportunity to work on a 2D plane shooter game using Java with PApplet. It was an incredibly rewarding experience to work with my peers and the professor to bring this project to life.&lt;/p&gt;</description>
     </item>
     
   </channel>
