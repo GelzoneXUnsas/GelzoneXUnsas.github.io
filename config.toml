@@ -20,3 +20,23 @@ enableRobotsTXT = true
 
 [taxonomies]
    tag = "tags"
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 1
+
+[[menu.main]]
+name = "Articles"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "Games"
+url = "/tags/Games"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
