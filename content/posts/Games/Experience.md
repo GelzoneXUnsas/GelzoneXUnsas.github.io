@@ -1,6 +1,6 @@
 ---
 title: "Experience"
-date: 2022-03-10T01:18:59-08:00
+date: 2022-07-10T01:18:59-08:00
 draft: false
 author: ["Lucas Li", "Alex Hartford", "Brett Hickman"]
 tags: ["Games","Projects"]
