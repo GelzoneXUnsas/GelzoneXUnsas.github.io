@@ -17,5 +17,16 @@
 
 .nested-links a{
   overflow-wrap: break-word;
+  color: purple;
+  text-decoration: none;
 }
 
+img {
+  padding: 5px;
+  filter: drop-shadow(10px 10px 4px  #505050);
+  clear: both;
+  display: table;
+  text-align: center;
+  height: auto;
+  border-radius: 1rem;
+}

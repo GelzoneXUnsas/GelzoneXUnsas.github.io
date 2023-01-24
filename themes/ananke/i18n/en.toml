@@ -35,7 +35,7 @@ other = "An email address is required."
 other = "Send"
 
 [taxonomyPageList]
-other = "Below you will find pages that utilize the taxonomy term “{{ .Title }}”"
+other = "Below you will find articles about all the {{ .Title }} I made"
 
 [readingTime]
 one = "One minute read"
