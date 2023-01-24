@@ -36,6 +36,11 @@ url = "/tags/Games"
 weight = 3
 
 [[menu.main]]
+name = "Music"
+url = "/tags/Music"
+weight = 4
+
+[[menu.main]]
 name = "Tags"
 url = "/tags"
-weight = 4
+weight = 5

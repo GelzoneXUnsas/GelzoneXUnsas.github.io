@@ -2,9 +2,6 @@
 title: "About"
 description: "Game - Music - Anime"
 featured_image: '/images/profile/212725.jpg'
-menu:
-  main:
-    weight: 1
 ---
 
 My name is Lucas Li, but you may know me by my online name, Gelzone Unsas. I am a multi-faceted individual with a passion for programming, music production, and game development.
