@@ -4,6 +4,10 @@ title = 'Gelzone Unsas'
 theme = 'ananke'
 publishDir = "docs"
 
+[params]
+  favicon = "images/profile/IMG_9741-modified.png"
+  font-awesome = true
+
 [[params.ananke_socials]]
 name = "Youtube"
 url = "https://www.youtube.com/channel/UCs_AJP0KDnVPcPugtp6k37Q"
@@ -16,6 +20,8 @@ DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
 googleAnalytics = ""
 enableRobotsTXT = true
+hasCJKLanguage = true
+enableEmoji = true
 
 [taxonomies]
    tag = "tags"
