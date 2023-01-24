@@ -17,8 +17,6 @@ Guilty Crown is my all-time favorite anime, and it has had a significant impact 
 
 ![Inori](https://i.pinimg.com/originals/d6/19/72/d6197264c9233edf3c1a6856c7ad1fef.png)
 
-_I'm sorry, but I have to let you see this. Irresistible_
-
 Lastly, the heavy use of acoustic guitar in the anime's background music (BGM) led me to practice fingerstyle guitar.
 
 {{< youtube 6bZUyJTzQ-Q >}}
