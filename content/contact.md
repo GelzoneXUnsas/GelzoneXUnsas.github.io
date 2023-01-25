@@ -4,11 +4,12 @@ featured_image: ''
 omit_header_text: true
 description: We'd love to hear from you
 type: page
-menu: main
-
 ---
 
+Looking to collaborate on a project or discuss a business opportunity? Use the contact form on this page to send me a message. I will respond to your inquiry as soon as possible.
 
-This is an example of a custom shortcode that you can put right into your content. You will need to add a form action to the the shortcode to make it work. Check out [Formspree](https://formspree.io/) for a simple, free form service. 
+_I value your privacy and will never share your personal information with anyone. All data submitted through the contact form will be kept strictly confidential._
+
+Thank you for visiting my personal contact webpage, and I look forward to connecting with you soon!
 
 {{< form-contact action="https://formspree.io/f/mqkoarlq"  >}}

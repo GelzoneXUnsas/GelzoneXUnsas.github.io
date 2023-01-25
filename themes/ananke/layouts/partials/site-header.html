@@ -2,6 +2,7 @@
 {{ if $featured_image }}
   {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
   <header class="cover bg-top" style="background-image: url('{{ $featured_image }}');">
+    <script src="https://kit.fontawesome.com/8ce8372e2e.js" crossorigin="anonymous"></script>
     <div class="{{ .Site.Params.cover_dimming_class | default "bg-black-60" }}">
       {{ partial "site-navigation.html" .}}
       <div class="tc-l pv4 pv6-l ph3 ph4-ns">
@@ -18,6 +19,7 @@
   </header>
 {{ else }}
   <header>
+    <script src="https://kit.fontawesome.com/8ce8372e2e.js" crossorigin="anonymous"></script>
     <div class="pb3-m pb6-l {{ .Site.Params.background_color_class | default "bg-black" }}">
       {{ partial "site-navigation.html" . }}
       <div class="tc-l pv3 ph3 ph4-ns">

@@ -6,6 +6,7 @@ publishDir = "docs"
 
 [params]
   favicon = "images/profile/IMG_9741-modified.png"
+  site_logo = "images/profile/IMG_9741-modified.png"
   font-awesome = true
 
 [[params.ananke_socials]]
@@ -29,19 +30,29 @@ enableEmoji = true
 [[menu.main]]
 name = "About"
 url = "/about"
+pre = "<i class='fa-solid fa-user'></i>"
 weight = 1
 
 [[menu.main]]
 name = "Projects"
 url = "/tags/projects"
+pre = "<i class='fa-solid fa-folder'></i>"
 weight = 2
 
 [[menu.main]]
 name = "Games"
 url = "/tags/Games"
+pre = "<i class='fa-solid fa-gamepad'></i>"
 weight = 3
 
 [[menu.main]]
 name = "Music"
 url = "/tags/Music"
+pre = "<i class='fa-solid fa-guitar'></i>"
 weight = 4
+
+[[menu.main]]
+name = "Contact"
+url = "/contact"
+pre = "<i class='fa-solid fa-paper-plane'></i>"
+weight = 5

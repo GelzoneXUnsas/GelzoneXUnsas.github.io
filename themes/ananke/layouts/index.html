@@ -38,7 +38,7 @@
         {{ range (first 4 (after $n_posts $section))  }}
           <h2 class="f5 fw4 mb4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "ml3" "mr3" }}">
             <a href="{{ .RelPermalink }}" class="link black dim">
-              {{ .Title }}
+              {{ .Pre }}
             </a>
           </h2>
         {{ end }}

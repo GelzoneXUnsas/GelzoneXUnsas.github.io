@@ -23,10 +23,22 @@
 
 img {
   padding: 5px;
-  filter: drop-shadow(10px 10px 4px  #505050);
+  filter: drop-shadow(5px 5px 4px  #505050);
   clear: both;
   display: table;
   text-align: center;
   height: auto;
   border-radius: 1rem;
+}
+
+#MenuHeader {
+  padding-left: 0.5rem;
+  width: auto;
+}
+
+#Logo {
+  margin-top: 1rem;
+  width: 3rem;
+  height: 3rem;
+  filter: none;
 }
