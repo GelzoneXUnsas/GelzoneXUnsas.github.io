@@ -6,7 +6,34 @@
     <description>Recent content in Projects on Gelzone Unsas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Jul 2022 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rootscaped</title>
+      <link>https://gelzonexunsas.github.io/posts/rootscaped/</link>
+      <pubDate>Sun, 05 Feb 2023 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/rootscaped/</guid>
+      <description>&lt;p&gt;The Theme for Global Game Jam 2023 was Roots. I made a game about root within 48 hours with a few of my colleagues called &lt;a href=&#34;https://github.com/GGJ2023/Rootscape&#34;&gt;Rootscaped&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Blitz Pong</title>
+      <link>https://gelzonexunsas.github.io/posts/blitz-pong/</link>
+      <pubDate>Fri, 20 Jan 2023 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/blitz-pong/</guid>
+      <description>&lt;p&gt;A 2D Unity project using the Unity physics engine and post-processing rendering pipeline. Basic pong game mechanic, try to get goals and prevent your opponent from getting goals.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Interactive Fictions</title>
+      <link>https://gelzonexunsas.github.io/posts/interactive-fictions/</link>
+      <pubDate>Sun, 15 Jan 2023 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/interactive-fictions/</guid>
+      <description>&lt;p&gt;Some interactive fiction games I made. The first game is parse-based, while the second is choice-based game.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Experience</title>
       <link>https://gelzonexunsas.github.io/posts/experience/</link>

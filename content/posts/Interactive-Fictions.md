@@ -4,12 +4,17 @@ date: 2023-01-15T01:18:59-08:00
 draft: false
 author: ["Lucas Li"]
 tags: ["Games","Projects"]
-featured_image: '/images/games/if.png'
-description: "2 Text Adventure Games Made by Inform & Twine"
+featured_image: "/images/games/if.png"
+description: "Text Adventure Games Made by Inform & Twine"
 toc: true
 ---
 
-First text-based games I made. The first game is parse-based, while the second is choice-based game.  <!--more-->
+Some interactive fiction games I made. The first game is parse-based, while the second is choice-based game.  <!--more-->
+
+* Jack's World Adventure
+* Post-Apocalyptic Prodigies
+
+Interactive fiction (IF) refers to a genre of computer games or stories in which the player makes choices that affect the outcome of the story. The player interacts with the game by entering text commands to advance the story, make choices, and solve puzzles. 
 
 ---
 
@@ -17,103 +22,107 @@ First text-based games I made. The first game is parse-based, while the second i
 
 ![Game Preview](/images/games/if.png)
 
+* [Play Online](https://gelzonexunsas.itch.io/jacks-world-adventure)
+
 ---
-### Gameplay
-The game takes place from a third-person perspective. The player's goal is to use the curser keys to shoot all the enemy spaceships without getting hit by their ammo or the astroids.
+#### Story Description
+Once upon a time, there was a young adventurer named Jack. He had always dreamed of exploring the world and discovering hidden treasures. One day, he set out on a journey to fulfill his dream. During his journey, visiting many more places and met many more people. He faced many challenges and overcame many obstacles, but through it all, he never gave up on his dream. He had many adventures, but he always remembered the jungle, the lost city, the mountain and the village as the most exciting and rewarding experiences of his journey.
 
-### Technical Details
-#### Pathing Strategy
+#### Technical Details
+##### Rooms
+There are a total of 8 different rooms in the game. Some of them are connected and can be navigated (eg. Town, Shop), and others can only be accessed through teleporting when the game progresses (eg. Mountain, Valley).
 
-A pathing strategy refers to the method used by a computer program to determine the best path for an object to follow in a virtual environment. 
+![Game Preview](/images/games/if_map.png)
 
-```Java
-interface PathingStrategy
-{
-   /*
-    * Returns a prefix of a path from the start point to a point within reach
-    * of the end point.  This path is only valid ("clear") when returned, but
-    * may be invalidated by movement of other entities.
-    *
-    * The prefix includes neither the start point nor the end point.
-    */
-   List<Point> computePath(Point start, Point end,
-      Predicate<Point> canPassThrough,
-      BiPredicate<Point, Point> withinReach,
-      Function<Point, Stream<Point>> potentialNeighbors);
+##### Health
+Health is an important aspect in the game. The player’s health has been initialized to 3 in the beginning of the game. The health can be lost by walking into the wrong/dangerous paths, or enemy attacks, or be gained by consuming health potion that is selled in the shop. Player dies when health is down to 0, the game ends.
 
+##### NPCs
+- Shopkeeper: Shopkeeper is in the Weapon Shop, which sells weapon, armor, and
+health potion.
+- Old man: The wise old man who had lived in the jungle for many years. The old man told him stories of a lost city deep in the jungle north from here.
+- Guard: A cannibal is guarding the entrance to the lost city.
+- Yeti: A wild monster that lives in the Himalayas mountain.
 
+##### Objects
+Some of the objects are selled in the shop (eg. sword, shirt, potion), others are gained throughout the gameplay (eg. flower)
 
+#### Mechanics
+- Inventory
 
-   static final Function<Point, Stream<Point>> CARDINAL_NEIGHBORS =
-        point ->
-            Stream.<Point>builder()
-                .add(new Point(point.x, point.y - 1))
-                .add...
-                .build();
+The player can view their inventory by typing “i/inventory”, they can further examine how much money they have through “x/examine gold.”
+- Currency
 
-   static final Function<Point, Stream<Point>> DIAGONAL_NEIGHBORS =
-        point ->
-            Stream.<Point>builder()
-                    .add(new Point(point.x - 1, point.y - 1))
-                    .add...
-                    .build();
+Gold is the currency in the game that can be used in the shop. The player has 50 Golds in the beginning of the game. The gold will be decreased after purchases.
+- Shop
 
+The shop is located in the west of the Town. The player is able to buy weapons, armor, and health potion in the shop.
+- Player Status
 
+Player status (eg. health) can be changed after being attacked by an enemy, or consume the health potion.
+The player inventory is being updated throughout the gameplay.
+Furthermore, the player status can be changed by wearing armor (reduce enemy
+attack damage), or using the long sword instead of the dagger (increase self attack damage).
 
-   static final Function<Point, Stream<Point>> DIAGONAL_CARDINAL_NEIGHBORS =
-        point ->
-            Stream.<Point>builder()
-                    .add(new Point(point.x - 1, point.y - 1))
-                    .add...
-                    .build();
-}
+#### Advance Inform Technics
+- Bracket
+```Racket
+Instead examining player:
+    say "You have [health of player] health points left."
+```
+- Conditionals within Bracket
+```Racket
+Gold is a thing. 
+The printed name is “[if cash is 1]a[otherwise]some[end if] Gold[if cash is greater than 1]s[end if]”.
+```
+- Number
+```Racket
+cash is a number that varies. cash is 50.
+```
+- Understand
+```Racket
+Understand the command "talk" as something new. 
+Understand “talk to [someone]” as talking to. 
+Understand “talk to [something]” as talking to.
+Talking to is an action applying to one visible thing.
 ```
 
-In this game,  2 kinds of enemy ships that move to the hero ship are using A* and DFS strategies.
+---
 
-![Enemy Preview](/images/games/E1.png) ![Enemy Preview](/images/games/E2.png)
+### Post-Apocalyptic Prodigies
 
-* A* (A-star) is an algorithm used for pathfinding and graph traversal. It is an extension of the popular Dijkstra's algorithm, which is used to find the shortest path between two nodes in a graph. A* adds a heuristic component to Dijkstra's algorithm, which allows it to find the shortest path more efficiently.
+![Game Preview](/images/games/twine.png)
+[Play Online](https://gelzonexunsas.itch.io/post-apocalyptic-prodigies)
 
-* DFS (Depth First Search) is a type of algorithm used for traversing and searching a graph or a tree data structure. I decide to implement this strategy only for testing purposes for **Object-Oriented Design**, and **Factory Design Pattern**.
+---
 
-#### Object-Oriented Design
+#### Tropes
+- Post-apocalyptic setting
+- Team of vigilantes
+- Exploration of a lost civilization
+- Use of advanced technology as weapons
 
-![Enemy Preview](/images/games/OO_design.jpg)
+#### Story Description
+In a distant galaxy, a group of vigilantes set out on a mission to save their dying home planet. As they ventured through the vast expanse of space, they came across a seemingly doomed planet, ravaged by war and destruction. But as they explored the post-apocalyptic cityscapes, they discovered something that would change the course of their mission forever. They stumbled upon a civilization that had created musical instruments unlike any they had ever seen before. These instruments possessed the power to produce sounds that could kill, and the vigilantes knew that with these instruments, they could save their people and create a new home for their overpopulated planet. This is the story of their journey and the discovery of the instruments of sound.
 
-I implement OO design based on the concept of objects and their interactions with each other. Abstract classes and interfaces are created for more connected and streamlined code, allowing for less repetition.
+#### Character Design
+**Jack the Protagonist**
+- Physical description: Jack is a tall, lean man with short brown hair and a scruffy beard. He has deep-set blue eyes and a scar above his left eyebrow.
+- Personality Traits: Jack is a leader, he is confident and charismatic. He is also determined, and will stop at nothing to achieve his goals.
+- Primary Actions: Jack is the leader of a team of vigilantes who are on a mission to save their overpopulated home planet. He is responsible for gathering information on the doomed planet and analyzing the inventions of the once-civilized society.
+- Purposes/Goals: Jack's primary goal is to save his overpopulated home planet by using the instruments from the doomed planet.
+- Relation to other characters: Jack's relationship with the Antagonist is a little complicated, they had the same goal but they did not agree with the way of achieving it. Jack is also in a good relationship with his ally, they have a good working relationship, and they trust each other's judgment.
 
-One of the key principles of OO design is encapsulation, which means that the internal state of an object is hidden from the outside world and can only be accessed or modified through the object's methods. This helps to maintain the integrity of the data and provides a way to change the implementation without affecting the rest of the code.
+**Ryan the Antagonist**
+- Physical description: Ryan is a tall, well-built man with short black hair and a clean-shaven face. He has cold, piercing green eyes and a scar above his right eyebrow.
+- Personality Traits: Ryan is a thoughtful man. He is also arrogant sometimes, thinking that he is always right and everyone else is wrong.
+- Primary Actions: Ryan is a businessman who is also a member of a rival faction on Jack's home planet.
+- Purposes/Goals: Ryan argued that the instruments were not meant to be used as weapons, and that it was wrong to exploit the planet's resources for your own gain.
+- Relation to other characters: Ryan is the Antagonist to Jack, he always dislikes how Jack makes irrational moves.
 
-#### Factory Design Pattern
-
-![Enemy Preview](/images/games/Factory_Design.jpg)
-
-The Factory Design Pattern is an object-oriented design pattern that is used to create objects without specifying the exact class of object that will be created. Instead, a factory class is responsible for creating objects of a specific type, based on information or input provided to the factory.
-
-```Java
-public class PathingFactory {
-    public PathingStrategy createStrategy(String key){
-        PathingStrategy p = null;
-        if(key.equals("enemyshipPurple")){
-            p = new AStarPathingStrategy();
-        }
-        else if(key.equals("enemyshipGreen")){
-            p = new DFSStrategy();
-        }
-        else if(key.equals("missile")){
-            p = new SingleStepPathingStrategy();
-        }
-        return p;
-    }
-}
-
-```
-
-As an example, using a pathing strategies factory, I'm able to assign different **PathingStrategies** to each entities in the game.
-
-* ![Enemy Preview](/images/games/E2.png) --> A Star
-* ![Enemy Preview](/images/games/E1.png) --> DFS Pathing
-* ![Ammo Preview](/images/games/MB2.png) --> Single Pathing
-
-The Factory Design Pattern is a powerful tool for creating objects in a flexible, maintainable, and extensible way, while adhering to important principles of object-oriented design.
+**Sarah the Ally**
+- Physical description: Sarah is a short, slender woman with long, curly red hair. She has warm, brown eyes and a friendly smile.
+- Personality Traits: Sarah is a skilled engineer and inventor. She is intelligent, curious, and always eager to learn.
+- Primary Actions: Sarah is a member of Jack's team of vigilantes and is responsible for analyzing and understanding the inventions of the once-civilized society on the doomed planet.
+- Purposes/Goals: Sarah's primary goal is to help Jack and his team save their overpopulated home planet by using the instruments from the doomed planet.
+- Relation to other characters: Sarah has a good working relationship with Jack, the protagonist. She trusts his leadership and is always willing to follow his direction. Sarah's relationship with Ryan, the antagonist, is strained. She is aware of his ruthless tactics and does not agree with his methods.

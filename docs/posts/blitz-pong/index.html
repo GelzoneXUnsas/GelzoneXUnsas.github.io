@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Personal Homepage | Gelzone Unsas</title>
+    <title>Blitz Pong | Gelzone Unsas</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="The only website you might need">
+    <meta name="description" content="2D Unity Pong game">
     <meta name="generator" content="Hugo 0.110.0">
     
     
@@ -31,19 +31,19 @@
 
     
     
-    <meta property="og:title" content="Personal Homepage" />
-<meta property="og:description" content="The only website you might need" />
+    <meta property="og:title" content="Blitz Pong" />
+<meta property="og:description" content="2D Unity Pong game" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://gelzonexunsas.github.io/posts/personal-homepage/" /><meta property="article:section" content="posts" />
-
-
-<meta itemprop="name" content="Personal Homepage">
-<meta itemprop="description" content="The only website you might need">
-
-<meta itemprop="wordCount" content="768">
-<meta itemprop="keywords" content="Projects," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Personal Homepage"/>
-<meta name="twitter:description" content="The only website you might need"/>
+<meta property="og:url" content="https://gelzonexunsas.github.io/posts/blitz-pong/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-01-20T01:18:59-08:00" />
+<meta property="article:modified_time" content="2023-01-20T01:18:59-08:00" />
+<meta itemprop="name" content="Blitz Pong">
+<meta itemprop="description" content="2D Unity Pong game"><meta itemprop="datePublished" content="2023-01-20T01:18:59-08:00" />
+<meta itemprop="dateModified" content="2023-01-20T01:18:59-08:00" />
+<meta itemprop="wordCount" content="382">
+<meta itemprop="keywords" content="Games,Projects," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Blitz Pong"/>
+<meta name="twitter:description" content="2D Unity Pong game"/>
 
 	
   </head>
@@ -55,7 +55,7 @@
   
 
   
-  <header class="cover bg-top" style="background-image: url('https://gelzonexunsas.github.io/images/others/DB.jpg');">
+  <header class="cover bg-top" style="background-image: url('https://gelzonexunsas.github.io/images/games/bgcover.png');">
     <div class="bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
@@ -137,10 +137,10 @@
 
       <div class="tc-l pv6 ph3 ph4-ns">
         
-          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Personal Homepage</div>
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Blitz Pong</div>
           
             <div class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
-              The only website you might need
+              2D Unity Pong game
             </div>
           
         
@@ -175,142 +175,90 @@
   </div>
 
 
-      <h1 class="f1 athelas mt3 mb1">Personal Homepage</h1>
+      <h1 class="f1 athelas mt3 mb1">Blitz Pong</h1>
       
       <p class="tracked">
-        By <strong>Lucas Li, Kyle Burton, Moses Epps, Taylor Morgan, Joseph Simopoulos</strong>
+        By <strong>Lucas Li</strong>
       </p>
       
       
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-01-20T01:18:59-08:00">January 20, 2023</time>
       
 
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>We propose a <a href="http://polypage.herokuapp.com/">personal homepage</a> webapp. It’s similar to a website builder, but it provides fundamental tools like bookmarks, to-do lists, and more.</p>
-<h3 id="overview">Overview</h3>
-<p>Between multiple devices and browsers, it’s difficult to create a unified experience when browsing the web. An iPhone using Safari can’t sync its bookmarks with Chrome on Windows 10, and manually doing so can be frustrating to users. By setting this user page as their home page, users can access the tools they need on any device as soon as they open a new tab. The stakeholders include the developers and anyone who browses the web on one or more devices.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>A 2D Unity project using the Unity physics engine and post-processing rendering pipeline. Basic pong game mechanic, try to get goals and prevent your opponent from getting goals.</p>
+<hr>
+<h3 id="blitz-pong">Blitz Pong</h3>
+<p><img src="/images/games/bgcover.png" alt="Game Preview"></p>
 <ul>
-<li><strong>Tile</strong>: A versatile item on a user page. Every tile has a type, data pertaining to that type, size and position data, and background color.</li>
+<li><a href="https://play.unity.com/mg/other/webgl-rkv">Play Online</a></li>
 </ul>
-<h3 id="design">Design</h3>
-<ul>
-<li>
-<p>We are using a “MERN” stack; this stands for MongoDB, Express.js, React.js, and Node.js. Both the frontend and backend servers run on Node.js. The frontend delivers a React web app, and the backend uses Express.js to provide a REST API. The frontend makes REST API calls to the backend, which performs operations on our cloud-hosted MongoDB database, and sends responses back to the frontend.</p>
-</li>
-<li>
-<p>We are using three main external software interfaces.</p>
+<hr>
+<h4 id="controls">Controls</h4>
 <ul>
 <li>
-<p>Google Authentication: help ease logging into our site. More specifically, passport-google-oauth2 v2.0.0 has been employed to ensure security and ease of entrance once someone has already signed up. We have implemented sessions using Passport so that the user’s data will be cached and remembered in the current browser instance. Passport is solely used for logging and user authentication. The authentication state is passed down through the user state to each child component, along with other helpful data.</p>
+<p>Selection: mouse</p>
 </li>
 <li>
-<p>Canvas API: get student data, like courses, course grades, calendar data, etc. to create tiles to place around the page so the student has easy access to their frequented information. Instructure has been courteous enough to make their version impossible to find. They do have changelogs though, and we are using the most recent version. We are only going to be getting data from Canvas, not posting any. As of now, we are getting the user profile on Canvas and their Courses, but we have the intention to get a higher variety of data in the future. The data is component-specific. Once pulled, it will exist in its intended tile and only there, for now. So not much data sharing between software complements will be had.</p>
-</li>
-<li>
-<p>Twitch’s API: embed Twitch streams in the Twitch Tile.</p>
-</li>
-<li>
-<p>Draggable.io: A Drag n’ drop javascript library to move the tiles around in edit mode. The library itself is fairly antiquated, but it is much more lightweight than other react drag and drop libraries out there.</p>
+<p>PVP</p>
 </li>
 </ul>
-</li>
-</ul>
-<h4 id="data-schemas">Data Schemas</h4>
+<p>Player 1:
+w-up, s-down</p>
+<p>Player 2:
+up arrow-up
+down arrow-down</p>
 <ul>
-<li>
-<p>User</p>
-<ul>
-<li>Every user has a JSON document containing their basic personal information, as well as page customization data. This also contains an array called tiles, which is a one-to-many relationship to the Tile schema.</li>
+<li>PVE</li>
 </ul>
-</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  name: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: String,
-</span></span><span style="display:flex;"><span>      required: true,
-</span></span><span style="display:flex;"><span>      trim: true,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  email: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: String,
-</span></span><span style="display:flex;"><span>      required: true,
-</span></span><span style="display:flex;"><span>      trim: true,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  tiles: <span style="color:#f92672">[</span>TileSchema<span style="color:#f92672">]</span>,
-</span></span><span style="display:flex;"><span>  backgroundColor: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: String,
-</span></span><span style="display:flex;"><span>      required: true,
-</span></span><span style="display:flex;"><span>      default: “#ffffff”,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  backgroundImage: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: String,
-</span></span><span style="display:flex;"><span>      required: false,
-</span></span><span style="display:flex;"><span>      default: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><ul>
-<li>
-<p>Tile</p>
-<ul>
-<li>Every tile specifies its type, position, color, and size. It additionally contains a data object, and a list of List Items, which is a one-to-many relationship. These fields vary from tile to tile, but they contain all the information that any one tile may need. For example, a todo list tile will have a list containing zero or more tasks.</li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  tileType: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: String,
-</span></span><span style="display:flex;"><span>      required: true,
-</span></span><span style="display:flex;"><span>      trim: true,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  width: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: Number,
-</span></span><span style="display:flex;"><span>      required: true,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  x: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: Number,
-</span></span><span style="display:flex;"><span>      require: true
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  y: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: Number,
-</span></span><span style="display:flex;"><span>      required: true
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  data: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: Object,
-</span></span><span style="display:flex;"><span>      required: false
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  color: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: Object,
-</span></span><span style="display:flex;"><span>      require: false,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span>  list: <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>      type: <span style="color:#f92672">[</span>ListItemSchema<span style="color:#f92672">]</span>,
-</span></span><span style="display:flex;"><span>      default: undefined,
-</span></span><span style="display:flex;"><span>      required: false
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><ul>
-<li>
-<p>List Item</p>
-<ul>
-<li>List items are generic objects contained within the list field on Tiles, and include varying data depending on which tile they’re for.</li>
-</ul>
-</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    type: Object,
-</span></span><span style="display:flex;"><span>    required: false
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>,
-</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    strict: false
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><h3 id="tests">Tests</h3>
-<ul>
-<li>Unit Tests - Junit
-<ul>
-<li>In UserServices.js, we have 93.37% statement coverage, 78.68% branch coverage, 100% function coverage, and 93.15% line coverage. However, looking closer at the uncovered lines, this is perfectly fine. Every group of uncovered lines comes in a pair and corresponds to a catch block that logs an error. For these methods, we cannot produce any input that produces an error and enters the catch block. Therefore, all these uncovered lines are, in fact, unreachable. That said, we choose to leave them in place as a safety measure.</li>
-</ul>
-</li>
-</ul><ul class="pa0">
+<p>w-up, s-down</p>
+<h3 id="technical-details">Technical Details</h3>
+<h4 id="ball-movement">Ball Movement</h4>
+<p>In a Pong video game, the ball moves continuously in a straight line across the screen, bouncing off the paddles and walls. To achieve this in Unity, I create a ball game object and use a rigidbody component with a collider to detect when it collides with the paddles and walls. Then, apply a force to the ball&rsquo;s rigidbody in the direction it should move, and use the collider and physics engine to calculate the ball&rsquo;s new direction when it bounces off objects. Additionally, I wrote a script to control the ball&rsquo;s speed by time, and initial velocity.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IEnumerator Launch()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Restart();
+</span></span><span style="display:flex;"><span>        hitCounter = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> WaitForSeconds(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Move(<span style="color:#66d9ef">new</span> Vector2(Random.Range(-<span style="color:#ae81ff">1.0f</span>, <span style="color:#ae81ff">1.0f</span>), Random.Range(-<span style="color:#ae81ff">1.0f</span>, <span style="color:#ae81ff">1.0f</span>)));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Move(Vector2 direction)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> bSpeed;
+</span></span><span style="display:flex;"><span>        direction = direction.normalized;
+</span></span><span style="display:flex;"><span>        bSpeed = startSpeed + hitCounter * extraSpeed;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        rb.velocity = direction * bSpeed;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h4 id="trail-rendering">Trail Rendering</h4>
+<p>I also used the Trail Renderer component to add trail path to the ball. By using this component, I adjusted the trail&rsquo;s length, width, color, etc to make the trail follow the ball&rsquo;s movement. In the script controlling the ball&rsquo;s movement, add a line to activate the trail renderer when the game starts and another line to deactivate it when the game ends.</p>
+<p><img src="/images/games/bggameplay.png" alt="Game Preview"></p>
+<h4 id="post-processing">Post-Processing</h4>
+<p>One thing new about this project to me was using the unity build-in post-processing layer/volume. Using the Post Processing Volume and Post Processing Layer in Unity have been an exciting experience. The Post Processing Volume allows me to apply a set of post-processing effects to a specific area of each scene, while the Post Processing Layer component allows me to prioritize the order in which these effects are applied.
+You may have noticed the immediate impact of these effects on the overall look and feel of your scene, adding depth and visual interest to your environment. The variety of effects available, such as color grading, bloom, and vignette, allow you to create a unique and custom look for your game or application.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Before</th>
+<th style="text-align:center">After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/images/games/bgbefore.png" alt=""></td>
+<td style="text-align:center"><img src="/images/games/bgafter.png" alt=""></td>
+</tr>
+</tbody>
+</table><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/games/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Games</a>
+   </li>
   
    <li class="list di">
      <a href="/tags/projects/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Projects</a>
@@ -329,9 +277,8 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#design">Design</a></li>
-        <li><a href="#tests">Tests</a></li>
+        <li><a href="#blitz-pong">Blitz Pong</a></li>
+        <li><a href="#technical-details">Technical Details</a></li>
       </ul>
     </li>
   </ul>
@@ -346,14 +293,6 @@
     <ul class="pa0 list">
 	   
 	     <li  class="mb2">
-          <a href="/posts/rootscaped/">Rootscaped</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/posts/blitz-pong/">Blitz Pong</a>
-        </li>
-	    
-	     <li  class="mb2">
           <a href="/posts/interactive-fictions/">Interactive Fictions</a>
         </li>
 	    
@@ -362,15 +301,19 @@
         </li>
 	    
 	     <li  class="mb2">
-          <a href="/posts/music-search-engine/">Music Search Engine</a>
-        </li>
-	    
-	     <li  class="mb2">
           <a href="/posts/music-visualizer/">Music Visualizer</a>
         </li>
 	    
 	     <li  class="mb2">
           <a href="/posts/2d_plane_shooter/">2D Spaceship Shooter</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/music-search-engine/">Music Search Engine</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/personal-homepage/">Personal Homepage</a>
         </li>
 	    
     </ul>
