@@ -141,5 +141,5 @@ public class SFXManager : MonoBehaviour
 
 ### Last Words
 
-Once again, this game won't be possible to be done within 48 hours. So big thanks to everyone who participated! Made for [Global Game Jam 2023](https://globalgamejam.org/2023/games/rootscape-0) via the Cal Poly SLO Game Development Club Site.
+Once again, this game won't be possible to be done within 48 hours without help. So big thanks to everyone who participated! Made for [Global Game Jam 2023](https://globalgamejam.org/2023/games/rootscape-0) via the Cal Poly SLO Game Development Club Site.
 
