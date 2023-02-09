@@ -18,6 +18,8 @@ Grow your tree's roots down to search for water! Every time you collect water, y
 
 ![Game Preview](https://img.itch.zone/aW1nLzExMjU0ODY3LmdpZg==/315x250%23c/GOBe3F.gif)
 
+<!-- {{< itch "https://itch.io/embed-upload/7300158?color=743f39">}} -->
+
 * [Play Online](https://kanaz312.itch.io/rootscaped)
 
 Audio will play on launch. We recommend you play in full screen! Press space to start once the game has loaded. Game is not optimized for mobile and requires a keyboard.
