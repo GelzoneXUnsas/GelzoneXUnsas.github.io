@@ -18,7 +18,7 @@ A 2D Unity project using the Unity physics engine and post-processing rendering 
 
 ![Game Preview](/images/games/bgcover.png)
 
-* [Play Online](https://play.unity.com/mg/other/webgl-rkv)
+* [Play Online](https://gelzonexunsas.itch.io/blitz-pong)
 
 ---
 #### Controls
