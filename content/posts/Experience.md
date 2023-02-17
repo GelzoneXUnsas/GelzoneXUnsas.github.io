@@ -9,7 +9,7 @@ description: "audio visualizers created with OpenGL"
 toc: true
 ---
 
-[Experience](https://github.com/CPE-476/Experience) is a small expressive game about the process of trying to improve at something.
+[Experience](https://github.com/CPE-476/Experience) is a small expressive game made in **10 weeks** about the process of trying to improve at something.
 The game involves walking through various environments which evoke feelings like those experienced when learning something new. <!--more-->
 
 ---
@@ -17,6 +17,7 @@ The game involves walking through various environments which evoke feelings like
 {{< youtube 9Me2BgbvU00 >}}
 
 ---
+
 ### Gameplay
 The game takes place from a first-person perspective. The gameplay is as simple as walking and observing. The player can interact with their environment, reading notes strewn about the environment and talking with animals.
 |
@@ -53,6 +54,48 @@ Collect all the notes and messages to find out!
 |:-:|:-:|
 ![](https://github.com/CPE-476/Experience/blob/main/Final/HTML/src/credit.png?raw=true)  |  ![](https://github.com/CPE-476/Experience/blob/main/Final/HTML/src/credit_ori.png?raw=true)
 ### Technical Details
+
+The game was developed within 10 weeks from scratch in C++ and OpenGL, aside from using libraries to open windows, load meshes, and audio. We started the development with creating a world loader:
+
+#### World Loading
+To start the development process, I made a world loader to read and save the world per level. Since the world is a combination of objects, we decided to build the level from a single text file that contains all the information we need for each of the objects.
+
+The custom _Object_ class contains the following information:
+
+```c++
+    int      id;
+    vec3     position;
+    float    angleX;
+    float    angleY;
+    float    angleZ;
+    float    scaleFactor;
+    vec3     velocity;
+    float    view_radius;
+    float    collision_radius;
+    float    selection_radius;
+    mat4     matrix;
+    Material material;
+    bool     interactible;
+    bool     disappearing;
+    int      noteNum;
+    int      sound;
+```
+
+and a sample generated text file can be as such:
+
+```script
+COM Next Level: <NXT path>
+NXT ../levels/forest.txt
+
+COM Camera Setup: <POV pos.x pos.y pos.z>
+POV 40.229 0 103.111 
+
+COM Object: <OBJ id pos.x pos.y pos.z angleX angleY angleZ vel.x vel.y vel.z rad_v rad_c rad_s scale inter? disap? noteN sound>
+OBJ 0 -54.0641 1.34955 -35.4378 -1.6 0 0 1 1 1 5.31453 1.69885 1 3.75851 0 0 0 1 
+OBJ 0 75.0108 -2.2981 -94.1649 -1.6 0 0 1 1 1 6.04608 1.93269 1 4.27587 0 0 0 1 
+```
+
+
 #### Instanced Rendering
 ```c++
 for(int i = 0; i < entry.model->meshes.size(); i++)
@@ -148,7 +191,7 @@ GLFW - GLM - Assimp - Freetype
 GLAD - ImGui - tinyobjloader - miniaudio - stbimage
 
 #### Contact
-Lucas Li - yli76@calpoly.edu
+Lucas Li - lucasli010410@gmail.com
 
 Alex Hartford - alexanderhartford@gmail.com
 

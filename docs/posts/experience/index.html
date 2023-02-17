@@ -40,7 +40,7 @@
 <meta itemprop="name" content="Experience">
 <meta itemprop="description" content="audio visualizers created with OpenGL"><meta itemprop="datePublished" content="2022-07-10T01:18:59-08:00" />
 <meta itemprop="dateModified" content="2022-07-10T01:18:59-08:00" />
-<meta itemprop="wordCount" content="763">
+<meta itemprop="wordCount" content="978">
 <meta itemprop="keywords" content="Games,Projects," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Experience"/>
 <meta name="twitter:description" content="audio visualizers created with OpenGL"/>
@@ -189,7 +189,7 @@
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><a href="https://github.com/CPE-476/Experience">Experience</a> is a small expressive game about the process of trying to improve at something.
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><a href="https://github.com/CPE-476/Experience">Experience</a> is a small expressive game made in <strong>10 weeks</strong> about the process of trying to improve at something.
 The game involves walking through various environments which evoke feelings like those experienced when learning something new.</p>
 <hr>
 
@@ -282,7 +282,37 @@ The game involves walking through various environments which evoke feelings like
 </tbody>
 </table>
 <h3 id="technical-details">Technical Details</h3>
-<h4 id="instanced-rendering">Instanced Rendering</h4>
+<p>The game was developed within 10 weeks from scratch in C++ and OpenGL, aside from using libraries to open windows, load meshes, and audio. We started the development with creating a world loader:</p>
+<h4 id="world-loading">World Loading</h4>
+<p>To start the development process, I made a world loader to read and save the world per level. Since the world is a combination of objects, we decided to build the level from a single text file that contains all the information we need for each of the objects.</p>
+<p>The custom <em>Object</em> class contains the following information:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span>      id;
+</span></span><span style="display:flex;"><span>    vec3     position;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span>    angleX;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span>    angleY;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span>    angleZ;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span>    scaleFactor;
+</span></span><span style="display:flex;"><span>    vec3     velocity;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span>    view_radius;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span>    collision_radius;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span>    selection_radius;
+</span></span><span style="display:flex;"><span>    mat4     matrix;
+</span></span><span style="display:flex;"><span>    Material material;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span>     interactible;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span>     disappearing;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span>      noteNum;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span>      sound;
+</span></span></code></pre></div><p>and a sample generated text file can be as such:</p>
+<pre tabindex="0"><code class="language-script" data-lang="script">COM Next Level: &lt;NXT path&gt;
+NXT ../levels/forest.txt
+
+COM Camera Setup: &lt;POV pos.x pos.y pos.z&gt;
+POV 40.229 0 103.111 
+
+COM Object: &lt;OBJ id pos.x pos.y pos.z angleX angleY angleZ vel.x vel.y vel.z rad_v rad_c rad_s scale inter? disap? noteN sound&gt;
+OBJ 0 -54.0641 1.34955 -35.4378 -1.6 0 0 1 1 1 5.31453 1.69885 1 3.75851 0 0 0 1 
+OBJ 0 75.0108 -2.2981 -94.1649 -1.6 0 0 1 1 1 6.04608 1.93269 1 4.27587 0 0 0 1 
+</code></pre><h4 id="instanced-rendering">Instanced Rendering</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> entry.model<span style="color:#f92672">-&gt;</span>meshes.size(); i<span style="color:#f92672">++</span>)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    glBindVertexArray(entry.model<span style="color:#f92672">-&gt;</span>meshes[i].VAO);
@@ -379,7 +409,7 @@ It uses find-package to search for libraries, which I believe searches the sourc
 <h4 id="included">Included</h4>
 <p>GLAD - ImGui - tinyobjloader - miniaudio - stbimage</p>
 <h4 id="contact">Contact</h4>
-<p>Lucas Li - <a href="mailto:yli76@calpoly.edu">yli76@calpoly.edu</a></p>
+<p>Lucas Li - <a href="mailto:lucasli010410@gmail.com">lucasli010410@gmail.com</a></p>
 <p>Alex Hartford - <a href="mailto:alexanderhartford@gmail.com">alexanderhartford@gmail.com</a></p>
 <p>Brett Hickman - <a href="mailto:bahickma@calpoly.edu">bahickma@calpoly.edu</a></p><ul class="pa0">
   

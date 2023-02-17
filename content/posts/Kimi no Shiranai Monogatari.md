@@ -20,10 +20,9 @@ Another aspect that sets Monogatari apart is its unique art style. The animation
 
 Lastly, I really appreciate the depth of the Monogatari series. The series is not just a collection of stories, but a journey through the characters' minds and emotions. The series explores the complexities of their relationships. This depth makes the series much more than just an entertaining watch, but a thought-provoking and meaningful experience.
 
-{{< youtube rXqXAh8N2lo >}}
-
-
 ### About the Arrangement
+
+{{< youtube rXqXAh8N2lo >}}
 
 Preparing the fingerstyle arrangement was a labor of love. I spent hours practicing and perfecting each note, making sure that my interpretation of the song was true to the original tab while also adding my own personal touch. 
 
