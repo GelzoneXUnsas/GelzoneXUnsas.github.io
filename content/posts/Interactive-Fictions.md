@@ -3,7 +3,7 @@ title: "Interactive Fictions"
 date: 2023-01-15T01:18:59-08:00
 draft: false
 author: ["Lucas Li"]
-tags: ["Games","Projects"]
+tags: ["Games"]
 featured_image: "/images/games/if.png"
 description: "Text Adventure Games Made by Inform & Twine"
 toc: true

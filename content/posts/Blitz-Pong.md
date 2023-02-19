@@ -3,7 +3,7 @@ title: "Blitz Pong"
 date: 2023-01-20T01:18:59-08:00
 draft: false
 author: ["Lucas Li"]
-tags: ["Games","Projects"]
+tags: ["Games"]
 featured_image: "/images/games/bgcover.png"
 description: "2D Unity Pong game"
 toc: true

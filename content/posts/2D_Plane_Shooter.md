@@ -3,7 +3,7 @@ title: "2D Spaceship Shooter"
 date: 2020-11-10T01:18:59-08:00
 draft: false
 author: ["Lucas Li"]
-tags: ["Games","Projects"]
+tags: ["Games"]
 featured_image: '/images/games/plane_shooter_cover.jpg'
 description: "A plane shooter game created with Java"
 toc: true
