@@ -8,6 +8,7 @@ publishDir = "docs"
   favicon = "images/profile/IMG_9741-modified.png"
   site_logo = "images/profile/IMG_9741-modified.png"
   font-awesome = true
+  body_classes = "avenir bg-near-white"
 
 [[params.ananke_socials]]
 name = "Youtube"
