@@ -9,65 +9,65 @@
     <lastBuildDate>Tue, 21 Feb 2023 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/games/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apocclipse</title>
-      <link>https://gelzonexunsas.github.io/posts/apocclipse/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/apocclipse/</link>
       <pubDate>Tue, 21 Feb 2023 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/apocclipse/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/apocclipse/</guid>
       <description>&lt;p&gt;Apocclipse is a fast-paced post-apocalyptic 2D side-scrolling runner game. Players take on the role of Brontë, an experienced adventurer who has arrived on a war-torn planet to save it from destruction.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Rootscaped</title>
-      <link>https://gelzonexunsas.github.io/posts/rootscaped/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/rootscaped/</link>
       <pubDate>Sun, 05 Feb 2023 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/rootscaped/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/rootscaped/</guid>
       <description>&lt;p&gt;The Theme for Global Game Jam 2023 was Roots. I made a game about root within 48 hours with a few of my colleagues called &lt;a href=&#34;https://github.com/GGJ2023/Rootscape&#34;&gt;Rootscaped&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Blitz Pong</title>
-      <link>https://gelzonexunsas.github.io/posts/blitz-pong/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/blitz-pong/</link>
       <pubDate>Fri, 20 Jan 2023 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/blitz-pong/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/blitz-pong/</guid>
       <description>&lt;p&gt;A 2D Unity project using the Unity physics engine and post-processing rendering pipeline. Basic pong game mechanic, try to get goals and prevent your opponent from getting goals.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Interactive Fictions</title>
-      <link>https://gelzonexunsas.github.io/posts/interactive-fictions/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/interactive-fictions/</link>
       <pubDate>Sun, 15 Jan 2023 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/interactive-fictions/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/interactive-fictions/</guid>
       <description>&lt;p&gt;Some interactive fiction games I made. The first game is parse-based, while the second is choice-based game.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Experience</title>
-      <link>https://gelzonexunsas.github.io/posts/experience/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/experience/</link>
       <pubDate>Sun, 10 Jul 2022 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/experience/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/experience/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/CPE-476/Experience&#34;&gt;Experience&lt;/a&gt; is a small expressive game made in &lt;strong&gt;10 weeks&lt;/strong&gt; about the process of trying to improve at something.
 The game involves walking through various environments which evoke feelings like those experienced when learning something new.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Music Visualizer</title>
-      <link>https://gelzonexunsas.github.io/posts/music-visualizer/</link>
+      <link>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</link>
       <pubDate>Thu, 30 Dec 2021 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/music-visualizer/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/GelzoneXUnsas/MacOS-Music-Visualizer&#34;&gt;3D audio visualizer&lt;/a&gt; that reads in audio files, shows visualizations rendered with OpenGL. The visualizations will be rendered in real-time, and fade to black when it’s far from the viewport/camera.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>2D Spaceship Shooter</title>
-      <link>https://gelzonexunsas.github.io/posts/2d_plane_shooter/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/2d_plane_shooter/</link>
       <pubDate>Tue, 10 Nov 2020 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/2d_plane_shooter/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/2d_plane_shooter/</guid>
       <description>&lt;p&gt;One of my first games made during college. I had the opportunity to work on a 2D plane shooter game using Java with PApplet. It was an incredibly rewarding experience to work with my peers and the professor to bring this project to life.&lt;/p&gt;</description>
     </item>
     

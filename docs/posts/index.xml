@@ -9,173 +9,173 @@
     <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apocclipse</title>
-      <link>https://gelzonexunsas.github.io/posts/apocclipse/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/apocclipse/</link>
       <pubDate>Tue, 21 Feb 2023 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/apocclipse/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/apocclipse/</guid>
       <description>&lt;p&gt;Apocclipse is a fast-paced post-apocalyptic 2D side-scrolling runner game. Players take on the role of Brontë, an experienced adventurer who has arrived on a war-torn planet to save it from destruction.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Rootscaped</title>
-      <link>https://gelzonexunsas.github.io/posts/rootscaped/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/rootscaped/</link>
       <pubDate>Sun, 05 Feb 2023 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/rootscaped/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/rootscaped/</guid>
       <description>&lt;p&gt;The Theme for Global Game Jam 2023 was Roots. I made a game about root within 48 hours with a few of my colleagues called &lt;a href=&#34;https://github.com/GGJ2023/Rootscape&#34;&gt;Rootscaped&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Blitz Pong</title>
-      <link>https://gelzonexunsas.github.io/posts/blitz-pong/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/blitz-pong/</link>
       <pubDate>Fri, 20 Jan 2023 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/blitz-pong/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/blitz-pong/</guid>
       <description>&lt;p&gt;A 2D Unity project using the Unity physics engine and post-processing rendering pipeline. Basic pong game mechanic, try to get goals and prevent your opponent from getting goals.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Interactive Fictions</title>
-      <link>https://gelzonexunsas.github.io/posts/interactive-fictions/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/interactive-fictions/</link>
       <pubDate>Sun, 15 Jan 2023 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/interactive-fictions/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/interactive-fictions/</guid>
       <description>&lt;p&gt;Some interactive fiction games I made. The first game is parse-based, while the second is choice-based game.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Experience</title>
-      <link>https://gelzonexunsas.github.io/posts/experience/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/experience/</link>
       <pubDate>Sun, 10 Jul 2022 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/experience/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/experience/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/CPE-476/Experience&#34;&gt;Experience&lt;/a&gt; is a small expressive game made in &lt;strong&gt;10 weeks&lt;/strong&gt; about the process of trying to improve at something.
 The game involves walking through various environments which evoke feelings like those experienced when learning something new.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Music Search Engine</title>
-      <link>https://gelzonexunsas.github.io/posts/music-search-engine/</link>
+      <link>https://gelzonexunsas.github.io/posts/projects/music-search-engine/</link>
       <pubDate>Tue, 14 Jun 2022 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/music-search-engine/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/projects/music-search-engine/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/CSC-365-Project/Music-Search-Engine&#34;&gt;music search engine&lt;/a&gt; that can not only search songs by filtering, but also store them as favorite for future lookup.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Music Visualizer</title>
-      <link>https://gelzonexunsas.github.io/posts/music-visualizer/</link>
+      <link>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</link>
       <pubDate>Thu, 30 Dec 2021 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/music-visualizer/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/GelzoneXUnsas/MacOS-Music-Visualizer&#34;&gt;3D audio visualizer&lt;/a&gt; that reads in audio files, shows visualizations rendered with OpenGL. The visualizations will be rendered in real-time, and fade to black when it’s far from the viewport/camera.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>2D Spaceship Shooter</title>
-      <link>https://gelzonexunsas.github.io/posts/2d_plane_shooter/</link>
+      <link>https://gelzonexunsas.github.io/posts/games/2d_plane_shooter/</link>
       <pubDate>Tue, 10 Nov 2020 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/2d_plane_shooter/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/games/2d_plane_shooter/</guid>
       <description>&lt;p&gt;One of my first games made during college. I had the opportunity to work on a 2D plane shooter game using Java with PApplet. It was an incredibly rewarding experience to work with my peers and the professor to bring this project to life.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Grand Escape</title>
-      <link>https://gelzonexunsas.github.io/posts/grand-escape/</link>
+      <link>https://gelzonexunsas.github.io/posts/music/grand-escape/</link>
       <pubDate>Fri, 19 Jul 2019 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/grand-escape/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m a simple man. Whenever I see a Makoto Shinkai directed movie came out with RADWIMPS&amp;rsquo;s OST, I click.  The piece 「グランドエスケープ」(Grand Escape) is a beautiful song featured in the 2019 Japanese animated film 「&lt;strong&gt;天気の子&lt;/strong&gt;」(Weathering with You). With a soaring melody and sweeping orchestration, this song brought me a breath of fresh air.&lt;/p&gt;</description>
+      <guid>https://gelzonexunsas.github.io/posts/music/grand-escape/</guid>
+      <description>&lt;p&gt;As a simple man, whenever I see a Makoto Shinkai directed movie came out with RADWIMPS&amp;rsquo;s OST, I click.  The piece 「グランドエスケープ」(Grand Escape) is a beautiful song featured in the 2019 Japanese animated film 「&lt;strong&gt;天気の子&lt;/strong&gt;」(Weathering with You). With a soaring melody and sweeping orchestration, this song brought me a breath of fresh air.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Ugoku Ugoku</title>
-      <link>https://gelzonexunsas.github.io/posts/ugoku-ugoku/</link>
+      <link>https://gelzonexunsas.github.io/posts/music/ugoku-ugoku/</link>
       <pubDate>Fri, 07 Jun 2019 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/ugoku-ugoku/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/music/ugoku-ugoku/</guid>
       <description>&lt;p&gt;&lt;strong&gt;「動く、動く」&lt;/strong&gt; is a catchy and charming song from the anime series &lt;strong&gt;「少女終末旅行」&lt;/strong&gt; (Girls&amp;rsquo; Last Tour), set the stage for the show&amp;rsquo;s exploration of a post-apocalyptic world that is simultaneously beautiful and haunting.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Weight of the World</title>
-      <link>https://gelzonexunsas.github.io/posts/weight-of-the-world/</link>
+      <link>https://gelzonexunsas.github.io/posts/music/weight-of-the-world/</link>
       <pubDate>Sun, 17 Mar 2019 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/weight-of-the-world/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/music/weight-of-the-world/</guid>
       <description>&lt;p&gt;&lt;strong&gt;「Weight of the World」&lt;/strong&gt; is a song featured in my favorite game at all time, the 2017 video game &lt;strong&gt;NieR: Automata&lt;/strong&gt;, developed by PlatinumGames and published by Square Enix. This piece serves as the main theme for NieR: Automata, and plays during the game&amp;rsquo;s opening and ending credits, as well as during several key moments in the game&amp;rsquo;s story.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Kimi no Shiranai Monogatari</title>
-      <link>https://gelzonexunsas.github.io/posts/kimi-no-shiranai-monogatari/</link>
+      <link>https://gelzonexunsas.github.io/posts/music/kimi-no-shiranai-monogatari/</link>
       <pubDate>Mon, 21 Jan 2019 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/kimi-no-shiranai-monogatari/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/music/kimi-no-shiranai-monogatari/</guid>
       <description>&lt;p&gt;The piece 「君の知らない物語」 is a song by supercell, a Japanese pop group, and is the opening theme song for the anime series 「化物語」. It is a special anime to me. It has a special place in my heart, and that&amp;rsquo;s why I spent a lot of time preparing a fingerstyle arrangement and music video for the song.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Uchiage Hanabi</title>
-      <link>https://gelzonexunsas.github.io/posts/uchiage-hanabi/</link>
+      <link>https://gelzonexunsas.github.io/posts/music/uchiage-hanabi/</link>
       <pubDate>Tue, 07 Aug 2018 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/uchiage-hanabi/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/music/uchiage-hanabi/</guid>
       <description>&lt;p&gt;The song 「打ち上げ花」is from the movie &lt;strong&gt;Firework&lt;/strong&gt;, which is the same director for the film 「Your Name.」I watched the movie right after it came out since I&amp;rsquo;m a big fan of Makoto Shinkai, and the soft and gentle melody captured my heart.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Ref: rain</title>
-      <link>https://gelzonexunsas.github.io/posts/ref-rain/</link>
+      <link>https://gelzonexunsas.github.io/posts/music/ref-rain/</link>
       <pubDate>Wed, 14 Mar 2018 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/ref-rain/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/music/ref-rain/</guid>
       <description>&lt;p&gt;It always brings me a good mood when I&amp;rsquo;m inside my house and it&amp;rsquo;s raining outside. I enjoy the gentle pitter-patter of the raindrops, the fresh scent of the earth, and the soothing sound of the rain, everything work together to create a calming and peaceful atmosphere. The song「Ref: &lt;strong&gt;rain&lt;/strong&gt;」 gives me the same type of beauty.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>どんな星空よりも、どんな思い出よりも</title>
-      <link>https://gelzonexunsas.github.io/posts/%E3%81%A9%E3%82%93%E3%81%AA%E6%98%9F%E7%A9%BA%E3%82%88%E3%82%8A%E3%82%82%E3%81%A9%E3%82%93%E3%81%AA%E6%80%9D%E3%81%84%E5%87%BA%E3%82%88%E3%82%8A%E3%82%82/</link>
+      <link>https://gelzonexunsas.github.io/posts/music/%E3%81%A9%E3%82%93%E3%81%AA%E6%98%9F%E7%A9%BA%E3%82%88%E3%82%8A%E3%82%82%E3%81%A9%E3%82%93%E3%81%AA%E6%80%9D%E3%81%84%E5%87%BA%E3%82%88%E3%82%8A%E3%82%82/</link>
       <pubDate>Wed, 03 Jan 2018 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/%E3%81%A9%E3%82%93%E3%81%AA%E6%98%9F%E7%A9%BA%E3%82%88%E3%82%8A%E3%82%82%E3%81%A9%E3%82%93%E3%81%AA%E6%80%9D%E3%81%84%E5%87%BA%E3%82%88%E3%82%8A%E3%82%82/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/music/%E3%81%A9%E3%82%93%E3%81%AA%E6%98%9F%E7%A9%BA%E3%82%88%E3%82%8A%E3%82%82%E3%81%A9%E3%82%93%E3%81%AA%E6%80%9D%E3%81%84%E5%87%BA%E3%82%88%E3%82%8A%E3%82%82/</guid>
       <description>&lt;p&gt;The song「どんな星空よりも、どんな思い出よりも」 is called &amp;ldquo;Donna Hoshizora yori mo, Donna Omoide yori mo&amp;rdquo; in Japanese, which translates to &amp;ldquo;More Than Any Starry Sky, More Than Any Memory.&amp;rdquo; I was immediately in loved with this piece just by listening to the simple chords with &lt;strong&gt;harmonic&lt;/strong&gt; intro. I would highly recommend to get the &lt;a href=&#34;https://www.youtube.com/watch?v=lgjXvzk3wCU&#34;&gt;original song&lt;/a&gt; a listen!&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Krone</title>
-      <link>https://gelzonexunsas.github.io/posts/krone/</link>
+      <link>https://gelzonexunsas.github.io/posts/music/krone/</link>
       <pubDate>Fri, 11 Aug 2017 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/krone/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/music/krone/</guid>
       <description>&lt;p&gt;Krone is a song from the original soundtrack of the anime series Guilty Crown, and it holds a special place in my heart as it has greatly impacted my life in several ways. Before delving into the song itself, I want to talk about the anime Guilty Crown and how it has &lt;strong&gt;shaped&lt;/strong&gt; me as a person.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Shelter</title>
-      <link>https://gelzonexunsas.github.io/posts/shelter/</link>
+      <link>https://gelzonexunsas.github.io/posts/music/shelter/</link>
       <pubDate>Sat, 06 May 2017 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/shelter/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/music/shelter/</guid>
       <description>&lt;p&gt;When I reflect on my music production journey, I realize that a significant portion of my earlier compositions were heavily influenced by the film and television works that I loved. Watching these works ignited my passion for music and motivated me to want to create my own compositions that reflected the &lt;strong&gt;emotions&lt;/strong&gt; and themes of the stories I loved.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Your Name. Series</title>
-      <link>https://gelzonexunsas.github.io/posts/your-name./</link>
+      <link>https://gelzonexunsas.github.io/posts/music/your-name./</link>
       <pubDate>Sun, 04 Dec 2016 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/your-name./</guid>
+      <guid>https://gelzonexunsas.github.io/posts/music/your-name./</guid>
       <description>&lt;p&gt;The Your Name series holds a special place in my &lt;strong&gt;early music production&lt;/strong&gt; journey. I was first introduced to the series through the anime film Your Name, and it left such an impact on me that I decided to start creating my own music.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Personal Homepage</title>
-      <link>https://gelzonexunsas.github.io/posts/personal-homepage/</link>
+      <link>https://gelzonexunsas.github.io/posts/projects/personal-homepage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/personal-homepage/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/projects/personal-homepage/</guid>
       <description>&lt;p&gt;We propose a &lt;a href=&#34;http://polypage.herokuapp.com/&#34;&gt;personal homepage&lt;/a&gt; webapp. It’s similar to a website builder, but it provides fundamental tools like bookmarks, to-do lists, and more.&lt;/p&gt;</description>
     </item>
     

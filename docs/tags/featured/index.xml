@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>featured on Gelzone Unsas</title>
+    <link>https://gelzonexunsas.github.io/tags/featured/</link>
+    <description>Recent content in featured on Gelzone Unsas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Feb 2023 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/featured/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rootscaped</title>
+      <link>https://gelzonexunsas.github.io/posts/games/rootscaped/</link>
+      <pubDate>Sun, 05 Feb 2023 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/games/rootscaped/</guid>
+      <description>&lt;p&gt;The Theme for Global Game Jam 2023 was Roots. I made a game about root within 48 hours with a few of my colleagues called &lt;a href=&#34;https://github.com/GGJ2023/Rootscape&#34;&gt;Rootscaped&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Experience</title>
+      <link>https://gelzonexunsas.github.io/posts/games/experience/</link>
+      <pubDate>Sun, 10 Jul 2022 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/games/experience/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/CPE-476/Experience&#34;&gt;Experience&lt;/a&gt; is a small expressive game made in &lt;strong&gt;10 weeks&lt;/strong&gt; about the process of trying to improve at something.
+The game involves walking through various environments which evoke feelings like those experienced when learning something new.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Music Visualizer</title>
+      <link>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</link>
+      <pubDate>Thu, 30 Dec 2021 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</guid>
+      <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/GelzoneXUnsas/MacOS-Music-Visualizer&#34;&gt;3D audio visualizer&lt;/a&gt; that reads in audio files, shows visualizations rendered with OpenGL. The visualizations will be rendered in real-time, and fade to black when it’s far from the viewport/camera.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Weight of the World</title>
+      <link>https://gelzonexunsas.github.io/posts/music/weight-of-the-world/</link>
+      <pubDate>Sun, 17 Mar 2019 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/music/weight-of-the-world/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;「Weight of the World」&lt;/strong&gt; is a song featured in my favorite game at all time, the 2017 video game &lt;strong&gt;NieR: Automata&lt;/strong&gt;, developed by PlatinumGames and published by Square Enix. This piece serves as the main theme for NieR: Automata, and plays during the game&amp;rsquo;s opening and ending credits, as well as during several key moments in the game&amp;rsquo;s story.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

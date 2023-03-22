@@ -9,28 +9,28 @@
     <lastBuildDate>Tue, 14 Jun 2022 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Music Search Engine</title>
-      <link>https://gelzonexunsas.github.io/posts/music-search-engine/</link>
+      <link>https://gelzonexunsas.github.io/posts/projects/music-search-engine/</link>
       <pubDate>Tue, 14 Jun 2022 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/music-search-engine/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/projects/music-search-engine/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/CSC-365-Project/Music-Search-Engine&#34;&gt;music search engine&lt;/a&gt; that can not only search songs by filtering, but also store them as favorite for future lookup.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Music Visualizer</title>
-      <link>https://gelzonexunsas.github.io/posts/music-visualizer/</link>
+      <link>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</link>
       <pubDate>Thu, 30 Dec 2021 01:18:59 -0800</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/music-visualizer/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/GelzoneXUnsas/MacOS-Music-Visualizer&#34;&gt;3D audio visualizer&lt;/a&gt; that reads in audio files, shows visualizations rendered with OpenGL. The visualizations will be rendered in real-time, and fade to black when it’s far from the viewport/camera.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Personal Homepage</title>
-      <link>https://gelzonexunsas.github.io/posts/personal-homepage/</link>
+      <link>https://gelzonexunsas.github.io/posts/projects/personal-homepage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://gelzonexunsas.github.io/posts/personal-homepage/</guid>
+      <guid>https://gelzonexunsas.github.io/posts/projects/personal-homepage/</guid>
       <description>&lt;p&gt;We propose a &lt;a href=&#34;http://polypage.herokuapp.com/&#34;&gt;personal homepage&lt;/a&gt; webapp. It’s similar to a website builder, but it provides fundamental tools like bookmarks, to-do lists, and more.&lt;/p&gt;</description>
     </item>
     

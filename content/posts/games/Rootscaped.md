@@ -3,7 +3,7 @@ title: "Rootscaped"
 date: 2023-02-05T01:18:59-08:00
 draft: false
 author: ["Lucas Li", "Alex Hartford", "Brett Hickman", "Ryoma Sugawara", "Mitchell Kanazawa"]
-tags: ["Games"]
+tags: ["Games", "featured"]
 featured_image: "/images/games/rootscapedcover.png"
 description: "Global Game Jam 2023"
 toc: true

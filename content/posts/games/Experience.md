@@ -3,7 +3,7 @@ title: "Experience"
 date: 2022-07-10T01:18:59-08:00
 draft: false
 author: ["Lucas Li", "Alex Hartford", "Brett Hickman"]
-tags: ["Games"]
+tags: ["Games","featured"]
 featured_image: 'https://github.com/CPE-476/Experience/blob/main/Final/HTML/src/f2.png?raw=true'
 description: "audio visualizers created with OpenGL"
 toc: true

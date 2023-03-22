@@ -3,7 +3,7 @@ title: "Weight of the World"
 date: 2019-03-17T01:18:59-08:00
 draft: false
 author: "Gelzone Unsas"
-tags: ["Music"]
+tags: ["Music","featured"]
 featured_image: 'https://i3.ytimg.com/vi/DKjzGS1nS40/maxresdefault.jpg'
 description: "the [E]nd of YoRHa"
 ---

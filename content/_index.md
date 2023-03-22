@@ -7,4 +7,4 @@ theme_version: '2.8.2'
 cascade:
   featured_image: 'images/profile/IMG_2316.jpg'
 ---
-Welcome to my blog with some of my recent work, all the other work are categorized on the top-right corner
+Welcome to my blog with some of my featured work, all the other work are categorized on the top-right corner
