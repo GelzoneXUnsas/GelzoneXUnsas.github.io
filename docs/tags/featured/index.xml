@@ -6,7 +6,16 @@
     <description>Recent content in featured on Gelzone Unsas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Feb 2023 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/featured/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Mar 2023 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/featured/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gunfight</title>
+      <link>https://gelzonexunsas.github.io/posts/games/gunfight/</link>
+      <pubDate>Fri, 24 Mar 2023 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/games/gunfight/</guid>
+      <description>&lt;p&gt;A &lt;strong&gt;Top-Down 2D shooter&lt;/strong&gt; where two teams fight each other to advance in a tournament-style &lt;strong&gt;online&lt;/strong&gt; game. Each player spawns with the same weapon and whichever team is last standing wins that round. Games go on for a best of 5 rounds to see who advances.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Rootscaped</title>
       <link>https://gelzonexunsas.github.io/posts/games/rootscaped/</link>
