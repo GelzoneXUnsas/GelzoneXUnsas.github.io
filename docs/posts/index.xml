@@ -72,6 +72,15 @@ The game involves walking through various environments which evoke feelings like
     </item>
     
     <item>
+      <title>Earth Lighting</title>
+      <link>https://gelzonexunsas.github.io/posts/projects/earth_lighting/</link>
+      <pubDate>Mon, 28 Mar 2022 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/projects/earth_lighting/</guid>
+      <description>&lt;p&gt;The program is intended to generate a realistic picture of the earth and &lt;strong&gt;simulate light reflection&lt;/strong&gt; angles using a directional light source. The program employs advanced graphics techniques to precisely show how light interacts with the earth&amp;rsquo;s surface, resulting in a realistic and dynamic visual experience.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Music Visualizer</title>
       <link>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</link>
       <pubDate>Thu, 30 Dec 2021 01:18:59 -0800</pubDate>
