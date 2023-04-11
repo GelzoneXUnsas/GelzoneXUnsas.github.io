@@ -45,6 +45,3 @@ _Sample Data_
   * Complex data structure: A more complex structure allowed us to call queries with more freedom and creativity. <br />
   * Real-world data: By using the Spotify API, we were able to insert songs with real-world information into our database. <br />
   * Real-time playback: By using the Spotify API, our application is able to play the selected song directly using embedded URLs or redirect to the song’s webpage (if the song doesn’t support preview listen) <br />
-
-### Contact
-Lucas Li - yli76@calpoly.edu<br />
