@@ -72,6 +72,15 @@ The game involves walking through various environments which evoke feelings like
     </item>
     
     <item>
+      <title>Music Visualizer</title>
+      <link>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</link>
+      <pubDate>Wed, 09 Mar 2022 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</guid>
+      <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/GelzoneXUnsas/MacOS-Music-Visualizer&#34;&gt;3D audio visualizer&lt;/a&gt; that reads in audio files, shows visualizations rendered with OpenGL. The visualizations will be rendered in real-time, and fade to black when it’s far from the viewport/camera.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Galaxy Instanced Rendering</title>
       <link>https://gelzonexunsas.github.io/posts/projects/galaxy-instanced-rendering/</link>
       <pubDate>Wed, 23 Feb 2022 01:18:59 -0800</pubDate>
@@ -87,15 +96,6 @@ The game involves walking through various environments which evoke feelings like
       
       <guid>https://gelzonexunsas.github.io/posts/projects/earth-lighting/</guid>
       <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/GelzoneXUnsas/Earth-Lighting&#34;&gt;Earth Lighting&lt;/a&gt; program is intended to generate a realistic picture of the earth and &lt;strong&gt;simulate light reflection&lt;/strong&gt; angles using a directional light source. The program employs advanced graphics techniques to precisely show how light interacts with the earth&amp;rsquo;s surface, resulting in a realistic and dynamic visual experience.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Music Visualizer</title>
-      <link>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</link>
-      <pubDate>Thu, 30 Dec 2021 01:18:59 -0800</pubDate>
-      
-      <guid>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</guid>
-      <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/GelzoneXUnsas/MacOS-Music-Visualizer&#34;&gt;3D audio visualizer&lt;/a&gt; that reads in audio files, shows visualizations rendered with OpenGL. The visualizations will be rendered in real-time, and fade to black when it’s far from the viewport/camera.&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -65,7 +65,7 @@ The game involves walking through various environments which evoke feelings like
     <item>
       <title>Music Visualizer</title>
       <link>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</link>
-      <pubDate>Thu, 30 Dec 2021 01:18:59 -0800</pubDate>
+      <pubDate>Wed, 09 Mar 2022 01:18:59 -0800</pubDate>
       
       <guid>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/GelzoneXUnsas/MacOS-Music-Visualizer&#34;&gt;3D audio visualizer&lt;/a&gt; that reads in audio files, shows visualizations rendered with OpenGL. The visualizations will be rendered in real-time, and fade to black when it’s far from the viewport/camera.&lt;/p&gt;</description>
