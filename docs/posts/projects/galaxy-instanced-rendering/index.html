@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Galaxy Instanced Rendering | Gelzone Unsas</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="experiment with instanced rendering using OpenGL">
+    <meta name="generator" content="Hugo 0.110.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+<link rel="shortcut icon" href="/images/profile/IMG_9741-modified.png" type="image/x-icon" />
+
+
+    
+
+    
+    
+    <meta property="og:title" content="Galaxy Instanced Rendering" />
+<meta property="og:description" content="experiment with instanced rendering using OpenGL" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gelzonexunsas.github.io/posts/projects/galaxy-instanced-rendering/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-23T01:18:59-08:00" />
+<meta property="article:modified_time" content="2022-02-23T01:18:59-08:00" />
+<meta itemprop="name" content="Galaxy Instanced Rendering">
+<meta itemprop="description" content="experiment with instanced rendering using OpenGL"><meta itemprop="datePublished" content="2022-02-23T01:18:59-08:00" />
+<meta itemprop="dateModified" content="2022-02-23T01:18:59-08:00" />
+<meta itemprop="wordCount" content="971">
+<meta itemprop="keywords" content="Projects," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Galaxy Instanced Rendering"/>
+<meta name="twitter:description" content="experiment with instanced rendering using OpenGL"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://gelzonexunsas.github.io/images/others/galaxy_cover.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        <img id="Logo" src="/images/profile/IMG_9741-modified.png" class="w100 mw5-ns" alt="Gelzone Unsas" />
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li id="MenuHeader" class="list f5 f4-ns fw4 dib pr3">
+            <a id="MenuElement" class="hover-white no-underline white-90" href="/about" title="About page">
+              <i class='fa-solid fa-user'></i>
+            </a>
+          </li>
+          
+          <li id="MenuHeader" class="list f5 f4-ns fw4 dib pr3">
+            <a id="MenuElement" class="hover-white no-underline white-90" href="/tags/projects" title="Projects page">
+              <i class='fa-solid fa-folder'></i>
+            </a>
+          </li>
+          
+          <li id="MenuHeader" class="list f5 f4-ns fw4 dib pr3">
+            <a id="MenuElement" class="hover-white no-underline white-90" href="/tags/games" title="Games page">
+              <i class='fa-solid fa-gamepad'></i>
+            </a>
+          </li>
+          
+          <li id="MenuHeader" class="list f5 f4-ns fw4 dib pr3">
+            <a id="MenuElement" class="hover-white no-underline white-90" href="/tags/music" title="Music page">
+              <i class='fa-solid fa-guitar'></i>
+            </a>
+          </li>
+          
+          <li id="MenuHeader" class="list f5 f4-ns fw4 dib pr3">
+            <a id="MenuElement" class="hover-white no-underline white-90" href="/contact" title="Contact page">
+              <i class='fa-solid fa-paper-plane'></i>
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://www.youtube.com/channel/UCs_AJP0KDnVPcPugtp6k37Q" target="_blank" rel="noopener" class="Youtube ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Youtube link" aria-label="follow on Youtube——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/GelzoneXUnsas" target="_blank" rel="noopener" class="Github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Github link" aria-label="follow on Github——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Galaxy Instanced Rendering</div>
+          
+            <div class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+              experiment with instanced rendering using OpenGL
+            </div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTICLES
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Galaxy Instanced Rendering</h1>
+      
+      <p class="tracked">
+        By <strong>Lucas Li</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-02-23T01:18:59-08:00">February 23, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>The purpose of this <a href="https://github.com/GelzoneXUnsas/Galaxy-Instanced-Rendering">Galaxy</a> project is to create an OpenGL software that uses <strong>instanced rendering</strong> to draw a galaxy full of stars. The project will be developed to create a visually attractive picture of a galaxy while also serving as a learning tool for visualizing mass particles using instanced rendering.</p>
+<p><img src="/images/others/galaxy_demo.gif" alt=""></p>
+<p>To generate a 3D environment, the program will make use of the OpenGL graphics library. The stars in the galaxy will be displayed using instanced rendering, which is a technique for rendering numerous instances of the same object with varied transformation parameters quickly. The program will accomplish this by utilizing a particle system that generates a vast number of star instances in real-time.</p>
+<h2 id="overview">Overview</h2>
+<p>The project is a software development project that uses modern technologies and frameworks to create a graphics-intensive application.</p>
+<ul>
+<li>C++11 as the main language</li>
+<li>Modern OpenGL/GLSL as the graphics API</li>
+<li>GLEW for cross-platform initialization of OpenGL</li>
+<li>GLFW for windowing</li>
+<li>Eigen for linear algebra</li>
+</ul>
+<h2 id="assets">Assets</h2>
+<p>Besides using a sphere.OBJ file for the skybox of the Galaxy, the following textures are needed to produce a realistic look of the Galaxy:</p>
+<ul>
+<li>Star
+<img src="https://lh3.googleusercontent.com/inmSN6TuSMJfM5ga9-iNLLfP00_1IvIvvN8IRBiIFUTMUOlZrATy0SHozd8ZePcNvaYUDnZ25SjdBh7w0k0WLE3flR6Cm3FBnBODfAJw" alt=""></li>
+<li>Gas
+<img src="https://lh3.googleusercontent.com/AYoALTHYbZDHlj6rjiALeYOjXgCQ4TP4zGzFI3lc0UI1Vl7Q8LSpFOnVe27UdOM971XBT5A6CPXMsn9YVZB4p0H9iEilO2kBFDMhmsk" alt=""></li>
+<li>Galaxy
+<img src="https://lh3.googleusercontent.com/GFazJN56HF9vB2t0OSd1KRHxc-whFOcWIqbD9vsH--62-Rc9NEP5wzLmq2BdHx3RKzI4kzj3sd2v402ISkOctbP15hH5lxqhUD1GSi4" alt=""></li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<p>Instead of creating individual star objects and rendering them separately, we can use instanced rendering to render multiple instances of the <strong>same</strong> star with different transformation parameters.</p>
+<h3 id="cpu">CPU</h3>
+<p>The CPU is in charge of activities such as data management, and logic in this project. To do this, we first create a <strong>VAO</strong> (Vertex Array Object) and a <strong>VBO</strong> (Vertex Buffer Object) to hold the star mesh data. We also create another <strong>VBO</strong> to hold the transformation data for each instance of the star.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">//generate the VAO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glGenVertexArrays(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>VertexArrayID);
+</span></span><span style="display:flex;"><span>glBindVertexArray(VertexArrayID);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//generate vertex buffer to hand off to OGL
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glGenBuffers(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>VertexBufferID);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//set the current state to focus on our vertex buffer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glBindBuffer(GL_ARRAY_BUFFER, VertexBufferID);
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//generate vertex buffer to hand off to OGL
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glGenBuffers(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>InstanceBuffer);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//set the current state to focus on our vertex buffer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glBindBuffer(GL_ARRAY_BUFFER, InstanceBuffer);
+</span></span></code></pre></div><p>Instanced rendering needs an <strong>object</strong> (containing the billboard) and an <strong>instance buffer</strong> (containing all positions). Using the star.png as the object, we&rsquo;ll also need a position buffer for it. Here we created a position buffer contains 10,000 positions, having a spherical (pill-shape) distribution of positions, with exponentially more stars in the center than at the borders:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// create a new dynamic array of 10,000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glm<span style="color:#f92672">::</span>vec4 <span style="color:#f92672">*</span>positions <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> glm<span style="color:#f92672">::</span>vec4[<span style="color:#ae81ff">10000</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//A loop is run for 10,000 iterations to generate a random position for each instance.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10000</span>; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Randomize radius
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> r <span style="color:#f92672">=</span> frand()<span style="color:#f92672">*</span> <span style="color:#ae81ff">200.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Randomize angle x
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> ax <span style="color:#f92672">=</span> frand() <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> PI;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Randomize angle y
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> ay <span style="color:#f92672">=</span> frand() <span style="color:#f92672">*</span> PI;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// rotations around the x-axis and y-axis, respectively
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    mat3 Rx <span style="color:#f92672">=</span> rotate(mat4(<span style="color:#ae81ff">1</span>), ax, vec3(<span style="color:#ae81ff">1.0f</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>));
+</span></span><span style="display:flex;"><span>    mat3 Ry <span style="color:#f92672">=</span> rotate(mat4(<span style="color:#ae81ff">1</span>), ay, vec3(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1.0f</span>,<span style="color:#ae81ff">0</span>));
+</span></span><span style="display:flex;"><span>    vec3 v <span style="color:#f92672">=</span> vec3 (<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,r);
+</span></span><span style="display:flex;"><span>    v <span style="color:#f92672">=</span> Rx <span style="color:#f92672">*</span> v;
+</span></span><span style="display:flex;"><span>    v <span style="color:#f92672">=</span> Ry <span style="color:#f92672">*</span> v;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// position vector is divided by 2.5 to flatten the distribution of the instances
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// make the overall shape of the distribution more like a disk than a sphere.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    v.y <span style="color:#f92672">=</span> v.y <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.5</span>;
+</span></span><span style="display:flex;"><span>    positions[i] <span style="color:#f92672">=</span> vec4(v,<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Next, we can copy to a new OpenGL buffer object, and make it <strong>instanced</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">//actually memcopy the data - only do this once
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glBufferData(GL_ARRAY_BUFFER, <span style="color:#ae81ff">10000</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">sizeof</span>(glm<span style="color:#f92672">::</span>vec4), positions, GL_STATIC_DRAW);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> position_loc <span style="color:#f92672">=</span> glGetAttribLocation(prog<span style="color:#f92672">-&gt;</span>pid, <span style="color:#e6db74">&#34;InstancePos&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Set up the vertex attribute
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glVertexAttribPointer(position_loc , <span style="color:#ae81ff">4</span>, GL_FLOAT, GL_FALSE,  <span style="color:#66d9ef">sizeof</span>(vec4),  (<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)(<span style="color:#66d9ef">sizeof</span>(vec4))); 
+</span></span><span style="display:flex;"><span>glEnableVertexAttribArray(position_loc);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Make it instanced
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glVertexAttribDivisor(position_loc, <span style="color:#ae81ff">1</span>);
+</span></span></code></pre></div><p>The same thing will be duplicated for the gas object as well. After creating a <strong>VAO</strong> and <strong>VBOs</strong> to hold the gas mesh data, we can use glDrawArraysInstanced() to render multiple instances of the those mesh (eg. star), with the transformation data provided by the instanceVBO:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>glBindVertexArray(VertexArrayID);
+</span></span><span style="display:flex;"><span>glDrawElementsInstanced(GL_TRIANGLES, <span style="color:#ae81ff">6</span>, GL_UNSIGNED_SHORT, (<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>)<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10000</span>);
+</span></span></code></pre></div><p>This will render the star mesh 10,000 times, with the transformation data provided by the <strong>instanceVBO</strong> for 10,000 instances.</p>
+<h3 id="gpu">GPU</h3>
+<p>The GPU, on the other hand, is in charge of handling graphics-related computations such as rendering, lighting, and texture mapping. In this program, the shaders are fairly simple:</p>
+<p>Using the star shaders as an example. To make the inside stars rotates faster than the outside&rsquo;s, we make the rotation matrix manually in the <strong>vertex shader</strong>. Since the rotation of star should be dependent on the radius (length(position)) of the star, we&rsquo;ll need to get the distance from the star to the center first:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// distance to the center as rate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">float</span> rate <span style="color:#f92672">=</span> distance(InstancePos, vec4(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.01</span>;
+</span></span></code></pre></div><p>Then, the rotation matrix are be calculated using the following equations with the rate being a multiplier:</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a6821937d5031de282a190f75312353c970aa2df" alt=""></p>
+<p>Refering to <strong>Ry(θ)</strong> formula, we can come up with the rotation matrix around y-axis:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>mat4  rotation <span style="color:#f92672">=</span> mat4(
+</span></span><span style="display:flex;"><span>    vec4( cos(rot_angle <span style="color:#f92672">*</span> rate),<span style="color:#ae81ff">0.0</span>, sin(rot_angle <span style="color:#f92672">*</span> rate),<span style="color:#ae81ff">0.0</span>),
+</span></span><span style="display:flex;"><span>    vec4( <span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">1.0</span>,<span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">0.0</span>),
+</span></span><span style="display:flex;"><span>    vec4( <span style="color:#f92672">-</span>sin(rot_angle <span style="color:#f92672">*</span> rate),<span style="color:#ae81ff">0.0</span>,cos(rot_angle <span style="color:#f92672">*</span> rate),<span style="color:#ae81ff">0.0</span>),
+</span></span><span style="display:flex;"><span>    vec4( <span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">1.0</span>));
+</span></span></code></pre></div><p>Lastly, we calculated the position from the instanced position buffer with the rotation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// assign instanced position to each star
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vec4 pos <span style="color:#f92672">=</span>  M <span style="color:#f92672">*</span> vec4(vertPos,<span style="color:#ae81ff">1.0</span>) <span style="color:#f92672">+</span> InstancePos;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// apply rotation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>pos <span style="color:#f92672">=</span> rotation <span style="color:#f92672">*</span> pos;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// send out position information for rendering
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>gl_Position <span style="color:#f92672">=</span> P <span style="color:#f92672">*</span> V <span style="color:#f92672">*</span> pos;
+</span></span></code></pre></div><p>Diffuse light is also added to the star in the <strong>fragment shader</strong>, feel free to refer to the <a href="https://gelzonexunsas.github.io/posts/projects/earth_lighting/">Earth Lighting</a> project for further explanation and implementation.</p>
+<h2 id="results">Results</h2>
+<p><img src="/images/others/galaxy_cover.png" alt=""></p>
+<p>The galaxy project used <a href="https://www.opengl.org/">OpenGL</a> and instanced rendering to successfully render a large number of particles. By allowing the GPU to reuse the same vertex data for many instances of an object rather than providing a separate copy of the data for each object, instanced rendering proved to be a valuable technique for drawing large numbers of particles effectively. Instanced rendering substantially improves galaxy rendering efficiency, allowing the program to render <strong>10,000</strong> stars with ease. Without instanced rendering, the program would have to send the GPU 10,000 separate sets of vertex data, which would be wasteful and result in a considerable performance reduction.</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/projects/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Projects</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">What&#39;s in this posts</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#assets">Assets</a></li>
+    <li><a href="#implementation">Implementation</a>
+      <ul>
+        <li><a href="#cpu">CPU</a></li>
+        <li><a href="#gpu">GPU</a></li>
+      </ul>
+    </li>
+    <li><a href="#results">Results</a></li>
+  </ul>
+</nav>
+  </div>
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/projects/earth-lighting/">Earth Lighting</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/projects/music-visualizer/">Music Visualizer</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/projects/personal-homepage/">Personal Homepage</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://gelzonexunsas.github.io/" >
+    &copy;  Gelzone Unsas 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://www.youtube.com/channel/UCs_AJP0KDnVPcPugtp6k37Q" target="_blank" rel="noopener" class="Youtube ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Youtube link" aria-label="follow on Youtube——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/GelzoneXUnsas" target="_blank" rel="noopener" class="Github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Github link" aria-label="follow on Github——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
