@@ -1,11 +1,11 @@
 ---
 title: "Music Search Engine"
-date: 2022-06-14T01:18:59-08:00
+date: 2021-12-14T01:18:59-08:00
 draft: false
-author: "Lucas Li"
+author: ["Lucas Li", "Zhisong Liang", "Siyi Meng", "Kailin Ke"]
 tags: ["Projects"]
 featured_image: 'https://github.com/CSC-365-Project/Music-Search-Engine/blob/main/img/Songs%20Table.png?raw=true'
-description: "audio visualizers created with OpenGL"
+description: "music search engine using MySQL DB & Spotify API"
 toc: true
 ---
 A [music search engine](https://github.com/CSC-365-Project/Music-Search-Engine) that can not only search songs by filtering, but also store them as favorite for future lookup.<!--more-->
