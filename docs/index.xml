@@ -63,15 +63,6 @@ The game involves walking through various environments which evoke feelings like
     </item>
     
     <item>
-      <title>Music Search Engine</title>
-      <link>https://gelzonexunsas.github.io/posts/projects/music-search-engine/</link>
-      <pubDate>Tue, 14 Jun 2022 01:18:59 -0800</pubDate>
-      
-      <guid>https://gelzonexunsas.github.io/posts/projects/music-search-engine/</guid>
-      <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/CSC-365-Project/Music-Search-Engine&#34;&gt;music search engine&lt;/a&gt; that can not only search songs by filtering, but also store them as favorite for future lookup.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Music Visualizer</title>
       <link>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</link>
       <pubDate>Wed, 09 Mar 2022 01:18:59 -0800</pubDate>
@@ -96,6 +87,15 @@ The game involves walking through various environments which evoke feelings like
       
       <guid>https://gelzonexunsas.github.io/posts/projects/earth-lighting/</guid>
       <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/GelzoneXUnsas/Earth-Lighting&#34;&gt;Earth Lighting&lt;/a&gt; program is intended to generate a realistic picture of the earth and &lt;strong&gt;simulate light reflection&lt;/strong&gt; angles using a directional light source. The program employs advanced graphics techniques to precisely show how light interacts with the earth&amp;rsquo;s surface, resulting in a realistic and dynamic visual experience.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Music Search Engine</title>
+      <link>https://gelzonexunsas.github.io/posts/projects/music-search-engine/</link>
+      <pubDate>Tue, 14 Dec 2021 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/projects/music-search-engine/</guid>
+      <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/CSC-365-Project/Music-Search-Engine&#34;&gt;music search engine&lt;/a&gt; that can not only search songs by filtering, but also store them as favorite for future lookup.&lt;/p&gt;</description>
     </item>
     
     <item>
