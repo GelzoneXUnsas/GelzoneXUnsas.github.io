@@ -16,6 +16,11 @@
             {{ .Title }}
             </a>
         </h1>
+        <a class="f5 fw1 athelas mt0 lh-title">
+          <time>
+            {{- .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
+          </time>
+        </a>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
           {{ .Summary }}
         </div>
