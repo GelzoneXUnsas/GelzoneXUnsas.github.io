@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/6DmV1s_bCjk/maxresdefault.jpg'
 description: "upbeat in a post-apocalyptic world"
 ---
 
-**「動く、動く」** is a catchy and charming song from the anime series **「少女終末旅行」** (Girls' Last Tour), set the stage for the show's exploration of a post-apocalyptic world that is simultaneously beautiful and haunting.<!--more-->
+**「[動く、動く](https://www.youtube.com/watch?v=6DmV1s_bCjk)」** is a catchy and charming song from the anime series **「少女終末旅行」** (Girls' Last Tour), set the stage for the show's exploration of a post-apocalyptic world that is simultaneously beautiful and haunting.<!--more-->
 
 ### About the Anime
 

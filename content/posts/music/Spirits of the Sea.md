@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/tk33U2k3OH4/maxresdefault.jpg'
 description: "no matter how far, our hearts beat for each other"
 ---
 
-For me,「**海の幽霊**」(Spirits of the Sea) is a captivating song that not only boasts of dynamic music but also portrays a deep longing for the ocean and its mysterious creatures. <!--more--> This piece is a celebration of the beauty and majesty of the sea, and its mesmerizing allure.
+For me,「[**海の幽霊**](https://www.youtube.com/watch?v=tk33U2k3OH4)」(Spirits of the Sea) is a captivating song that not only boasts of dynamic music but also portrays a deep longing for the ocean and its mysterious creatures. <!--more--> This piece is a celebration of the beauty and majesty of the sea, and its mesmerizing allure.
 
 
 ### About the Anime

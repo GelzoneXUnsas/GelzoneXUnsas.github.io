@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/6bZUyJTzQ-Q/maxresdefault.jpg'
 description: "favorite anime - one and only"
 ---
 
-Krone is a song from the original soundtrack of the anime series Guilty Crown, and it holds a special place in my heart as it has greatly impacted my life in several ways. Before delving into the song itself, I want to talk about the anime Guilty Crown and how it has **shaped** me as a person. <!--more-->
+[Krone](https://www.youtube.com/watch?v=6bZUyJTzQ-Q) is a song from the original soundtrack of the anime series Guilty Crown, and it holds a special place in my heart as it has greatly impacted my life in several ways. Before delving into the song itself, I want to talk about the anime Guilty Crown and how it has **shaped** me as a person. <!--more-->
 
 ### About Guilty Crown
 The series Guilty Crown is set in a dystopian Japan, where a mysterious virus has wiped out most of the population, and a powerful organization known as the "GHQ" has taken control of the government. The series follows the story of a high school student named Shu Ouma, who is given a powerful weapon known as the "Power of Kings" which allows him to extract the "voids" from other people and use them as weapons. The series is a mix of action, drama, and science fiction, and the song "Krone" perfectly captures the emotions of the series.

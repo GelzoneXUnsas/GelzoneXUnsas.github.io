@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/DKjzGS1nS40/maxresdefault.jpg'
 description: "the [E]nd of YoRHa"
 ---
 
-**「Weight of the World」** is a song featured in my favorite game at all time, the 2017 video game **NieR: Automata**, developed by PlatinumGames and published by Square Enix. This piece serves as the main theme for NieR: Automata, and plays during the game's opening and ending credits, as well as during several key moments in the game's story.<!--more-->
+**「[Weight of the World](https://www.youtube.com/watch?v=DKjzGS1nS40)」** is a song featured in my favorite game at all time, the 2017 video game **NieR: Automata**, developed by PlatinumGames and published by Square Enix. This piece serves as the main theme for NieR: Automata, and plays during the game's opening and ending credits, as well as during several key moments in the game's story.<!--more-->
 
 ### About the Game
 

@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/k0qWktYUUwI/maxresdefault.jpg'
 description: "first fingerstyle guitar series"
 ---
 
-The Your Name series holds a special place in my **early music production** journey. I was first introduced to the series through the anime film Your Name, and it left such an impact on me that I decided to start creating my own music. <!--more-->
+The [Your Name](https://www.youtube.com/watch?v=k0qWktYUUwI&list=PLOEPzbk-HpuTJG8m5pvBNIzmIPGMAqXTc&pp=gAQB) series holds a special place in my **early music production** journey. I was first introduced to the series through the anime film Your Name, and it left such an impact on me that I decided to start creating my own music. <!--more-->
 
 Initially, I only used YouTube as a cloud storage platform to store and share my creations. However, as I received more and more positive and constructive feedback, I began to see the potential of YouTube as a platform for sharing my interests and expressing myself.
 

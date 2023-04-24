@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/Ca2BQ-lKT_E/maxresdefault.jpg'
 description: "masterpiece from Aimer"
 ---
 
-It always brings me a good mood when I'm inside my house and it's raining outside. I enjoy the gentle pitter-patter of the raindrops, the fresh scent of the earth, and the soothing sound of the rain, everything work together to create a calming and peaceful atmosphere. The song「Ref: **rain**」 gives me the same type of beauty. <!--more-->
+It always brings me a good mood when I'm inside my house and it's raining outside. I enjoy the gentle pitter-patter of the raindrops, the fresh scent of the earth, and the soothing sound of the rain, everything work together to create a calming and peaceful atmosphere. The song「[Ref: **rain**](https://www.youtube.com/watch?v=Ca2BQ-lKT_E)」 gives me the same type of beauty. <!--more-->
 
 ### About the Anime
 

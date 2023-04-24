@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/5p3ty6pObmM/maxresdefault.jpg'
 description: "warm & gentle progression"
 ---
 
-「愛にできることはまだあるかい」(Is There Still Anything That Love Can Do), another song featured in the film 「**天気の子**」(Weathering with You), is one of my favorite arrangement so far. <!--more-->
+「[愛にできることはまだあるかい](https://www.youtube.com/watch?v=5p3ty6pObmM)」(Is There Still Anything That Love Can Do), another song featured in the film 「**天気の子**」(Weathering with You), is one of my favorite arrangement so far. <!--more-->
 
 ### About the Anime
 

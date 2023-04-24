@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/W7jkZbd7cPA/maxresdefault.jpg'
 description: "Fireworks, wanna seen them from below or from the side"
 ---
 
-The song 「打ち上げ花」is from the movie **Firework**, which is the same director for the film 「Your Name.」I watched the movie right after it came out since I'm a big fan of Makoto Shinkai, and the soft and gentle melody captured my heart.<!--more-->
+The song 「[打ち上げ花](https://www.youtube.com/watch?v=W7jkZbd7cPA)」is from the movie **Firework**, which is the same director for the film 「Your Name.」I watched the movie right after it came out since I'm a big fan of Makoto Shinkai, and the soft and gentle melody captured my heart.<!--more-->
 
 ### About the Anime
 

@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/rXqXAh8N2lo/maxresdefault.jpg'
 description: "first of the Monogatari series"
 ---
 
-The piece 「君の知らない物語」 is a song by supercell, a Japanese pop group, and is the opening theme song for the anime series 「化物語」. It is a special anime to me. It has a special place in my heart, and that's why I spent a lot of time preparing a fingerstyle arrangement and music video for the song. <!--more-->
+The piece 「[君の知らない物語](https://www.youtube.com/watch?v=rXqXAh8N2lo)」 is a song by supercell, a Japanese pop group, and is the opening theme song for the anime series 「化物語」. It is a special anime to me. It has a special place in my heart, and that's why I spent a lot of time preparing a fingerstyle arrangement and music video for the song. <!--more-->
 
 ### About the Anime
 

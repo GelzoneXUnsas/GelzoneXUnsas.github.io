@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/sP-Ouq_KWGk/maxresdefault.jpg'
 description: "unfold with haunting melody"
 ---
 
-「**コイワズライ**」(Koiwazurai) is a lovely song by the talented Japanese singer **Aimer**, who is noted for her mesmerizing voice and emotive performances. As one of my favorite music video arrangements that I've created, I specifically focused on visual details and I am pleased with how it turned out. <!--more--> As an admirer of her work, I recently arranged her work for the second time (previous cover [「Ref: rain」](https://gelzonexunsas.github.io/posts/music/ref-rain/)), attempting to convey the essence of Aimer's artistry. 
+「[**コイワズライ**](https://www.youtube.com/watch?v=sP-Ouq_KWGk)」(Koiwazurai) is a lovely song by the talented Japanese singer **Aimer**, who is noted for her mesmerizing voice and emotive performances. As one of my favorite music video arrangements that I've created, I specifically focused on visual details and I am pleased with how it turned out. <!--more--> As an admirer of her work, I recently arranged her work for the second time (previous cover [「Ref: rain」](https://gelzonexunsas.github.io/posts/music/ref-rain/)), attempting to convey the essence of Aimer's artistry. 
 
 ### About the Song
 

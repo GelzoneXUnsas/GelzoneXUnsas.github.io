@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/Jq5etlqTXz0/maxresdefault.jpg'
 description: "a blue sky makes you feel happy you're alive"
 ---
 
-As a simple man, whenever I see a Makoto Shinkai directed movie came out with RADWIMPS's OST, I click.  The piece 「グランドエスケープ」(Grand Escape) is a beautiful song featured in the 2019 Japanese animated film 「**天気の子**」(Weathering with You). With a soaring melody and sweeping orchestration, this song brought me a breath of fresh air. <!--more-->
+As a simple man, whenever I see a Makoto Shinkai directed movie came out with RADWIMPS's OST, I click.  The piece 「[グランドエスケープ](https://www.youtube.com/watch?v=Jq5etlqTXz0)」(Grand Escape) is a beautiful song featured in the 2019 Japanese animated film 「**天気の子**」(Weathering with You). With a soaring melody and sweeping orchestration, this song brought me a breath of fresh air. <!--more-->
 
 ### About the Anime
 
