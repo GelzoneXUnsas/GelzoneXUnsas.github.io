@@ -6,7 +6,17 @@
     <description>Recent content in Lucas Li on Gelzone Unsas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Mar 2023 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 May 2023 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Robolol</title>
+      <link>https://gelzonexunsas.github.io/posts/games/robolol/</link>
+      <pubDate>Thu, 04 May 2023 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/games/robolol/</guid>
+      <description>The Theme for Ludum Dare 53 was Delivery. I made a game about joke delivery within 48 hours with a few of my colleagues called Robolol. Robolol is a party game in which players compete to tell the best joke to the audience.
+Gameplay Players take on the role of a comedian who must collaborate with a rusty and lonely robot to construct a joke from its word bank. The robot then tells the joke to the audience, and players can alter its voice (speed, tone, range, and so on) to make the joke sound more amusing.</description>
+    </item>
+    
     <item>
       <title>Gunfight</title>
       <link>https://gelzonexunsas.github.io/posts/games/gunfight/</link>
