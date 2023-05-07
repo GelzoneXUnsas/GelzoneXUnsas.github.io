@@ -9,7 +9,7 @@ description: "Ludum Dare 53"
 toc: true
 ---
 
-The Theme for **Ludum Dare 53** was **Delivery**. I made a game about joke delivery within **48** hours with a few of my colleagues called [Robolol](https://kanaz312.itch.io/robolol). Robolol is a party game in which players compete to tell the best joke to the audience.
+The Theme for **Ludum Dare 53** was **Delivery**. I made a game about joke delivery within **48** hours with a few of my colleagues called [Robolol](https://kanaz312.itch.io/robolol). Robolol is a party game in which players compete to tell the best joke to the audience. <!--more-->
 
 ---
 
