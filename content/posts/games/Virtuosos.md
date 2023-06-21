@@ -26,17 +26,17 @@ During my time in university, I developed a deep appreciation for games as the "
 As the **director**, **project manager**, and **developer** of「**Virtuosos**」, I made an unique blend of rhythm and JRPG elements, incorporating influences from several my beloved games and anime:
 
 * **Muse Dash**
-  * One of the key inspirations for the gameplay mechanics in 「Virtuosos」 comes from the popular game "Muse Dash." 
+  * One of the key inspirations for the gameplay mechanics in「Virtuosos」comes from the popular game [Muse Dash](https://musedash.peropero.net/#/). 
   ![](https://cdn.akamai.steamstatic.com/steam/apps/774171/ss_a8d9434bb3ecdfd3100f3d24f4ba7b6ebe36427b.1920x1080.jpg?t=1686650225)
   * We were drawn to the classic horizontal screen layout of "Muse Dash" and how it enhances the rhythmic gameplay. This influence led us to adopt a similar layout, allowing players to engage with the game's musical elements in an exciting way.
 
 * **NieR: Automata**
-  * When it comes to world-building and storytelling, I found inspiration in the exceptional game "NieR: Automata." 
+  * When it comes to world-building and storytelling, I found inspiration in the exceptional game [NieR: Automata](https://nierautomata.square-enix-games.com/en-us/home/).
   ![](https://cdn.80.lv/api/upload/content/b2/5d2d0d61276c9.jpg)
   * The dystopian themes and intricate narrative of "NieR: Automata" resonated with us deeply, and we aimed to infuse a similar sense of depth and intrigue into the world of 「Virtuosos」. As players progress through the game's various levels and encounters, they will uncover a rich and immersive story that will keep them engaged and eager to explore further.
 
 * **Made in Abyss & Girls' Last Tour**
-  * In terms of art direction, we took inspiration from two distinct anime series. "Made in Abyss" provided a visual inspiration with its detailed and atmospheric environments, while "Girls' Last Tour" influenced us with its minimalist yet evocative background art style. 
+  * In terms of art direction, we took inspiration from two distinct anime series. [Made in Abyss](http://miabyss.com/) provided a visual inspiration with its detailed and atmospheric environments, while [Girls' Last Tour](http://girls-last-tour.com/) influenced us with its minimalist yet evocative background art style. 
     |
     |:-:|:-:|
     ![Made in Abyss](https://blog.sakugabooru.com/wp-content/uploads/2017/09/abyss10.jpg)  |  ![Girls' Last Tour](https://i0.wp.com/wrongeverytime.com/wp-content/uploads/2019/07/chrome_2019-07-17_15-02-51.jpg)
@@ -66,6 +66,7 @@ In 「Virtuosos」, I took on the role of not only **project manager** but also 
 
 #### Sound Management
 * Music
+
 All the original sound tracks in game are handled by the **Conductor** class. The main functionality of the class is to keep track of the current song position, and schedule the next piece of the music when needed. Here is a simplified version of the class, showing some of the constants values needed per song:
 ```c#
 public class Conductor : MonoBehaviour
@@ -175,7 +176,9 @@ public class CutSceneSFX : MonoBehaviour
 ---
 
 #### Beatmap System
-If you're unfamiliar with rhythm games, a **beatmap** is a custom-designed level or sequence of notes that players must follow and synchronize with the game's music. To create the beatmap for each level, one approach we considered is storing all the necessary information in a text file.
+If you're unfamiliar with rhythm games, a **beatmap** is a custom-designed level or sequence of notes that players must follow and synchronize with the game's music. 
+
+To create the beatmap for each level, one approach we considered is storing all the necessary information in a text file.
 ```txt
 ----x-----------    // ex.
 ---------x--x---    // play track 1 & 3 at beat 2 spot 1
@@ -328,22 +331,131 @@ The **PlayerController** class takes the reins in controlling the characters wit
 ---
 
 #### 2D Animation
-By the end of my second quarter working on the game, I came to the realization regarding the significance of high-quality animations. Among them, attack animations emerged as a key element that significantly enhanced the game feel, particularly in the context of a rhythm-based game like「Virtuosos」.
+By the end of my second quarter working on the game, I came to the realization regarding the significance of high-quality animations. 
 
 ![](/images/games/DV_preview.gif)
 
+Among them, attack animations emerged as a key element that significantly enhanced the game feel, particularly in the context of a rhythm-based game like「Virtuosos」.
+
 * **Skeletal Animation**
+
+In「Virtuosos」, all the playable characters come to life through the magic of skeletal animation, offering us customization and reusability. When we initially dove into 2D animation in Unity, we sought inspiration and reference from other games' animations. However, we put our unique spin on things when it came to the frame ratio for attack animations.
+
+![](https://ultimateframedata.com/hitboxes/link/LinkJab3.gif)
+
+Now, here's where we did things a bit differently compared to some other games out there (let's take Link as an example). [Attack animations](https://www.youtube.com/watch?v=LewXWM7HDd8) often have those stand-by, lead-in, attack, and follow-through phases. However, in our game, I made a bold decision to shake things up. I completely ditched the lead-in phase to give our rhythm game a distinctive and unparalleled game feel.
 
 ![](/images/games/DV_anim.gif)
 
+By doing so, we created a sense of immediacy and responsiveness that perfectly aligns with the rhythm-based mechanics. It's all about hitting those beats and maintaining that flow without any **unnecessary delays**.
+
 * **Sprite Animation**
+
+![](/images/games/DV_enemy3-01.png)
+
+When it came to the other in-game elements like notes and obstacles, we opted for sprite animation. Sprite animation provided us with a simpler and more efficient solution. 
+
+![](/images/games/DV_sprite_anim.gif)
+
+It was a breeze to implement, and whenever edits or adjustments were needed, we could tackle them with lightning speed. After all, when it comes to making quick changes or improvements, efficiency is key.
 
 ---
 
 #### Detection Recognition
 * **Note Detection**
+
+In「Virtuosos」, every note is detected by the **Hit Category** and its **threshold**.
+
+One might already know this if they played the game, there are three different Hit Category:
+
+```c#
+public enum HitCategory
+{
+    MISS,
+    GOOD,
+    PERFECT
+}
+```
+
+The range of each one is tied to the **threshold system**. Accuracy is defined by a floating number, with smaller thresholds indicating more demanding timing. A "good" action has a threshold of **1.0**, offering a modest window, while achieving "perfect" requires remarkable precision with a threshold of only **0.3**.
+
+Using the following case as an example:
+
+![](/images/games/DV_note_detect.png)
+
+> A actual hit always happened in between 2 spot
+
+Here's a simplified version of the note detection code:
+
+```c#
+// check the nearest spot
+if (since_last_spot < till_next_spot)
+    offset_from_spot = (float) since_last_spot;
+else
+    offset_from_spot = (float) till_next_spot;
+
+// calculate hit category based on threshold
+if (offset_from_spot < perfect * conductor.spotLength)
+{
+    hit_category = HitCategory.PERFECT;
+}
+else if (offset_from_spot < good * conductor.spotLength)
+{
+    hit_category = HitCategory.GOOD;
+}
+else
+{
+    hit_category = HitCategory.MISS;
+}
+```
+
+This simplified implementation provides an overview of the note detection code. However, in our game, the logic becomes more complex due to additional considerations, such as guarding against **multiple presses** and handling **overlapping thresholds**.
+
 * **Input Detection**
+
+To address the challenges of supporting multiple input systems during development, we transitioned from the chaotic input detection approach to a more organized solution. Instead of relying solely on the standard Unity Input API, we adopted the use of [Action Map](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Actions.html).
+
+![](/images/games/DV_input_detect.png)
+
+This change allowed us to streamline input detection and better manage the complexities associated with various input methods. 
+
+Refering to a low track input dectection:
+
+> Input API
+```c#
+if (checkHit(KeyCode.Joystick1Button0, 
+            KeyCode.Joystick1Button2, 
+            KeyCode.Joystick1Button1, 
+            /* potentially needed for other 
+                controller or platform support,
+                but is overlapping with other
+                tracks.
+            KeyCode.Joystick1Button7,
+            KeyCode.Joystick1Button6,
+            KeyCode.Joystick1Button4,
+            */
+            InputSystem.GetButton("leftShoulder"),
+            KeyCode.K, 2, low))
+    hasBeenPressed[2] = true;
+```
+
+> Action Map API
+```c#
+public InputActionReference lowControls;
+
+if (checkHit(lowControls, 2, low))
+    hasBeenPressed[2] = true;
+```
+
+The implementation of the Action Map not only facilitated support for multiple controllers and platforms, but it also offered increased flexibility for making simultaneous changes when necessary.
+
 * **Latency Detection**
+
+Detecting and adjusting for latency is of utmost importance in「Virtuosos」. Players rely on precise timing to hit notes, and even the slightest delay can throw off their rhythm and disrupt the gameplay flow. To address the variability in latency between different monitors and speakers, we have implemented a user-friendly interface that allows players to manually adjust the latency while listening to the background music from the start page.
+
+![](/images/games/DV_calibrate.png)
+
+By providing this interface, players can fine-tune the synchronization between the visual cues and the corresponding audio feedback according to their specific setup. Each time the user presses the interaction keys (such as space or a button on the controller), the game system calculates the latency by recording the current offset from the correct beat using the Unity audio engine. The system then displays the average offset of the **10 most recent** presses from the user.
 
 ---
 
