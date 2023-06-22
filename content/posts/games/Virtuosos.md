@@ -1,7 +1,7 @@
 ---
 title: "Virtuosos"
 date: 2023-06-18T01:18:59-08:00
-draft: true
+draft: false
 author: ["Lucas Li", "Alex Hartford", "Brett Hickman", "Coby Chuang", "William Yi", "Kaylen Wan", "Tiffany Vu", "Kevin Yan", "Nancy Chen"]
 tags: ["Games", "featured"]
 featured_image: '/images/games/DV_cover.png'
@@ -33,24 +33,24 @@ As the **director**, **project manager**, and **developer** of「**Virtuosos**�
 * **NieR: Automata**
   * When it comes to world-building and storytelling, I found inspiration in the exceptional game [NieR: Automata](https://nierautomata.square-enix-games.com/en-us/home/).
   ![](https://cdn.80.lv/api/upload/content/b2/5d2d0d61276c9.jpg)
-  * The dystopian themes and intricate narrative of "NieR: Automata" resonated with us deeply, and we aimed to infuse a similar sense of depth and intrigue into the world of 「Virtuosos」. As players progress through the game's various levels and encounters, they will uncover a rich and immersive story that will keep them engaged and eager to explore further.
+  * The dystopian themes and intricate narrative of "NieR: Automata" resonated with us deeply, and we aimed to infuse a similar sense of depth and intrigue into the world of「Virtuosos」. As players progress through the game's various levels and encounters, they will uncover a rich and immersive story that will keep them engaged and eager to explore further.
 
 * **Made in Abyss & Girls' Last Tour**
   * In terms of art direction, we took inspiration from two distinct anime series. [Made in Abyss](http://miabyss.com/) provided a visual inspiration with its detailed and atmospheric environments, while [Girls' Last Tour](http://girls-last-tour.com/) influenced us with its minimalist yet evocative background art style. 
     |
     |:-:|:-:|
     ![Made in Abyss](https://blog.sakugabooru.com/wp-content/uploads/2017/09/abyss10.jpg)  |  ![Girls' Last Tour](https://i0.wp.com/wrongeverytime.com/wp-content/uploads/2019/07/chrome_2019-07-17_15-02-51.jpg)
-  * By combining elements from these two anime, we aimed to create a visually stunning world within "Virtuosos" that would draw players in and enhance their overall gaming experience.
+  * By combining elements from these two anime, we aimed to create a visually stunning world within「Virtuosos」that would draw players in and enhance their overall gaming experience.
 
 ---
 
 ### Gameplay
-As a JRPG rhythm game, 「Virtuosos」 combines the style of Japanese role-playing games with elements of rhythm games. Within different levels of the game, players will discover the background stories of various characters and their environments, gradually exploring new gameplay mechanics. And of course, they will be able to indulge in the joy of music!
+As a [JRPG](https://en.wikipedia.org/wiki/History_of_Eastern_role-playing_video_games#Japanese_role-playing_games) rhythm game, 「Virtuosos」 combines the style of Japanese role-playing games with elements of rhythm games. Within different levels of the game, players will discover the background stories of various characters and their environments, gradually exploring new gameplay mechanics. And of course, they will be able to indulge in the joy of music!
 
 ---
 
 #### Music Performance
-The heart of 「Virtuosos」 lies in its immersive music performance gameplay. Players step into the role of a talented musician and embark on a quest to master rhythms and melodies. Through carefully timed inputs and precise execution, players must perform musical sequences to progress through levels and overcome challenges.
+The heart of 「Virtuosos」 lies in its immersive music performance gameplay. Players step into the role of talented musicians and embark on a quest to master rhythms and melodies. Through carefully timed inputs and precise execution, players must perform musical sequences to progress through levels and overcome challenges.
 
 ![](/images/games/DV_gameplay_2.png)
 
@@ -62,7 +62,7 @@ On the other side, players are invited to embark on an immersive journey through
 ---
 
 ### Technical Details
-In 「Virtuosos」, I took on the role of not only **project manager** but also the **primary developer**, ensuring that every aspect of the game meets the highest standards of quality. In order to improve maintainability, collaboration, and performance, we implemented modular and structured code in the development of 「Virtuosos」 to lay the foundation for a high-quality and enjoyable gaming experience:
+In 「Virtuosos」, I took on the role of not only the director and project manager, but also the primary developer, ensuring that every aspect of the game meets the highest standards of quality. In order to improve maintainability, collaboration, and performance, we implemented modular and structured code in the development of 「Virtuosos」 to lay the foundation for a high-quality and enjoyable gaming experience:
 
 #### Sound Management
 * Music
@@ -153,6 +153,7 @@ public void Update()
 }
 ```
 * SFX
+
 Sound effects are a lot easier to implement. Since sound are mostly happening in real-time during gameplay triggered by user inputs, they can be simply played or stoped by calling. Using the one of the cutscene sound effects as an example:
 
 ```c#
@@ -191,7 +192,7 @@ To create the beatmap for each level, one approach we considered is storing all 
 
 > how to keep track of song position?
 
-While we were familiar with reading and writing text files, we realized they had certain **disadvantages**: they were difficult to **auralize**, **debug**, while trying to add or change inforamtion. As a solution, I explored the idea of using **MIDI** files instead. Although the primary purpose of using MIDI files wouldn't be for playing sound, we could utilize them to spawn notes in the game.
+While we were familiar with reading and writing text files, we realized they had certain **disadvantages**: they were difficult to **auralize**, **debug**, while trying to add or change inforamtion. As a solution, I explored the idea of using [MIDI](https://en.wikipedia.org/wiki/MIDI) files instead. Although the primary purpose of using MIDI files wouldn't be for playing sound, we could utilize them to spawn notes in the game.
 
 * **MIDI**
 
@@ -298,7 +299,7 @@ float cos_interp(float a, float b, float t)
         return a * (1 - ct) + b * ct;
     }
 ```
-> using mostly standard cosine interplations with directional modification.
+> mostly standard cosine interplations with directional modification.
 
 ---
 
@@ -362,6 +363,9 @@ It was a breeze to implement, and whenever edits or adjustments were needed, we 
 ---
 
 #### Detection Recognition
+
+Detection recognition was the primary and most challenging task we undertook in the development of this game.
+
 * **Note Detection**
 
 In「Virtuosos」, every note is detected by the **Hit Category** and its **threshold**.
@@ -383,7 +387,7 @@ Using the following case as an example:
 
 ![](/images/games/DV_note_detect.png)
 
-> A actual hit always happened in between 2 spot
+> A actual hit always happened in between 2 spots
 
 Here's a simplified version of the note detection code:
 
@@ -455,18 +459,113 @@ Detecting and adjusting for latency is of utmost importance in「Virtuosos」. P
 
 ![](/images/games/DV_calibrate.png)
 
-By providing this interface, players can fine-tune the synchronization between the visual cues and the corresponding audio feedback according to their specific setup. Each time the user presses the interaction keys (such as space or a button on the controller), the game system calculates the latency by recording the current offset from the correct beat using the Unity audio engine. The system then displays the average offset of the **10 most recent** presses from the user.
+By providing this interface, players can fine-tune the synchronization between the visual cues and the corresponding audio feedback according to their specific setup. Each time the user presses the interaction keys (such as space or a button on the controller), the game system calculates the latency by recording the current offset from the correct beat using the [Unity audio engine](https://docs.unity3d.com/Manual/AudioOverview.html). The system then displays the average offset of the **10 most recent** presses from the user.
 
 ---
 
 #### Level Design
+
+In a typical rhythm game, level design primarily focuses on beatmap design. However, I want to take a different approach and discuss the level design from an JRPG perspective in our game.
+
 * **Modular Level**
+
+In「Virtuosos」, every level is a musical composition in itself, played continuously and dynamically. The sequence of a level unfolds as follows:
+
+![](/images/games/DV_level_design.png)
+
+> there can be multiple dialogue & performance in the sequence
+
+**Cut Scene**: At the beginning of each level, a cut scene unfolds, primarily focusing on narrative elements. These scenes effectively convey the **plot** and **background** story, immersing players in the game's rich world.
+
+**Dialogue & Performance**: Following the cut scene, the level progresses through a series of dialogue and performance sections, designed to mimic the structure of a **musical composition**. The dialogue sections provide short conversational sentences that offer additional context between different sections of the story.
+
+**Performance**: The performance sections are the **core** gameplay segments where players take control of their characters. Here, players must hit the notes with precision, synchronizing their actions with the rhythm of the music. It's essential to time the inputs correctly while avoiding obstacles and incoming notes to maintain a successful performance.
+
+**End Level Screen**: Upon completing a level, an end level screen appears, presenting players with various statistics. This screen displays information such as the player's score, maximum combo achieved, accuracy, and more. It provides a summary of the player's performance and acts as a **benchmark** for improvement in subsequent levels.
+
 * **Global Spine**
+
+The global spine in the game serves as a crucial component responsible for **file loading** and managing section and level **transitions**. We utilizes [StreamingAsset](https://docs.unity3d.com/Manual/StreamingAssets.html) to enable efficient file loading during runtime, ensuring optimal build support. 
+
+```c#
+midiPath = Application.streamingAssetsPath + "/MIDIs/";
+```
+
+Additionally, we uses enums to detect and manage the current state of the game, facilitating smooth and seamless section and level switching throughout the gameplay experience.
+
+```c#
+enum InterfaceState
+{
+    GAMEPLAY,
+    DIALOGUE,
+    TUTORIAL,
+    STATS,
+    GAME_OVER
+}
+```
 
 ---
 
 #### Others
 * **Dialogue & Narrative**
-* **Particle System**
-* **Player Stats**
+
+|
+|:-:|:-:|
+![](/images/games/DV_dia1.png)  |  ![](/images/games/DV_dia2.png)
+
+For the text loader in our game, we implemented a design that allowed for efficient loading and adjustment of dialogue and narrative. The design incorporates the following:
+
+```txt
+# a sample text file
+
+Casari. A vast land devastated by those who’d taken advantage of the fruit it bore. 
+Resources thinning, even the beggars slowly trickling away from the streets, left to die. 
+
+---
+
+BRONTE: Calling Captain Nova… Captain, do you copy?
+DOLCE: Umm.. I guess this's for testing.
+```
+
+> '#' as the file header
+
+> '- - -' as the background art switch
+
+> Every line appears in the in-game text box one at a time, if the line starts with character names, then treat the line as a **dialogue** instead of **narrative**.
+
 * **Player Setting**
+
+In addition to adjusting the latency offset, our game also offers various player settings. 
+
+![](/images/games/DV_graphic.png)
+
+In terms of graphics, players can toggle fullscreen mode, Vsync, and adjust the resolution if desired. If the default resolution is not supported on their monitor, the game will automatically switch to the monitor's native resolution. 
+
+![](/images/games/DV_sound.png)
+
+Regarding sound, players have the option to adjust the music volume and SFX volume independently or control all audio settings simultaneously using the master volume. 
+
+All player-defined settings are stored using [PlayerPrefs](https://docs.unity3d.com/ScriptReference/PlayerPrefs.html) and are accessible across different scenes.
+
+
+### Last Word
+
+「Virtuosos」is the culmination of our collective efforts to create a unique fusion of rhythm and JRPG elements. As the director, project manager, and developer of「Virtuosos」, I am incredibly proud to present this game to you. It has been a journey filled with passion, creativity, and countless hours of hard work from the following team of my friends:
+
+> **Lucas Li** - Director - Project Manager - Developer
+
+> **Alex Hartford** -  Developer
+
+> **Brett Hickman** - Developer
+
+> **Coby Chuang** - Artist
+
+> **William Yi** - Artist
+
+> **Kaylen Wan** - Artist
+
+> **Tiffany Vu** - Writer
+
+> **Kevin Yan** - Musician
+
+> **Nancy Chen** - Sound
