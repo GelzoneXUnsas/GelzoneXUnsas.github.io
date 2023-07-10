@@ -40,7 +40,7 @@
 <meta itemprop="name" content="Flight Simulator">
 <meta itemprop="description" content="quaternions interpolation and animation using OpenGL"><meta itemprop="datePublished" content="2023-04-24T01:18:59-08:00" />
 <meta itemprop="dateModified" content="2023-04-24T01:18:59-08:00" />
-<meta itemprop="wordCount" content="1172">
+<meta itemprop="wordCount" content="1463">
 <meta itemprop="keywords" content="Projects," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Flight Simulator"/>
 <meta name="twitter:description" content="quaternions interpolation and animation using OpenGL"/>
@@ -332,8 +332,71 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// convert back to 4x4 matrix for GLM function calls
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>rot <span style="color:#f92672">=</span> mat4_cast(q);
 </span></span></code></pre></div><h3 id="procedural-generation">Procedural Generation</h3>
-<h2 id="results">Results</h2>
-<p>The preceding code generated the earth model that demonstrates the importance of lighting in generating a realistic and visually pleasing 3D scene. The earth model&rsquo;s left screenshot displays the planet with <strong>no</strong> diffuse or specular light, resulting in a flat and unattractive surface. The code has calculated <strong>both</strong> the diffuse and specular light in the right screenshot, resulting in a more bright and dynamic image. Because the water is a highly reflective surface, the specular light only affects it. The planet&rsquo;s lands have a faint diffuse shade rather than a specular highlight.</p>
+<p>The terrain is generated using a 1000x1000 mesh, incorporating a texture Vertex Buffer Object (VBO). The <strong>texture</strong> VBO utilizes the height map image previously displayed as the <strong>base height reference</strong> for the terrain. Additionally, a noise function is employed to control the variation and intricacies of the terrain details.</p>
+<h4 id="noise">Noise</h4>
+<blockquote>
+<p>The noise implementation consists of multiple layers, starting with a basic hash function utilized for randomization purposes.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">hash</span>(<span style="color:#66d9ef">float</span> n) 
+</span></span><span style="display:flex;"><span>{ 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> fract(sin(n) <span style="color:#f92672">*</span> <span style="color:#ae81ff">753.5453123</span>); 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>Next, the <strong>snoise</strong> function is created as an implementation of a 3D simplex noise function, which generates pseudo-random values based on the input vector x. It is used as a building block for creating more complex noise function.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">snoise</span>(vec3 x)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// integer part
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    vec3 p <span style="color:#f92672">=</span> floor(x);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// fractional part
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    vec3 f <span style="color:#f92672">=</span> fract(x);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// smooth interpolation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    f <span style="color:#f92672">=</span> f <span style="color:#f92672">*</span> f <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3.0</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> f);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* mix and interpolate the hash values based 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    on the fractional values f in each dimension */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> n <span style="color:#f92672">=</span> p.x <span style="color:#f92672">+</span> p.y <span style="color:#f92672">*</span> <span style="color:#ae81ff">157.0</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">113.0</span> <span style="color:#f92672">*</span> p.z;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> mix(mix(mix(hash(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.0</span>), hash(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.0</span>), f.x),
+</span></span><span style="display:flex;"><span>        mix(hash(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">157.0</span>), hash(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">158.0</span>), f.x), f.y),
+</span></span><span style="display:flex;"><span>        mix(mix(hash(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">113.0</span>), hash(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">114.0</span>), f.x),
+</span></span><span style="display:flex;"><span>            mix(hash(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">270.0</span>), hash(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">271.0</span>), f.x), f.y), f.z);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>The final layer is the <strong>noise</strong> function. The noise function combines multiple levels of noise values with different frequencies and amplitudes.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">noise</span>(vec3 position, <span style="color:#66d9ef">int</span> octaves, <span style="color:#66d9ef">float</span> frequency, <span style="color:#66d9ef">float</span> persistence) 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        octaves: level of details, 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">                accumulates the noise values at each octave
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        frequency: controls how fast the noise changes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        persistence: controls the amplitude reduction at each octave
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    */</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">float</span> total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">float</span> maxAmplitude <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">float</span> amplitude <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> octaves; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>		total <span style="color:#f92672">+=</span> snoise(position <span style="color:#f92672">*</span> frequency) <span style="color:#f92672">*</span> amplitude;
+</span></span><span style="display:flex;"><span>		frequency <span style="color:#f92672">*=</span> <span style="color:#ae81ff">2.0</span>;
+</span></span><span style="display:flex;"><span>		maxAmplitude <span style="color:#f92672">+=</span> amplitude;
+</span></span><span style="display:flex;"><span>		amplitude <span style="color:#f92672">*=</span> persistence;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> total <span style="color:#f92672">/</span> maxAmplitude;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>By adjusting the parameters <strong>octaves</strong>, <strong>frequency</strong>, and <strong>persistence</strong>, we can create different variations and complexities of noise landscapes.</p>
+</blockquote>
+<p>Lastly, applying this function twice to produce even smoother result.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// base noise
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">float</span> height <span style="color:#f92672">=</span> noise(tpos.xzy<span style="color:#f92672">*</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">0.03</span>, <span style="color:#ae81ff">0.6</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// adjustment noise function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">float</span> adjustment <span style="color:#f92672">=</span> noise(tpos.xzy<span style="color:#f92672">*</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">0.004</span>, <span style="color:#ae81ff">0.3</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// power amplification on the second noise
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>adjustment <span style="color:#f92672">=</span> pow(adjustment, <span style="color:#ae81ff">5</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// noise mixing
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>height <span style="color:#f92672">=</span> adjustment<span style="color:#f92672">*</span>height;
+</span></span></code></pre></div><p>Noise functions are a powerful tool in procedural map generation, providing natural variation, controlled randomness, and procedural variation.
+The images below depict a comparison of the terrain before and after incorporating noise functions:</p>
 <table>
 <thead>
 <tr>
@@ -343,13 +406,11 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><img src="/images/others/earth_no_lighting.png" alt="BEFORE"></td>
-<td style="text-align:center"><img src="/images/others/earth_lighting.png" alt="AFTER"></td>
+<td style="text-align:center"><img src="/images/others/before_noise.png" alt="BEFORE"></td>
+<td style="text-align:center"><img src="/images/others/after_noise.png" alt="AFTER"></td>
 </tr>
 </tbody>
-</table>
-<hr>
-<p>Overall, this 3D earth model demonstrates how proper lighting can greatly enhance the visual quality of a 3D environment, making it look more realistic and captivating.</p><ul class="pa0">
+</table><ul class="pa0">
   
    <li class="list di">
      <a href="/tags/projects/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Project</a>
@@ -374,7 +435,6 @@
         <li><a href="#procedural-generation">Procedural Generation</a></li>
       </ul>
     </li>
-    <li><a href="#results">Results</a></li>
   </ul>
 </nav>
   </div>
