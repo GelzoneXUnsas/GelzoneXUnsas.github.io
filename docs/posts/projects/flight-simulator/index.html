@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Flight Simulator | Gelzone Unsas</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="quaternions interpolation and animation using OpenGL">
+    <meta name="generator" content="Hugo 0.110.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+<link rel="shortcut icon" href="/images/profile/IMG_9741-modified.png" type="image/x-icon" />
+
+
+    
+
+    
+    
+    <meta property="og:title" content="Flight Simulator" />
+<meta property="og:description" content="quaternions interpolation and animation using OpenGL" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gelzonexunsas.github.io/posts/projects/flight-simulator/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-24T01:18:59-08:00" />
+<meta property="article:modified_time" content="2023-04-24T01:18:59-08:00" />
+<meta itemprop="name" content="Flight Simulator">
+<meta itemprop="description" content="quaternions interpolation and animation using OpenGL"><meta itemprop="datePublished" content="2023-04-24T01:18:59-08:00" />
+<meta itemprop="dateModified" content="2023-04-24T01:18:59-08:00" />
+<meta itemprop="wordCount" content="1172">
+<meta itemprop="keywords" content="Projects," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Flight Simulator"/>
+<meta name="twitter:description" content="quaternions interpolation and animation using OpenGL"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://gelzonexunsas.github.io/images/others/plane_cover.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        <img id="Logo" src="/images/profile/IMG_9741-modified.png" class="w100 mw5-ns" alt="Gelzone Unsas" />
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li id="MenuHeader" class="list f5 f4-ns fw4 dib pr3">
+            <a id="MenuElement" class="hover-white no-underline white-90" href="/about" title="About page">
+              <i class='fa-solid fa-user'></i>
+            </a>
+          </li>
+          
+          <li id="MenuHeader" class="list f5 f4-ns fw4 dib pr3">
+            <a id="MenuElement" class="hover-white no-underline white-90" href="/tags/projects" title="Projects page">
+              <i class='fa-solid fa-folder'></i>
+            </a>
+          </li>
+          
+          <li id="MenuHeader" class="list f5 f4-ns fw4 dib pr3">
+            <a id="MenuElement" class="hover-white no-underline white-90" href="/tags/games" title="Games page">
+              <i class='fa-solid fa-gamepad'></i>
+            </a>
+          </li>
+          
+          <li id="MenuHeader" class="list f5 f4-ns fw4 dib pr3">
+            <a id="MenuElement" class="hover-white no-underline white-90" href="/tags/music" title="Music page">
+              <i class='fa-solid fa-guitar'></i>
+            </a>
+          </li>
+          
+          <li id="MenuHeader" class="list f5 f4-ns fw4 dib pr3">
+            <a id="MenuElement" class="hover-white no-underline white-90" href="/contact" title="Contact page">
+              <i class='fa-solid fa-paper-plane'></i>
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://www.youtube.com/channel/UCs_AJP0KDnVPcPugtp6k37Q" target="_blank" rel="noopener" class="Youtube ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Youtube link" aria-label="follow on Youtube——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/GelzoneXUnsas" target="_blank" rel="noopener" class="Github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Github link" aria-label="follow on Github——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">Flight Simulator</div>
+          
+            <div class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+              quaternions interpolation and animation using OpenGL
+            </div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTICLES
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Flight Simulator</h1>
+      
+      <p class="tracked">
+        By <strong>Lucas Li</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-04-24T01:18:59-08:00">April 24, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>The <a href="https://github.com/GelzoneXUnsas/Flight-Simulator/">Flight Simulator</a> program involves creating an action-packed scene with flying planes, dynamic camera movements, and procedural generated terrain.</p>
+<p><img src="/images/others/plane_demo.gif" alt=""></p>
+<p>The project&rsquo;s goal is to exhibit <a href="https://www.opengl.org/">OpenGL</a>&rsquo;s math library <a href="https://www.opengl.org/sdk/libs/GLM/">GLM</a> to practice the uses of quaternions and interpolations. The key focus is on setting up curved flight paths using quaternions &amp; splines, ensuring accurate plane rotations, and incorporating various maneuvers like barrel rolls and screws.</p>
+<h2 id="overview">Overview</h2>
+<p>The project is a software development project that uses modern technologies and frameworks to create a graphics-intensive application.</p>
+<ul>
+<li>C++11 as the main language</li>
+<li>Modern OpenGL/GLSL as the graphics API</li>
+<li>GLEW for cross-platform initialization of OpenGL</li>
+<li>GLFW for windowing</li>
+<li>Eigen for linear algebra</li>
+</ul>
+<h2 id="assets">Assets</h2>
+<p>Besides using a plane.OBJ file, the following height map is used as the base of the terrain:</p>
+<ul>
+<li>Height map
+<img src="/images/others/plane_height.jpg" alt=""></li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<p>The main goal of this project is to use <strong>Quaternions</strong> and <strong>Interpolations</strong> to create pathways for the planes and camera. I&rsquo;ve also included some intriguing features like Procedural Generated Terrain and Terrain Deformation that syncs with the beat of the background music.</p>
+<h3 id="quaternions--interpolations">Quaternions &amp; Interpolations</h3>
+<p><img src="/images/others/interp_visual.gif" alt=""></p>
+<p>The motion of the planes can be categorized into two key aspects: position and rotation.</p>
+<h4 id="position">Position</h4>
+<p>The position of each plane is initially set using an array of points (forming in blue), which are then utilized to create a spline (forming in purple).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>line_1.push_back(vec3(<span style="color:#ae81ff">3.0f</span>, <span style="color:#ae81ff">26.0f</span>, <span style="color:#ae81ff">10.0f</span>));
+</span></span><span style="display:flex;"><span>line_1.push_back(vec3(<span style="color:#ae81ff">3.0f</span>, <span style="color:#ae81ff">24.0f</span>, <span style="color:#ae81ff">0.0f</span>));
+</span></span><span style="display:flex;"><span>line_1.push_back(vec3(<span style="color:#ae81ff">3.0f</span>, <span style="color:#ae81ff">20.0f</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">20.0f</span>));
+</span></span><span style="display:flex;"><span>line_1.push_back(vec3(<span style="color:#ae81ff">7.0f</span>, <span style="color:#ae81ff">24.0f</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">35.0f</span>));
+</span></span></code></pre></div><p>While the planes can move more smoothly along the splines, the resulting motion may still appear jagged without interpolation between the points. Here is a simplified version of the position interpolation using linear interpolation between consecutive points on a path:</p>
+<p>Since our planes always are between 2 points in the array, we need to figure out the current 2 points that the planes are in at current frame time.</p>
+<blockquote>
+<p>Calculate the distances between consecutive points and the total distance traveled is always better then using the number of points directly to avoid undesired change in speed due to the difference in distances between points:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> points.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    distances[i] <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>distance(points[i], points[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>    total_distance <span style="color:#f92672">+=</span> distances[i];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>Then, we can calculate the constant speed of the plane:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> speed <span style="color:#f92672">=</span> total_distance<span style="color:#f92672">/</span>total_time;
+</span></span></code></pre></div><blockquote>
+<p>To find the 2 points with the corresponding interpolation factor, here is my approach:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// 1. Calculate the current distance from the start point (points[0])
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">float</span> distance_from_start <span style="color:#f92672">=</span> curTime <span style="color:#f92672">*</span> speed;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 2. Find the current index (cur_index) of the segment on the path:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> cur_index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;       
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (cur_index <span style="color:#f92672">&lt;</span> points.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> 
+</span></span><span style="display:flex;"><span>        distance_from_start <span style="color:#f92672">&gt;</span> distances[cur_index])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/* keep decrement the distance from the passed points to get to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">       the distance from the current point to the next point */</span>
+</span></span><span style="display:flex;"><span>    distance_from_start <span style="color:#f92672">-=</span> distances[cur_index];
+</span></span><span style="display:flex;"><span>    cur_index <span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>cur_point <span style="color:#f92672">=</span> cur_index;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 3. Calculate the interpolation factor (interp_factor) based on the distance variable:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">float</span> interp_factor <span style="color:#f92672">=</span> distance_from_start <span style="color:#f92672">/</span> distances[cur_index];
+</span></span></code></pre></div><blockquote>
+<p>Lastly, interpolate the position using <strong>mix()</strong> (interpolation function in GLM):</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>vec3 p1 <span style="color:#f92672">=</span> points[cur_index];
+</span></span><span style="display:flex;"><span>vec3 p2 <span style="color:#f92672">=</span> points[cur_index<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#a6e22e">mix</span>(p1,p2,interp_factor);
+</span></span></code></pre></div><h4 id="rotation">Rotation</h4>
+<p><img src="https://www.researchgate.net/publication/333185260/figure/fig7/AS:759745858256896@1558148936720/Roll-Pitch-and-Yaw-Positive-Rotation-Angles-in-the-Aircraft-Frame.jpg" alt=""></p>
+<p>The plane&rsquo;s rotation is partially controlled (<strong>yaw</strong> &amp; <strong>pitch</strong>) by the path it takes, as the forward vector aligns with the direction to the next point. However, the planes&rsquo; <strong>roll</strong> is controlled programmatically in order to perform certain actions and replicate accurate rotation motions.</p>
+<p>Similar to the positions, the rotations are also being stored in an array, but only the z axis (roll) rotation in degrees:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>z_rot_1.push_back(<span style="color:#ae81ff">0.0f</span>);
+</span></span><span style="display:flex;"><span>z_rot_1.push_back(<span style="color:#ae81ff">20.0f</span>);
+</span></span><span style="display:flex;"><span>z_rot_1.push_back(<span style="color:#ae81ff">40.0f</span>);
+</span></span><span style="display:flex;"><span>z_rot_1.push_back(<span style="color:#ae81ff">20.0f</span>);
+</span></span></code></pre></div><blockquote>
+<p>For interpolation, we calculated the current index and next index based on the ratio of the current time to the total time:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// ratio calculation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">float</span> ratio <span style="color:#f92672">=</span> curTime<span style="color:#f92672">/</span>total_time;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// find the current index and next index
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> i1 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>) (ratio <span style="color:#f92672">*</span> (z_rot_1.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>));
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> i2 <span style="color:#f92672">=</span> i1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// edge case handling
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (i2 <span style="color:#f92672">&gt;=</span> z_rot_1.size()) i2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(z_rot_1.size()) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// find the rotations based on indices
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">float</span> ez1 <span style="color:#f92672">=</span> z_rot_1[i1];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> ez2 <span style="color:#f92672">=</span> z_rot_1[i2];
+</span></span></code></pre></div><blockquote>
+<p>Next, we find the interpolation factor using a similar approach, but with fixed unit:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> unit_time <span style="color:#f92672">=</span> total_time<span style="color:#f92672">/</span>(z_rot_1.size()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> cur_ratio <span style="color:#f92672">=</span> curTime <span style="color:#f92672">-</span> (unit_time <span style="color:#f92672">*</span> i1);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> rot_factor <span style="color:#f92672">=</span> cos_interp_float(cur_ratio <span style="color:#f92672">/</span> unit_time);
+</span></span></code></pre></div><blockquote>
+<p>Instead of using linear interpolation, I wrote my own cosine interpolation for the rotation to achieve better animation between 2 rotation degrees.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">cos_interp_float</span>(<span style="color:#66d9ef">float</span> t)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1.0f</span> <span style="color:#f92672">-</span> (cos(t <span style="color:#f92672">*</span> <span style="color:#ae81ff">3.1415926</span>)<span style="color:#f92672">+</span> <span style="color:#ae81ff">1.0f</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.0f</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>As a side note, there are many different ways to interpolate between animations, and some of the approaches are non-linear.</p>
+<p><img src="https://codeplea.com/public/content/splines_interp.png" alt=""></p>
+<p>The curve starts slowly, accelerates in the middle, and then slows down again as it approaches the end point. This curve is created using the cosine function, which provides a smooth transition with a gradual change in rate.</p>
+<blockquote>
+<p>To calculate the yaw &amp; pitch of the planes, we need to find the forward vector using cosine interpolation again:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// determine the three points needed for the rotation interpolation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vec3 p0 <span style="color:#f92672">=</span> points[cur_index<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>vec3 p1 <span style="color:#f92672">=</span> points[cur_index];
+</span></span><span style="display:flex;"><span>vec3 p2 <span style="color:#f92672">=</span> points[cur_index<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// set the up vector to be align with the y axis for now
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vec3 up <span style="color:#f92672">=</span> vec3(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// find the unit vectors for forward directions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vec3 direction0 <span style="color:#f92672">=</span> normalize(p1<span style="color:#f92672">-</span>p0);
+</span></span><span style="display:flex;"><span>vec3 direction <span style="color:#f92672">=</span> normalize(p2<span style="color:#f92672">-</span>p1);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// interpolate between 2 vectors to find the forward vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vec3 forward <span style="color:#f92672">=</span> cos_interp(rot_factor, direction0, direction);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// calculate the right vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vec3 ex <span style="color:#f92672">=</span> cross(forward, up);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// recalculate the up vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vec3 new_up <span style="color:#f92672">=</span> cross(forward, ex);
+</span></span></code></pre></div><p>The up vector is first initialized to (0, 1, 0) in the following code, reflecting the positive y-axis direction. However, as the item rotates along its journey, the forward direction changes, resulting in a change in the orientation of the object&rsquo;s local coordinate system. As a result, in order to keep the rotation matrix orthogonal and orthonormal, the up vector must be computed based on the new forward direction.</p>
+<blockquote>
+<p>Form the rotation matrix:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>mat3 <span style="color:#a6e22e">rotation_matrix</span>(ex, new_up, forward);
+</span></span></code></pre></div><blockquote>
+<p>Since the rotation between states can be dramatic for a plane, using quaternions interpolation can avoid <a href="https://www.youtube.com/watch?v=zc8b2Jo7mno">Gimbal lock</a> for unexpected behaviors:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// Create a 4x4 matrix for quaternion convertion
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glm<span style="color:#f92672">::</span>mat4 matrix;
+</span></span><span style="display:flex;"><span>matrix[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>vec4(rotation_matrix[<span style="color:#ae81ff">0</span>], <span style="color:#ae81ff">0.0f</span>);
+</span></span><span style="display:flex;"><span>matrix[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>vec4(rotation_matrix[<span style="color:#ae81ff">1</span>], <span style="color:#ae81ff">0.0f</span>);
+</span></span><span style="display:flex;"><span>matrix[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>vec4(rotation_matrix[<span style="color:#ae81ff">2</span>], <span style="color:#ae81ff">0.0f</span>);
+</span></span><span style="display:flex;"><span>matrix[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>vec4(<span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">1.0f</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// convert matrix to quaternion
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>quat q <span style="color:#f92672">=</span> quat_cast(matrix);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// interpolate the roll of the plane then apply to the forward vector
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>q <span style="color:#f92672">=</span> angleAxis(radians(mix(ey1,ey2,rot_factor)), forward) <span style="color:#f92672">*</span> q;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// convert back to 4x4 matrix for GLM function calls
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>rot <span style="color:#f92672">=</span> mat4_cast(q);
+</span></span></code></pre></div><h3 id="procedural-generation">Procedural Generation</h3>
+<h2 id="results">Results</h2>
+<p>The preceding code generated the earth model that demonstrates the importance of lighting in generating a realistic and visually pleasing 3D scene. The earth model&rsquo;s left screenshot displays the planet with <strong>no</strong> diffuse or specular light, resulting in a flat and unattractive surface. The code has calculated <strong>both</strong> the diffuse and specular light in the right screenshot, resulting in a more bright and dynamic image. Because the water is a highly reflective surface, the specular light only affects it. The planet&rsquo;s lands have a faint diffuse shade rather than a specular highlight.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/images/others/earth_no_lighting.png" alt="BEFORE"></td>
+<td style="text-align:center"><img src="/images/others/earth_lighting.png" alt="AFTER"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Overall, this 3D earth model demonstrates how proper lighting can greatly enhance the visual quality of a 3D environment, making it look more realistic and captivating.</p><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/projects/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Project</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">What&#39;s in this posts</p>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#assets">Assets</a></li>
+    <li><a href="#implementation">Implementation</a>
+      <ul>
+        <li><a href="#quaternions--interpolations">Quaternions &amp; Interpolations</a></li>
+        <li><a href="#procedural-generation">Procedural Generation</a></li>
+      </ul>
+    </li>
+    <li><a href="#results">Results</a></li>
+  </ul>
+</nav>
+  </div>
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/projects/music-visualizer/">Music Visualizer</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/projects/galaxy-instanced-rendering/">Galaxy Instanced Rendering</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/projects/earth-lighting/">Earth Lighting</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/projects/music-search-engine/">Music Search Engine</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/projects/personal-homepage/">Personal Homepage</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://gelzonexunsas.github.io/" >
+    &copy;  Gelzone Unsas 2023 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://www.youtube.com/channel/UCs_AJP0KDnVPcPugtp6k37Q" target="_blank" rel="noopener" class="Youtube ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Youtube link" aria-label="follow on Youtube——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M42.527,41.34c-0.278,0-0.478,0.078-0.6,0.244  c-0.121,0.156-0.18,0.424-0.18,0.796v0.896h1.543V42.38c0-0.372-0.062-0.64-0.185-0.796C42.989,41.418,42.792,41.34,42.527,41.34z   M36.509,41.309c0.234,0,0.417,0.076,0.544,0.23c0.123,0.155,0.185,0.383,0.185,0.682v4.584c0,0.286-0.053,0.487-0.153,0.611  c-0.1,0.127-0.256,0.189-0.47,0.189c-0.148,0-0.287-0.033-0.421-0.096c-0.135-0.062-0.274-0.171-0.415-0.313v-5.531  c0.119-0.122,0.239-0.213,0.36-0.271C36.26,41.335,36.383,41.309,36.509,41.309z M41.748,44.658v1.672  c0,0.468,0.057,0.792,0.17,0.974c0.118,0.181,0.313,0.269,0.592,0.269c0.289,0,0.491-0.076,0.606-0.229  c0.114-0.153,0.175-0.489,0.175-1.013v-0.405h1.795v0.456c0,0.911-0.217,1.596-0.657,2.059c-0.435,0.459-1.089,0.687-1.958,0.687  c-0.781,0-1.398-0.242-1.847-0.731c-0.448-0.486-0.676-1.157-0.676-2.014v-3.986c0-0.768,0.249-1.398,0.742-1.882  c0.493-0.484,1.128-0.727,1.911-0.727c0.799,0,1.413,0.225,1.843,0.674c0.429,0.448,0.642,1.093,0.642,1.935v2.264H41.748z   M38.623,48.495c-0.271,0.336-0.669,0.501-1.187,0.501c-0.343,0-0.646-0.062-0.912-0.192c-0.267-0.129-0.519-0.327-0.746-0.601  v0.681h-1.764V36.852h1.764v3.875c0.237-0.27,0.485-0.478,0.748-0.616c0.267-0.143,0.534-0.212,0.805-0.212  c0.554,0,0.975,0.189,1.265,0.565c0.294,0.379,0.438,0.933,0.438,1.66v4.926C39.034,47.678,38.897,48.159,38.623,48.495z   M30.958,48.884v-0.976c-0.325,0.361-0.658,0.636-1.009,0.822c-0.349,0.191-0.686,0.282-1.014,0.282  c-0.405,0-0.705-0.129-0.913-0.396c-0.201-0.266-0.305-0.658-0.305-1.189v-7.422h1.744v6.809c0,0.211,0.037,0.362,0.107,0.457  c0.077,0.095,0.196,0.141,0.358,0.141c0.128,0,0.292-0.062,0.488-0.188c0.197-0.125,0.375-0.283,0.542-0.475v-6.744h1.744v8.878  H30.958z M24.916,38.6v10.284h-1.968V38.6h-2.034v-1.748h6.036V38.6H24.916z M32.994,32.978c0-0.001,12.08,0.018,13.514,1.45  c1.439,1.435,1.455,8.514,1.455,8.555c0,0-0.012,7.117-1.455,8.556C45.074,52.969,32.994,53,32.994,53s-12.079-0.031-13.516-1.462  c-1.438-1.435-1.441-8.502-1.441-8.556c0-0.041,0.004-7.12,1.441-8.555C20.916,32.996,32.994,32.977,32.994,32.978z M42.52,29.255  h-1.966v-1.08c-0.358,0.397-0.736,0.703-1.13,0.909c-0.392,0.208-0.771,0.312-1.14,0.312c-0.458,0-0.797-0.146-1.027-0.437  c-0.229-0.291-0.345-0.727-0.345-1.311v-8.172h1.962v7.497c0,0.231,0.045,0.399,0.127,0.502c0.08,0.104,0.216,0.156,0.399,0.156  c0.143,0,0.327-0.069,0.548-0.206c0.22-0.137,0.423-0.312,0.605-0.527v-7.422h1.966V29.255z M31.847,27.588  c0.139,0.147,0.339,0.219,0.6,0.219c0.266,0,0.476-0.075,0.634-0.223c0.157-0.152,0.235-0.358,0.235-0.618v-5.327  c0-0.214-0.08-0.387-0.241-0.519c-0.16-0.131-0.37-0.196-0.628-0.196c-0.241,0-0.435,0.065-0.586,0.196  c-0.148,0.132-0.225,0.305-0.225,0.519v5.327C31.636,27.233,31.708,27.439,31.847,27.588z M30.408,19.903  c0.528-0.449,1.241-0.674,2.132-0.674c0.812,0,1.48,0.237,2.001,0.711c0.517,0.473,0.777,1.083,0.777,1.828v5.051  c0,0.836-0.255,1.491-0.762,1.968c-0.513,0.476-1.212,0.714-2.106,0.714c-0.858,0-1.547-0.246-2.064-0.736  c-0.513-0.492-0.772-1.152-0.772-1.983v-5.068C29.613,20.954,29.877,20.351,30.408,19.903z M24.262,16h-2.229l2.634,8.003v5.252  h2.213v-5.5L29.454,16h-2.25l-1.366,5.298h-0.139L24.262,16z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30  S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+    
+    <a href="https://github.com/GelzoneXUnsas" target="_blank" rel="noopener" class="Github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Github link" aria-label="follow on Github——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
