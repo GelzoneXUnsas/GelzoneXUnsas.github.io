@@ -201,14 +201,83 @@ rot = mat4_cast(q);
 
 ### Procedural Generation
 
+The terrain is generated using a 1000x1000 mesh, incorporating a texture Vertex Buffer Object (VBO). The **texture** VBO utilizes the height map image previously displayed as the **base height reference** for the terrain. Additionally, a noise function is employed to control the variation and intricacies of the terrain details.
 
+#### Noise
 
-## Results
-The preceding code generated the earth model that demonstrates the importance of lighting in generating a realistic and visually pleasing 3D scene. The earth model's left screenshot displays the planet with **no** diffuse or specular light, resulting in a flat and unattractive surface. The code has calculated **both** the diffuse and specular light in the right screenshot, resulting in a more bright and dynamic image. Because the water is a highly reflective surface, the specular light only affects it. The planet's lands have a faint diffuse shade rather than a specular highlight. 
+> The noise implementation consists of multiple layers, starting with a basic hash function utilized for randomization purposes.
+
+```c++
+float hash(float n) 
+{ 
+    return fract(sin(n) * 753.5453123); 
+}
+```
+
+> Next, the **snoise** function is created as an implementation of a 3D simplex noise function, which generates pseudo-random values based on the input vector x. It is used as a building block for creating more complex noise function.
+
+```c++
+float snoise(vec3 x)
+{
+    // integer part
+    vec3 p = floor(x);
+    // fractional part
+    vec3 f = fract(x);
+    // smooth interpolation
+    f = f * f * (3.0 - 2.0 * f);
+
+    /* mix and interpolate the hash values based 
+    on the fractional values f in each dimension */
+    float n = p.x + p.y * 157.0 + 113.0 * p.z;
+    return mix(mix(mix(hash(n + 0.0), hash(n + 1.0), f.x),
+        mix(hash(n + 157.0), hash(n + 158.0), f.x), f.y),
+        mix(mix(hash(n + 113.0), hash(n + 114.0), f.x),
+            mix(hash(n + 270.0), hash(n + 271.0), f.x), f.y), f.z);
+}
+```
+
+> The final layer is the **noise** function. The noise function combines multiple levels of noise values with different frequencies and amplitudes.
+
+```c++
+float noise(vec3 position, int octaves, float frequency, float persistence) 
+{
+    /*
+        octaves: level of details, 
+                accumulates the noise values at each octave
+        frequency: controls how fast the noise changes
+        persistence: controls the amplitude reduction at each octave
+    */
+	float total = 0.0;
+	float maxAmplitude = 0.0;
+	float amplitude = 1.0;
+	for (int i = 0; i < octaves; i++) {
+		total += snoise(position * frequency) * amplitude;
+		frequency *= 2.0;
+		maxAmplitude += amplitude;
+		amplitude *= persistence;
+		}
+	return total / maxAmplitude;
+}
+```
+
+> By adjusting the parameters **octaves**, **frequency**, and **persistence**, we can create different variations and complexities of noise landscapes.
+
+Lastly, applying this function twice to produce even smoother result.
+
+```c++
+// base noise
+float height = noise(tpos.xzy*3, 11, 0.03, 0.6);
+// adjustment noise function
+float adjustment = noise(tpos.xzy*3, 4, 0.004, 0.3);
+// power amplification on the second noise
+adjustment = pow(adjustment, 5)*3;
+// noise mixing
+height = adjustment*height;
+```
+
+Noise functions are a powerful tool in procedural map generation, providing natural variation, controlled randomness, and procedural variation. 
+The images below depict a comparison of the terrain before and after incorporating noise functions:
+
 |
 |:-:|:-:|
-![BEFORE](/images/others/earth_no_lighting.png)  |  ![AFTER](/images/others/earth_lighting.png)
-
-------------
-
-Overall, this 3D earth model demonstrates how proper lighting can greatly enhance the visual quality of a 3D environment, making it look more realistic and captivating.
+![BEFORE](/images/others/before_noise.png)  |  ![AFTER](/images/others/after_noise.png)
