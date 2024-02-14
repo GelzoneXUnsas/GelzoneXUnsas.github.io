@@ -1,7 +1,7 @@
 ---
 title: "Inverse Kinematics"
 date: 2022-06-07T01:18:59-08:00
-draft: false
+draft: true
 author: ["Lucas Li"]
 tags: ["Projects"]
 featured_image: '/images/others/galaxy_cover.png'
