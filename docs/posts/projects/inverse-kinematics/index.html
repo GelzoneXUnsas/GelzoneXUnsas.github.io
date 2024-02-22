@@ -40,7 +40,7 @@
 <meta itemprop="name" content="Inverse Kinematics">
 <meta itemprop="description" content="experiment with FABRIK using OpenGL"><meta itemprop="datePublished" content="2022-06-07T01:18:59-08:00" />
 <meta itemprop="dateModified" content="2022-06-07T01:18:59-08:00" />
-<meta itemprop="wordCount" content="971">
+<meta itemprop="wordCount" content="846">
 <meta itemprop="keywords" content="Projects," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Inverse Kinematics"/>
 <meta name="twitter:description" content="experiment with FABRIK using OpenGL"/>
@@ -55,7 +55,7 @@
   
 
   
-  <header class="cover bg-top" style="background-image: url('https://gelzonexunsas.github.io/images/others/galaxy_cover.png');">
+  <header class="cover bg-top" style="background-image: url('https://gelzonexunsas.github.io/images/others/FABRIK.gif');">
     <div class="bg-black-60">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
@@ -189,9 +189,9 @@
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>The purpose of this <a href="https://github.com/GelzoneXUnsas/Galaxy-Instanced-Rendering">Galaxy</a> project is to create an OpenGL software that uses <strong>instanced rendering</strong> to draw a galaxy full of stars. The project will be developed to create a visually attractive picture of a galaxy while also serving as a learning tool for visualizing mass particles using instanced rendering.</p>
-<p><img src="/images/others/galaxy_demo.gif" alt=""></p>
-<p>To generate a 3D environment, the program will make use of the OpenGL graphics library. The stars in the galaxy will be displayed using instanced rendering, which is a technique for rendering numerous instances of the same object with varied transformation parameters quickly. The program will accomplish this by utilizing a particle system that generates a vast number of star instances in real-time.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>The <a href="https://github.com/GelzoneXUnsas/FABRIK">FABRIK</a> (Forward And Backward Reaching Inverse Kinematics) project aimed at rendering of articulated arm structures using OpenGL.</p>
+<p><img src="/images/others/FABRIK.gif" alt=""></p>
+<p>FABRIK is renowned for its simplicity and effectiveness in solving inverse kinematics problems for articulated structures. This algorithm enables the generation of dynamic arm movements.</p>
 <h2 id="overview">Overview</h2>
 <p>The project is a software development project that uses modern technologies and frameworks to create a graphics-intensive application.</p>
 <ul>
@@ -201,92 +201,141 @@
 <li>GLFW for windowing</li>
 <li>Eigen for linear algebra</li>
 </ul>
-<h2 id="assets">Assets</h2>
-<p>Besides using a sphere.OBJ file for the skybox of the Galaxy, the following textures are needed to produce a realistic look of the Galaxy:</p>
-<ul>
-<li>Star
-<img src="https://lh3.googleusercontent.com/inmSN6TuSMJfM5ga9-iNLLfP00_1IvIvvN8IRBiIFUTMUOlZrATy0SHozd8ZePcNvaYUDnZ25SjdBh7w0k0WLE3flR6Cm3FBnBODfAJw" alt=""></li>
-<li>Gas
-<img src="https://lh3.googleusercontent.com/AYoALTHYbZDHlj6rjiALeYOjXgCQ4TP4zGzFI3lc0UI1Vl7Q8LSpFOnVe27UdOM971XBT5A6CPXMsn9YVZB4p0H9iEilO2kBFDMhmsk" alt=""></li>
-<li>Galaxy
-<img src="https://lh3.googleusercontent.com/GFazJN56HF9vB2t0OSd1KRHxc-whFOcWIqbD9vsH--62-Rc9NEP5wzLmq2BdHx3RKzI4kzj3sd2v402ISkOctbP15hH5lxqhUD1GSi4" alt=""></li>
-</ul>
+<h2 id="fabrik">FABRIK</h2>
+<p><img src="https://www.researchgate.net/profile/Minh-Man-Nguyen-2/publication/316945552/figure/fig11/AS:614364419739651@1523487300115/FABRIK-algorithm-with-forward-and-backward-procedures.png" alt=""></p>
+<p>Stage (a): Initial setup with the robotic arm in a particular configuration. <strong>P1</strong>, <strong>P2</strong>, <strong>P3</strong>, and <strong>P4</strong> represent the joint positions, and d1, d2, d3 represent the link lengths.</p>
+<p>Stage (b): Backward Reaching - The algorithm start updating the joints from the end-effector (<strong>P4</strong>) to the base (<strong>P1</strong>). <strong>P4&rsquo;</strong> is adjusted to reach the target, and the other joints are updated accordingly.</p>
+<p>Stage (c): Backward Reaching - The adjustment is propagated from <strong>P4&rsquo;</strong> to <strong>P1&rsquo;</strong>, refining the joint positions.</p>
+<p>Stage (d): Forward Reaching - The algorithm resets the base joint (<strong>P1&rsquo;&rsquo;</strong>) to its original position and updates the joints from the base to the end-effector. <strong>P1&rsquo;&rsquo;</strong> is adjusted to reach the target, and the other joints are updated accordingly.</p>
+<p>Stage (f): Forward Reaching - The adjustment is propagated from <strong>P1&rsquo;&rsquo;</strong> to <strong>P4&rsquo;&rsquo;</strong>, refining the joint positions.</p>
 <h2 id="implementation">Implementation</h2>
-<p>Instead of creating individual star objects and rendering them separately, we can use instanced rendering to render multiple instances of the <strong>same</strong> star with different transformation parameters.</p>
-<h3 id="cpu">CPU</h3>
-<p>The CPU is in charge of activities such as data management, and logic in this project. To do this, we first create a <strong>VAO</strong> (Vertex Array Object) and a <strong>VBO</strong> (Vertex Buffer Object) to hold the star mesh data. We also create another <strong>VBO</strong> to hold the transformation data for each instance of the star.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">//generate the VAO
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glGenVertexArrays(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>VertexArrayID);
-</span></span><span style="display:flex;"><span>glBindVertexArray(VertexArrayID);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//generate vertex buffer to hand off to OGL
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glGenBuffers(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>VertexBufferID);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//set the current state to focus on our vertex buffer
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glBindBuffer(GL_ARRAY_BUFFER, VertexBufferID);
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//generate vertex buffer to hand off to OGL
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glGenBuffers(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>InstanceBuffer);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//set the current state to focus on our vertex buffer
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glBindBuffer(GL_ARRAY_BUFFER, InstanceBuffer);
-</span></span></code></pre></div><p>Instanced rendering needs an <strong>object</strong> (containing the billboard) and an <strong>instance buffer</strong> (containing all positions). Using the star.png as the object, we&rsquo;ll also need a position buffer for it. Here we created a position buffer contains 10,000 positions, having a spherical (pill-shape) distribution of positions, with exponentially more stars in the center than at the borders:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// create a new dynamic array of 10,000
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glm<span style="color:#f92672">::</span>vec4 <span style="color:#f92672">*</span>positions <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> glm<span style="color:#f92672">::</span>vec4[<span style="color:#ae81ff">10000</span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//A loop is run for 10,000 iterations to generate a random position for each instance.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10000</span>; i<span style="color:#f92672">++</span>){
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Randomize radius
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> r <span style="color:#f92672">=</span> frand()<span style="color:#f92672">*</span> <span style="color:#ae81ff">200.0f</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Randomize angle x
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> ax <span style="color:#f92672">=</span> frand() <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> PI;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Randomize angle y
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> ay <span style="color:#f92672">=</span> frand() <span style="color:#f92672">*</span> PI;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// rotations around the x-axis and y-axis, respectively
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    mat3 Rx <span style="color:#f92672">=</span> rotate(mat4(<span style="color:#ae81ff">1</span>), ax, vec3(<span style="color:#ae81ff">1.0f</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>));
-</span></span><span style="display:flex;"><span>    mat3 Ry <span style="color:#f92672">=</span> rotate(mat4(<span style="color:#ae81ff">1</span>), ay, vec3(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1.0f</span>,<span style="color:#ae81ff">0</span>));
-</span></span><span style="display:flex;"><span>    vec3 v <span style="color:#f92672">=</span> vec3 (<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,r);
-</span></span><span style="display:flex;"><span>    v <span style="color:#f92672">=</span> Rx <span style="color:#f92672">*</span> v;
-</span></span><span style="display:flex;"><span>    v <span style="color:#f92672">=</span> Ry <span style="color:#f92672">*</span> v;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// position vector is divided by 2.5 to flatten the distribution of the instances
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// make the overall shape of the distribution more like a disk than a sphere.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    v.y <span style="color:#f92672">=</span> v.y <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.5</span>;
-</span></span><span style="display:flex;"><span>    positions[i] <span style="color:#f92672">=</span> vec4(v,<span style="color:#ae81ff">0</span>);
+<p>The FABRIK algorithm implementation is primarily done on CPU, responsible for calculating the positions of the arm segments in each frame. Here&rsquo;s a breakdown of the implementation:</p>
+<h4 id="interpolation">Interpolation</h4>
+<p>Firstly, these functions implement cosine interpolation, a smoothing function used in the FABRIK algorithm to interpolate between two values.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">T</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>T cos_interp(<span style="color:#66d9ef">float</span> t, T a, T b){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> ct <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0f</span> <span style="color:#f92672">-</span> (cos(t <span style="color:#f92672">*</span> <span style="color:#ae81ff">3.1415926</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.0f</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> ct) <span style="color:#f92672">+</span> b <span style="color:#f92672">*</span> ct;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Next, we can copy to a new OpenGL buffer object, and make it <strong>instanced</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">//actually memcopy the data - only do this once
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glBufferData(GL_ARRAY_BUFFER, <span style="color:#ae81ff">10000</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">sizeof</span>(glm<span style="color:#f92672">::</span>vec4), positions, GL_STATIC_DRAW);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> position_loc <span style="color:#f92672">=</span> glGetAttribLocation(prog<span style="color:#f92672">-&gt;</span>pid, <span style="color:#e6db74">&#34;InstancePos&#34;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Set up the vertex attribute
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glVertexAttribPointer(position_loc , <span style="color:#ae81ff">4</span>, GL_FLOAT, GL_FALSE,  <span style="color:#66d9ef">sizeof</span>(vec4),  (<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>)(<span style="color:#66d9ef">sizeof</span>(vec4))); 
-</span></span><span style="display:flex;"><span>glEnableVertexAttribArray(position_loc);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Make it instanced
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glVertexAttribDivisor(position_loc, <span style="color:#ae81ff">1</span>);
-</span></span></code></pre></div><p>The same thing will be duplicated for the gas object as well. After creating a <strong>VAO</strong> and <strong>VBOs</strong> to hold the gas mesh data, we can use glDrawArraysInstanced() to render multiple instances of the those mesh (eg. star), with the transformation data provided by the instanceVBO:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>glBindVertexArray(VertexArrayID);
-</span></span><span style="display:flex;"><span>glDrawElementsInstanced(GL_TRIANGLES, <span style="color:#ae81ff">6</span>, GL_UNSIGNED_SHORT, (<span style="color:#66d9ef">void</span><span style="color:#f92672">*</span>)<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">10000</span>);
-</span></span></code></pre></div><p>This will render the star mesh 10,000 times, with the transformation data provided by the <strong>instanceVBO</strong> for 10,000 instances.</p>
-<h3 id="gpu">GPU</h3>
-<p>The GPU, on the other hand, is in charge of handling graphics-related computations such as rendering, lighting, and texture mapping. In this program, the shaders are fairly simple:</p>
-<p>Using the star shaders as an example. To make the inside stars rotates faster than the outside&rsquo;s, we make the rotation matrix manually in the <strong>vertex shader</strong>. Since the rotation of star should be dependent on the radius (length(position)) of the star, we&rsquo;ll need to get the distance from the star to the center first:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// distance to the center as rate
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">float</span> rate <span style="color:#f92672">=</span> distance(InstancePos, vec4(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.01</span>;
-</span></span></code></pre></div><p>Then, the rotation matrix are be calculated using the following equations with the rate being a multiplier:</p>
-<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a6821937d5031de282a190f75312353c970aa2df" alt=""></p>
-<p>Refering to <strong>Ry(θ)</strong> formula, we can come up with the rotation matrix around y-axis:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>mat4  rotation <span style="color:#f92672">=</span> mat4(
-</span></span><span style="display:flex;"><span>    vec4( cos(rot_angle <span style="color:#f92672">*</span> rate),<span style="color:#ae81ff">0.0</span>, sin(rot_angle <span style="color:#f92672">*</span> rate),<span style="color:#ae81ff">0.0</span>),
-</span></span><span style="display:flex;"><span>    vec4( <span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">1.0</span>,<span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">0.0</span>),
-</span></span><span style="display:flex;"><span>    vec4( <span style="color:#f92672">-</span>sin(rot_angle <span style="color:#f92672">*</span> rate),<span style="color:#ae81ff">0.0</span>,cos(rot_angle <span style="color:#f92672">*</span> rate),<span style="color:#ae81ff">0.0</span>),
-</span></span><span style="display:flex;"><span>    vec4( <span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">1.0</span>));
-</span></span></code></pre></div><p>Lastly, we calculated the position from the instanced position buffer with the rotation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// assign instanced position to each star
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vec4 pos <span style="color:#f92672">=</span>  M <span style="color:#f92672">*</span> vec4(vertPos,<span style="color:#ae81ff">1.0</span>) <span style="color:#f92672">+</span> InstancePos;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// apply rotation
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>pos <span style="color:#f92672">=</span> rotation <span style="color:#f92672">*</span> pos;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// send out position information for rendering
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>gl_Position <span style="color:#f92672">=</span> P <span style="color:#f92672">*</span> V <span style="color:#f92672">*</span> pos;
-</span></span></code></pre></div><p>Diffuse light is also added to the star in the <strong>fragment shader</strong>, feel free to refer to the <a href="https://gelzonexunsas.github.io/posts/projects/earth_lighting/">Earth Lighting</a> project for further explanation and implementation.</p>
-<h2 id="results">Results</h2>
-<p><img src="/images/others/galaxy_cover.png" alt=""></p>
-<p>The galaxy project used <a href="https://www.opengl.org/">OpenGL</a> and instanced rendering to successfully render a large number of particles. By allowing the GPU to reuse the same vertex data for many instances of an object rather than providing a separate copy of the data for each object, instanced rendering proved to be a valuable technique for drawing large numbers of particles effectively. Instanced rendering substantially improves galaxy rendering efficiency, allowing the program to render <strong>10,000</strong> stars with ease. Without instanced rendering, the program would have to send the GPU 10,000 separate sets of vertex data, which would be wasteful and result in a considerable performance reduction.</p><ul class="pa0">
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">cos_interp_float</span>(<span style="color:#66d9ef">float</span> t){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1.0f</span> <span style="color:#f92672">-</span> (cos(t <span style="color:#f92672">*</span> <span style="color:#ae81ff">3.1415926</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.0f</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2.0f</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="backward-reaching-inverse-kinematics-function-brik">Backward Reaching Inverse Kinematics Function (BRIK)</h4>
+<p>This function represents the backward reaching step of the FABRIK algorithm.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">BRIK</span>(vector<span style="color:#f92672">&lt;</span>vec3<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>line)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Calculate the sum of distances
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">float</span> sum <span style="color:#f92672">=</span> accumulate(distances.begin(), distances.end(), <span style="color:#ae81ff">0.0f</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Check if the sum is less than the distance to the target point
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (sum <span style="color:#f92672">&lt;</span> glm<span style="color:#f92672">::</span>distance(line[<span style="color:#ae81ff">0</span>], objPoint)){
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;can&#39;t reach</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Set the end effector position to the target point
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    line[line.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> objPoint;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Perform the Backward Reaching step
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> (<span style="color:#66d9ef">int</span>)line.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>; i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        glm<span style="color:#f92672">::</span>vec3 currentDir <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>normalize(line[i] <span style="color:#f92672">-</span> line[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> targetDist <span style="color:#f92672">=</span> distances[i];
+</span></span><span style="display:flex;"><span>        line[i] <span style="color:#f92672">=</span> line[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> currentDir <span style="color:#f92672">*</span> targetDist;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Check if the end effector is within the distance threshold
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (glm<span style="color:#f92672">::</span>distance(line[<span style="color:#ae81ff">0</span>], startPoint) <span style="color:#f92672">&lt;=</span> distanceThreshold){
+</span></span><span style="display:flex;"><span>        done <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="forward-reaching-inverse-kinematics-function-frik">Forward Reaching Inverse Kinematics Function (FRIK)</h4>
+<p>Next, we implement with a similar approach for the forward reaching step:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">FRIK</span>(vector<span style="color:#f92672">&lt;</span>vec3<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>line)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Set the base position to the starting point
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    line[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> startPoint;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Perform the Forward Reaching step
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> (<span style="color:#66d9ef">int</span>)line.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        glm<span style="color:#f92672">::</span>vec3 currentDir <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>normalize(line[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> line[i]);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> targetDist <span style="color:#f92672">=</span> distances[i];
+</span></span><span style="display:flex;"><span>        line[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> line[i] <span style="color:#f92672">+</span> currentDir <span style="color:#f92672">*</span> targetDist;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Check if the end effector is within the distance threshold
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (glm<span style="color:#f92672">::</span>distance(line[line.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>], objPoint) <span style="color:#f92672">&lt;=</span> distanceThreshold){
+</span></span><span style="display:flex;"><span>        done <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="render">Render</h4>
+<p>Lastly, renders the interpolated points and the lines representing the arm structure. Within the rendering function, BRIK and FRIK functions are called to update the arm segment positions based on the target point. Cosine interpolation is applied to smoothly transition between the current and target arm configurations. The updated positions are then used to render the arm segments in the scene.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> wt <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ct <span style="color:#f92672">+=</span> frametime;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//-----------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//draw the points
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>prog<span style="color:#f92672">-&gt;</span>bind();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Update arm segment positions using BRIK and FRIK functions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>BRIK(actLine);
+</span></span><span style="display:flex;"><span>FRIK(actLine);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Cosine interpolation to smoothly transition between current and target arm configurations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> line.size(); i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Interpolate between current and target points
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    line[i] <span style="color:#f92672">=</span> line[i] <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> ct<span style="color:#f92672">/</span>wt) <span style="color:#f92672">+</span> actLine[i] <span style="color:#f92672">*</span> ct<span style="color:#f92672">/</span>wt;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// If interpolation time exceeds the waiting time (wt), reset to target configuration
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (ct <span style="color:#f92672">&gt;</span> wt)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    line <span style="color:#f92672">=</span> actLine;
+</span></span><span style="display:flex;"><span>    ct <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Render arm segments in the scene based on the updated positions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> line.size(); i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    glm<span style="color:#f92672">::</span>mat4 Trans <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>translate(glm<span style="color:#f92672">::</span>mat4(<span style="color:#ae81ff">1.0f</span>), line[i]);
+</span></span><span style="display:flex;"><span>    glm<span style="color:#f92672">::</span>mat4 Scale <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>scale(glm<span style="color:#f92672">::</span>mat4(<span style="color:#ae81ff">1.0f</span>), glm<span style="color:#f92672">::</span>vec3(<span style="color:#ae81ff">0.1f</span>, <span style="color:#ae81ff">0.1f</span>, <span style="color:#ae81ff">0.1f</span>));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Increase the scale for the first segment (root)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Scale <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>scale(glm<span style="color:#f92672">::</span>mat4(<span style="color:#ae81ff">1.0f</span>), glm<span style="color:#f92672">::</span>vec3(<span style="color:#ae81ff">0.2f</span>, <span style="color:#ae81ff">0.2f</span>, <span style="color:#ae81ff">0.2f</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Model matrix (M) combining translation and scaling
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    M <span style="color:#f92672">=</span> Trans <span style="color:#f92672">*</span> Scale;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Set uniform matrices and camera position for rendering
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    glUniformMatrix4fv(prog<span style="color:#f92672">-&gt;</span>getUniform(<span style="color:#e6db74">&#34;P&#34;</span>), <span style="color:#ae81ff">1</span>, GL_FALSE, <span style="color:#f92672">&amp;</span>P[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    glUniformMatrix4fv(prog<span style="color:#f92672">-&gt;</span>getUniform(<span style="color:#e6db74">&#34;V&#34;</span>), <span style="color:#ae81ff">1</span>, GL_FALSE, <span style="color:#f92672">&amp;</span>V[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    glUniformMatrix4fv(prog<span style="color:#f92672">-&gt;</span>getUniform(<span style="color:#e6db74">&#34;M&#34;</span>), <span style="color:#ae81ff">1</span>, GL_FALSE, <span style="color:#f92672">&amp;</span>M[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    glUniform3fv(prog<span style="color:#f92672">-&gt;</span>getUniform(<span style="color:#e6db74">&#34;campos&#34;</span>), <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>mycam.pos[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Draw the arm segment shape
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    shape<span style="color:#f92672">-&gt;</span>draw(prog);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prog<span style="color:#f92672">-&gt;</span>unbind();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Draw the lines representing the arm structure using a separate linerender object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Re-initialize line data in the linerender
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>linerender.re_init_line(line);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Set line color
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>glm<span style="color:#f92672">::</span>vec3 linecolor <span style="color:#f92672">=</span> glm<span style="color:#f92672">::</span>vec3(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Draw the lines in the scene using the linerender object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>linerender.draw(P, V, linecolor);
+</span></span></code></pre></div><h2 id="results">Results</h2>
+<p><img src="/images/others/FABRIK.gif" alt=""></p><ul class="pa0">
   
    <li class="list di">
      <a href="/tags/projects/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Project</a>
@@ -304,11 +353,10 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#overview">Overview</a></li>
-    <li><a href="#assets">Assets</a></li>
+    <li><a href="#fabrik">FABRIK</a></li>
     <li><a href="#implementation">Implementation</a>
       <ul>
-        <li><a href="#cpu">CPU</a></li>
-        <li><a href="#gpu">GPU</a></li>
+        <li></li>
       </ul>
     </li>
     <li><a href="#results">Results</a></li>
@@ -337,10 +385,6 @@
 	    
 	     <li  class="mb2">
           <a href="/posts/projects/music-search-engine/">Music Search Engine</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/posts/projects/personal-homepage/">Personal Homepage</a>
         </li>
 	    
     </ul>

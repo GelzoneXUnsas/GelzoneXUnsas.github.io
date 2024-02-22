@@ -1,7 +1,7 @@
 ---
 title: "Personal Homepage"
 date: 2021-6-2T01:18:59-08:00
-draft: false
+draft: true
 author: ["Lucas Li", "Kyle Burton", "Moses Epps", "Taylor Morgan", "Joseph Simopoulos"]
 tags: ["Projects"]
 featured_image: '/images/others/DB.jpg'

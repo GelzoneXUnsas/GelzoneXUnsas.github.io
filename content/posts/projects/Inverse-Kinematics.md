@@ -1,21 +1,22 @@
 ---
 title: "Inverse Kinematics"
 date: 2022-06-07T01:18:59-08:00
-draft: true
+draft: false
 author: ["Lucas Li"]
 tags: ["Projects"]
-featured_image: '/images/others/galaxy_cover.png'
+featured_image: "/images/others/FABRIK.gif"
 description: "experiment with FABRIK using OpenGL"
 toc: true
 ---
 
-The purpose of this [Galaxy](https://github.com/GelzoneXUnsas/Galaxy-Instanced-Rendering) project is to create an OpenGL software that uses **instanced rendering** to draw a galaxy full of stars. The project will be developed to create a visually attractive picture of a galaxy while also serving as a learning tool for visualizing mass particles using instanced rendering.<!--more--> 
+The [FABRIK](https://github.com/GelzoneXUnsas/FABRIK) (Forward And Backward Reaching Inverse Kinematics) project aimed at rendering of articulated arm structures using OpenGL.<!--more-->
 
-![](/images/others/galaxy_demo.gif)
+![](/images/others/FABRIK.gif)
 
-To generate a 3D environment, the program will make use of the OpenGL graphics library. The stars in the galaxy will be displayed using instanced rendering, which is a technique for rendering numerous instances of the same object with varied transformation parameters quickly. The program will accomplish this by utilizing a particle system that generates a vast number of star instances in real-time. 
+FABRIK is renowned for its simplicity and effectiveness in solving inverse kinematics problems for articulated structures. This algorithm enables the generation of dynamic arm movements.
 
 ## Overview
+
 The project is a software development project that uses modern technologies and frameworks to create a graphics-intensive application.
 
 - C++11 as the main language
@@ -24,122 +25,168 @@ The project is a software development project that uses modern technologies and 
 - GLFW for windowing
 - Eigen for linear algebra
 
-## Assets
-Besides using a sphere.OBJ file for the skybox of the Galaxy, the following textures are needed to produce a realistic look of the Galaxy:
+## FABRIK
+![](https://www.researchgate.net/profile/Minh-Man-Nguyen-2/publication/316945552/figure/fig11/AS:614364419739651@1523487300115/FABRIK-algorithm-with-forward-and-backward-procedures.png)
 
-- Star
-![](https://lh3.googleusercontent.com/inmSN6TuSMJfM5ga9-iNLLfP00_1IvIvvN8IRBiIFUTMUOlZrATy0SHozd8ZePcNvaYUDnZ25SjdBh7w0k0WLE3flR6Cm3FBnBODfAJw)
-- Gas
-![](https://lh3.googleusercontent.com/AYoALTHYbZDHlj6rjiALeYOjXgCQ4TP4zGzFI3lc0UI1Vl7Q8LSpFOnVe27UdOM971XBT5A6CPXMsn9YVZB4p0H9iEilO2kBFDMhmsk)
-- Galaxy
-![](https://lh3.googleusercontent.com/GFazJN56HF9vB2t0OSd1KRHxc-whFOcWIqbD9vsH--62-Rc9NEP5wzLmq2BdHx3RKzI4kzj3sd2v402ISkOctbP15hH5lxqhUD1GSi4)
+Stage (a): Initial setup with the robotic arm in a particular configuration. **P1**, **P2**, **P3**, and **P4** represent the joint positions, and d1, d2, d3 represent the link lengths.
+
+Stage (b): Backward Reaching - The algorithm start updating the joints from the end-effector (**P4**) to the base (**P1**). **P4'** is adjusted to reach the target, and the other joints are updated accordingly.
+
+Stage (c): Backward Reaching - The adjustment is propagated from **P4'** to **P1'**, refining the joint positions.
+
+Stage (d): Forward Reaching - The algorithm resets the base joint (**P1''**) to its original position and updates the joints from the base to the end-effector. **P1''** is adjusted to reach the target, and the other joints are updated accordingly.
+
+Stage (f): Forward Reaching - The adjustment is propagated from **P1''** to **P4''**, refining the joint positions.
 
 ## Implementation
-Instead of creating individual star objects and rendering them separately, we can use instanced rendering to render multiple instances of the **same** star with different transformation parameters.
 
-### CPU
-The CPU is in charge of activities such as data management, and logic in this project. To do this, we first create a **VAO** (Vertex Array Object) and a **VBO** (Vertex Buffer Object) to hold the star mesh data. We also create another **VBO** to hold the transformation data for each instance of the star.
+The FABRIK algorithm implementation is primarily done on CPU, responsible for calculating the positions of the arm segments in each frame. Here's a breakdown of the implementation:
 
-```c++
-//generate the VAO
-glGenVertexArrays(1, &VertexArrayID);
-glBindVertexArray(VertexArrayID);
-//generate vertex buffer to hand off to OGL
-glGenBuffers(1, &VertexBufferID);
-//set the current state to focus on our vertex buffer
-glBindBuffer(GL_ARRAY_BUFFER, VertexBufferID);
-...
-//generate vertex buffer to hand off to OGL
-glGenBuffers(1, &InstanceBuffer);
-//set the current state to focus on our vertex buffer
-glBindBuffer(GL_ARRAY_BUFFER, InstanceBuffer);
-```
+#### Interpolation
 
-Instanced rendering needs an **object** (containing the billboard) and an **instance buffer** (containing all positions). Using the star.png as the object, we'll also need a position buffer for it. Here we created a position buffer contains 10,000 positions, having a spherical (pill-shape) distribution of positions, with exponentially more stars in the center than at the borders:
+Firstly, these functions implement cosine interpolation, a smoothing function used in the FABRIK algorithm to interpolate between two values.
 
 ```c++
-// create a new dynamic array of 10,000
-glm::vec4 *positions = new glm::vec4[10000];
+template <class T>
+T cos_interp(float t, T a, T b){
+    float ct = 1.0f - (cos(t * 3.1415926) + 1.0f) / 2.0f;
+    return a * (1 - ct) + b * ct;
+}
 
-//A loop is run for 10,000 iterations to generate a random position for each instance.
-for (int i = 0; i < 10000; i++){
-    // Randomize radius
-    float r = frand()* 200.0f;
-    // Randomize angle x
-    float ax = frand() * 2 * PI;
-    // Randomize angle y
-    float ay = frand() * PI;
-    // rotations around the x-axis and y-axis, respectively
-    mat3 Rx = rotate(mat4(1), ax, vec3(1.0f,0,0));
-    mat3 Ry = rotate(mat4(1), ay, vec3(0,1.0f,0));
-    vec3 v = vec3 (0,0,r);
-    v = Rx * v;
-    v = Ry * v;
-    // position vector is divided by 2.5 to flatten the distribution of the instances
-    // make the overall shape of the distribution more like a disk than a sphere.
-    v.y = v.y / 2.5;
-    positions[i] = vec4(v,0);
+float cos_interp_float(float t){
+    return 1.0f - (cos(t * 3.1415926) + 1.0f) / 2.0f;
 }
 ```
 
-Next, we can copy to a new OpenGL buffer object, and make it **instanced**:
-```c++
-//actually memcopy the data - only do this once
-glBufferData(GL_ARRAY_BUFFER, 10000 * sizeof(glm::vec4), positions, GL_STATIC_DRAW);
-int position_loc = glGetAttribLocation(prog->pid, "InstancePos");
-// Set up the vertex attribute
-glVertexAttribPointer(position_loc , 4, GL_FLOAT, GL_FALSE,  sizeof(vec4),  (void *)(sizeof(vec4))); 
-glEnableVertexAttribArray(position_loc);
-// Make it instanced
-glVertexAttribDivisor(position_loc, 1);
-```
+#### Backward Reaching Inverse Kinematics Function (BRIK)
 
-The same thing will be duplicated for the gas object as well. After creating a **VAO** and **VBOs** to hold the gas mesh data, we can use glDrawArraysInstanced() to render multiple instances of the those mesh (eg. star), with the transformation data provided by the instanceVBO:
-```c++
-glBindVertexArray(VertexArrayID);
-glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, (void*)0,10000);
-```
-This will render the star mesh 10,000 times, with the transformation data provided by the **instanceVBO** for 10,000 instances.
-
-### GPU
-The GPU, on the other hand, is in charge of handling graphics-related computations such as rendering, lighting, and texture mapping. In this program, the shaders are fairly simple:
-
-Using the star shaders as an example. To make the inside stars rotates faster than the outside's, we make the rotation matrix manually in the **vertex shader**. Since the rotation of star should be dependent on the radius (length(position)) of the star, we'll need to get the distance from the star to the center first:
+This function represents the backward reaching step of the FABRIK algorithm.
 
 ```c++
-// distance to the center as rate
-float rate = distance(InstancePos, vec4(0,0,0,0)) * 0.01;
+void BRIK(vector<vec3> &line)
+{
+    // Calculate the sum of distances
+    float sum = accumulate(distances.begin(), distances.end(), 0.0f);
+
+    // Check if the sum is less than the distance to the target point
+    if (sum < glm::distance(line[0], objPoint)){
+        printf("can't reach\n");
+        return;
+    }
+
+    // Set the end effector position to the target point
+    line[line.size() - 1] = objPoint;
+
+    // Perform the Backward Reaching step
+    for (int i = (int)line.size() - 2; i >= 0; i--)
+    {
+        glm::vec3 currentDir = glm::normalize(line[i] - line[i + 1]);
+        float targetDist = distances[i];
+        line[i] = line[i + 1] + currentDir * targetDist;
+    }
+
+    // Check if the end effector is within the distance threshold
+    if (glm::distance(line[0], startPoint) <= distanceThreshold){
+        done = true;
+    }
+}
 ```
 
-Then, the rotation matrix are be calculated using the following equations with the rate being a multiplier:
+#### Forward Reaching Inverse Kinematics Function (FRIK)
 
-![](https://wikimedia.org/api/rest_v1/media/math/render/svg/a6821937d5031de282a190f75312353c970aa2df)
-
-Refering to **Ry(θ)** formula, we can come up with the rotation matrix around y-axis:
+Next, we implement with a similar approach for the forward reaching step:
 
 ```c++
-mat4  rotation = mat4(
-    vec4( cos(rot_angle * rate),0.0, sin(rot_angle * rate),0.0),
-    vec4( 0.0,1.0,0.0,0.0),
-    vec4( -sin(rot_angle * rate),0.0,cos(rot_angle * rate),0.0),
-    vec4( 0.0,0.0,0.0,1.0));
+void FRIK(vector<vec3> &line)
+{
+    // Set the base position to the starting point
+    line[0] = startPoint;
+
+    // Perform the Forward Reaching step
+    for (int i = 0; i < (int)line.size() - 2; i++)
+    {
+        glm::vec3 currentDir = glm::normalize(line[i + 1] - line[i]);
+        float targetDist = distances[i];
+        line[i + 1] = line[i] + currentDir * targetDist;
+    }
+
+    // Check if the end effector is within the distance threshold
+    if (glm::distance(line[line.size() - 1], objPoint) <= distanceThreshold){
+        done = true;
+    }
+}
 ```
 
-Lastly, we calculated the position from the instanced position buffer with the rotation:
+#### Render
+Lastly, renders the interpolated points and the lines representing the arm structure. Within the rendering function, BRIK and FRIK functions are called to update the arm segment positions based on the target point. Cosine interpolation is applied to smoothly transition between the current and target arm configurations. The updated positions are then used to render the arm segments in the scene.
 
 ```c++
-// assign instanced position to each star
-vec4 pos =  M * vec4(vertPos,1.0) + InstancePos;
-// apply rotation
-pos = rotation * pos;
-// send out position information for rendering
-gl_Position = P * V * pos;
-```
+float wt = 1.0f;
 
-Diffuse light is also added to the star in the **fragment shader**, feel free to refer to the [Earth Lighting](https://gelzonexunsas.github.io/posts/projects/earth_lighting/) project for further explanation and implementation.
+ct += frametime;
+
+//-----------------------------------------------
+//draw the points
+prog->bind();
+
+// Update arm segment positions using BRIK and FRIK functions
+BRIK(actLine);
+FRIK(actLine);
+
+// Cosine interpolation to smoothly transition between current and target arm configurations
+for (int i = 0; i < line.size(); i++)
+{
+    // Interpolate between current and target points
+    line[i] = line[i] * (1 - ct/wt) + actLine[i] * ct/wt;
+}
+
+// If interpolation time exceeds the waiting time (wt), reset to target configuration
+if (ct > wt)
+{
+    line = actLine;
+    ct = 0;
+}
+
+// Render arm segments in the scene based on the updated positions
+for (int i = 0; i < line.size(); i++)
+{
+    glm::mat4 Trans = glm::translate(glm::mat4(1.0f), line[i]);
+    glm::mat4 Scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f, 0.1f, 0.1f));
+    
+    // Increase the scale for the first segment (root)
+    if (i == 0)
+    {
+        Scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.2f, 0.2f, 0.2f));
+    }
+    
+    // Model matrix (M) combining translation and scaling
+    M = Trans * Scale;
+
+    // Set uniform matrices and camera position for rendering
+    glUniformMatrix4fv(prog->getUniform("P"), 1, GL_FALSE, &P[0][0]);
+    glUniformMatrix4fv(prog->getUniform("V"), 1, GL_FALSE, &V[0][0]);
+    glUniformMatrix4fv(prog->getUniform("M"), 1, GL_FALSE, &M[0][0]);
+    glUniform3fv(prog->getUniform("campos"), 1, &mycam.pos[0]);
+
+    // Draw the arm segment shape
+    shape->draw(prog);
+}
+
+prog->unbind();
+
+// Draw the lines representing the arm structure using a separate linerender object
+// Re-initialize line data in the linerender
+linerender.re_init_line(line);
+
+// Set line color
+glm::vec3 linecolor = glm::vec3(1, 1, 1);
+
+// Draw the lines in the scene using the linerender object
+linerender.draw(P, V, linecolor);
+
+```
 
 ## Results
 
-![](/images/others/galaxy_cover.png)
+![](/images/others/FABRIK.gif)
 
-The galaxy project used [OpenGL](https://www.opengl.org/) and instanced rendering to successfully render a large number of particles. By allowing the GPU to reuse the same vertex data for many instances of an object rather than providing a separate copy of the data for each object, instanced rendering proved to be a valuable technique for drawing large numbers of particles effectively. Instanced rendering substantially improves galaxy rendering efficiency, allowing the program to render **10,000** stars with ease. Without instanced rendering, the program would have to send the GPU 10,000 separate sets of vertex data, which would be wasteful and result in a considerable performance reduction.

@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>Inverse Kinematics</title>
+      <link>https://gelzonexunsas.github.io/posts/projects/inverse-kinematics/</link>
+      <pubDate>Tue, 07 Jun 2022 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/projects/inverse-kinematics/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://github.com/GelzoneXUnsas/FABRIK&#34;&gt;FABRIK&lt;/a&gt; (Forward And Backward Reaching Inverse Kinematics) project aimed at rendering of articulated arm structures using OpenGL.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Music Visualizer</title>
       <link>https://gelzonexunsas.github.io/posts/projects/music-visualizer/</link>
       <pubDate>Wed, 09 Mar 2022 01:18:59 -0800</pubDate>
@@ -50,15 +59,6 @@
       
       <guid>https://gelzonexunsas.github.io/posts/projects/music-search-engine/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;https://github.com/CSC-365-Project/Music-Search-Engine&#34;&gt;music search engine&lt;/a&gt; that can not only search songs by filtering, but also store them as favorite for future lookup.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Personal Homepage</title>
-      <link>https://gelzonexunsas.github.io/posts/projects/personal-homepage/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://gelzonexunsas.github.io/posts/projects/personal-homepage/</guid>
-      <description>&lt;p&gt;We propose a &lt;a href=&#34;http://polypage.herokuapp.com/&#34;&gt;personal homepage&lt;/a&gt; webapp. It’s similar to a website builder, but it provides fundamental tools like bookmarks, to-do lists, and more.&lt;/p&gt;</description>
     </item>
     
   </channel>
