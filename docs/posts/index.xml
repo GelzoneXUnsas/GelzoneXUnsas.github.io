@@ -8,12 +8,30 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>GLIMMER</title>
+      <link>https://gelzonexunsas.github.io/posts/games/glimmer/</link>
+      <pubDate>Wed, 05 Jun 2024 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/games/glimmer/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/iLRN-Glimmer/Glimmer&#34;&gt;GLIMMER&lt;/a&gt; is an Alternate Reality Game(ARG) walking simulator created for the &lt;a href=&#34;https://www.immersivelrn.org/ilrn2024/home/&#34;&gt;iLRN 2024&lt;/a&gt; conference in Scotland. This game allows players to explore immersive learning experiences showcased by the network community.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Virtuosos</title>
       <link>https://gelzonexunsas.github.io/posts/games/virtuosos/</link>
       <pubDate>Sun, 18 Jun 2023 01:18:59 -0800</pubDate>
       
       <guid>https://gelzonexunsas.github.io/posts/games/virtuosos/</guid>
       <description>&lt;p&gt;Recently, I have been pondering a question: how can I enhance the immersion and emotional impact of a musical composition? After much consideration, I came to the conclusion that rather than creating just a standalone piece, it would be better to develop a &lt;strong&gt;rhythm game&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MMD via OpenGL</title>
+      <link>https://gelzonexunsas.github.io/posts/projects/mmd-opengl/</link>
+      <pubDate>Fri, 16 Jun 2023 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/projects/mmd-opengl/</guid>
+      <description>&lt;p&gt;This &lt;a href=&#34;https://github.com/GelzoneXUnsas/MMD-OpenGL&#34;&gt;MMD (MikuMikuDance) project&lt;/a&gt;, is an exploration into the realms of OpenGL, the &lt;a href=&#34;https://github.com/benikabocha/saba&#34;&gt;Saba&lt;/a&gt; library, and real-time music synchronization. This project revolves around creating a captivating and seamless MMD animation experience.&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -6,7 +6,16 @@
     <description>Recent content in Project on Gelzone Unsas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Apr 2023 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Jun 2023 01:18:59 -0800</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MMD via OpenGL</title>
+      <link>https://gelzonexunsas.github.io/posts/projects/mmd-opengl/</link>
+      <pubDate>Fri, 16 Jun 2023 01:18:59 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/projects/mmd-opengl/</guid>
+      <description>&lt;p&gt;This &lt;a href=&#34;https://github.com/GelzoneXUnsas/MMD-OpenGL&#34;&gt;MMD (MikuMikuDance) project&lt;/a&gt;, is an exploration into the realms of OpenGL, the &lt;a href=&#34;https://github.com/benikabocha/saba&#34;&gt;Saba&lt;/a&gt; library, and real-time music synchronization. This project revolves around creating a captivating and seamless MMD animation experience.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Flight Simulator</title>
       <link>https://gelzonexunsas.github.io/posts/projects/flight-simulator/</link>
