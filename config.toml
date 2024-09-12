@@ -1,6 +1,6 @@
 baseURL = 'https://gelzonexunsas.github.io/'
 languageCode = 'en-us'
-title = 'Gelzone Unsas'
+title = 'Lucas Li'
 theme = 'ananke'
 publishDir = "docs"
 
@@ -10,6 +10,10 @@ publishDir = "docs"
   font-awesome = true
   body_classes = "avenir bg-near-white"
   recent_copy = "Featured Work"
+
+[[params.ananke_socials]]
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/gelzonexunsas/"
 
 [[params.ananke_socials]]
 name = "Youtube"

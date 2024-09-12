@@ -4,14 +4,12 @@ description: "Game - Music - Anime"
 featured_image: "/images/profile/IMG_9668.jpg"
 ---
 
-Hello there! My name is **Lucas Li**, also known as **Gelzone Unsas** in the online world. I am a multi-talented individual who is passionate about programming, game development in particular, and music production.
+Hello! I'm **Lucas Li**, or as I'm known online, **Gelzone Unsas**. I’m a game developer and music producer passionate about combining my love for both programming and music to create something meaningful — like Ongawa, my latest project that aims to help indie musicians showcase their music through interactive gaming.
 
-![](/images/profile/IMG_2316.jpg)
+![](https://media.licdn.com/dms/image/v2/D4E22AQGsUHkOqEIfCw/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1725918650607?e=1729123200&v=beta&t=bTWPJedrWK30ZEWNu4r5HmpQe3VaPIg-fKmpG52asG4)
 
-[Programming](https://github.com/GelzoneXUnsas) is my main area of expertise, and I am always on the lookout for new ways to improve my skills and knowledge. Game development is a particular interest of mine, as it offers endless possibilities to create innovative and immersive experiences. My undergraduate and master studies in Computer Science have provided me with a strong foundation in programming and software development, and I am excited to collaborate with peers to push the boundaries of what is possible in game development.
+I’ve always been drawn to the creative freedom of game development and programming. It lets me merge my technical background, gained from my undergraduate and master’s studies in Computer Science, with my love for storytelling and music. With [Ongawa](https://www.ongawa.io/), I’m blending [music production](https://www.youtube.com/@GelzoneUnsas) and [programming](https://github.com/GelzoneXUnsas) to build a platform where indie artists can turn their songs into immersive, rhythm-based game levels.
 
-Aside from programming, I am also an accomplished [music producer](https://www.youtube.com/channel/UCs_AJP0KDnVPcPugtp6k37Q), with a focus on fingerstyle guitar. I am fascinated by the emotional power of music and strive to incorporate my passion for music into my programming work. Sound design and optimization in game development are particularly interesting to me, as they can enhance the immersive experience for players and create a deeper emotional connection between the player and the game.
+Outside of coding, I’m a fingerstyle guitar enthusiast and a huge fan of anime. The emotional depth I find in music and the creative storytelling in anime constantly fuel my work. I’m always looking for new ways to create experiences that not only entertain but also connect on a deeper level.
 
-As an avid anime lover, I am inspired by the depth and creativity of the stories and characters found in anime. I believe that anime can be a powerful source of inspiration for creating meaningful and engaging games, and I am excited to explore the potential of anime in my [programming work](https://gelzonexunsas.github.io/posts/games/virtuosos/).
-
-Thank you for taking the time to read about me and my interests. Please feel free to reach out and connect with me!
+Thanks for stopping by, and feel free to reach out if you’d like to connect!
