@@ -1,7 +1,7 @@
 ---
 title: "Ongawa"
 date: 2025-01-06T12:00:00-08:00
-draft: false
+draft: true
 author: ["Lucas Li", "Brett Hickman"]
 tags: ["Games", "featured"]
 featured_image: '/images/games/Ongawa_cover.png'
