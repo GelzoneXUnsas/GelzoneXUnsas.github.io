@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><atom:link href="https://gelzonexunsas.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Ongawa</title>
+      <link>https://gelzonexunsas.github.io/posts/games/ongawa/</link>
+      <pubDate>Mon, 06 Jan 2025 12:00:00 -0800</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/games/ongawa/</guid>
+      <description>&lt;p&gt;How can a game amplify the power of music and give creators a stage where their compositions become dynamic, playable art? As a continuation of &lt;a href=&#34;https://gelzonexunsas.github.io/posts/games/virtuosos/&#34;&gt;Virtuosos&lt;/a&gt;, &lt;strong&gt;Ongawa&lt;/strong&gt; is a work-in-progress mobile rhythm game that blurs the line between player and musician, combining storytelling, gameplay, and creation into one seamless experience.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>GLIMMER</title>
       <link>https://gelzonexunsas.github.io/posts/games/glimmer/</link>
       <pubDate>Wed, 05 Jun 2024 01:18:59 -0800</pubDate>
@@ -294,6 +303,40 @@ The game involves walking through various environments which evoke feelings like
       
       <guid>https://gelzonexunsas.github.io/posts/music/your-name./</guid>
       <description>&lt;p&gt;The &lt;a href=&#34;https://www.youtube.com/watch?v=k0qWktYUUwI&amp;amp;list=PLOEPzbk-HpuTJG8m5pvBNIzmIPGMAqXTc&amp;amp;pp=gAQB&#34;&gt;Your Name&lt;/a&gt; series holds a special place in my &lt;strong&gt;early music production&lt;/strong&gt; journey. I was first introduced to the series through the anime film Your Name, and it left such an impact on me that I decided to start creating my own music.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://gelzonexunsas.github.io/posts/games/agents/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/games/agents/</guid>
+      <description>PROJECT KNOWLEDGE BASE Generated: 2026-04-26 12:44:05
+OVERVIEW 11 game posts covering Unity projects, interactive fictions, and game jam entries.
+WHERE TO LOOK Task Location Notes Game images static/images/games/ Cover images, screenshots Game assets External links itch.io, Unity Asset Store in posts Code examples In-post code blocks C#, Racket, Twine syntax POST LIST 2D_Plane_Shooter Apocclipse Blitz-Pong Experience GLIMMER Gunfight Interactive-Fictions Ongawa Robolol Rootscaped Virtuosos CONVENTIONS Front matter: title, date, draft, author (array), tags, featured_image, description, toc Code blocks with language annotations (csharp, Racket, etc.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://gelzonexunsas.github.io/posts/music/agents/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/music/agents/</guid>
+      <description>PROJECT KNOWLEDGE BASE Generated: 2026-04-26 12:44:05 Commit: 70017fc Branch: main
+OVERVIEW Music post archive with 15 posts covering anime/game soundtrack fingerstyle guitar covers and arrangements.
+STRUCTURE content/posts/music/ ├── *.md # 15 posts, mixed Japanese/English filenames WHERE TO LOOK Task Location Notes Add new music post content/posts/music/ Create new .md file Edit existing post content/posts/music/{filename}.md Direct edit Find post by anime grep &amp;ldquo;anime name&amp;rdquo; content/posts/music/ Search content CONVENTIONS Filenames:
+Mixed scripts allowed: English titles, Japanese titles, or combined Special characters allowed: spaces, punctuation, Japanese kanji/kana Examples: Your Name.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://gelzonexunsas.github.io/posts/projects/agents/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gelzonexunsas.github.io/posts/projects/agents/</guid>
+      <description>PROJECT KNOWLEDGE BASE Generated: 2026-04-26 12:44:05 Commit: 70017fc
+OVERVIEW Project documentation posts covering graphics programming, algorithms, and software experiments.
+WHERE TO LOOK Project File Description MMD via OpenGL MMD-OpenGL.md PMX/VMD parsing, Saba library integration, GLFW transparency Inverse Kinematics Inverse-Kinematics.md FABRIK algorithm implementation with OpenGL Flight Simulator Flight-Simulator.md Flight physics and rendering Music Visualizer Music-Visualizer.md Real-time audio visualization Galaxy Instanced Rendering Galaxy-Instanced-Rendering.md GPU instancing for particle systems Earth Lighting Earth-Lighting.md Atmospheric scattering, PBR rendering Music Search Engine Music-Search-Engine.</description>
     </item>
     
   </channel>
