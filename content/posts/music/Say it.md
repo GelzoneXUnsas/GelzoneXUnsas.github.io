@@ -8,7 +8,7 @@ featured_image: 'https://i3.ytimg.com/vi/YdNnwBDgDAw/maxresdefault.jpg'
 description: "put it into words, say it out loud"
 ---
 
-「**言って。**」(Say it) is a song by the Japanese duo Yorushika, consisting of vocalist **n-buna** and guitarist **suis**. The song was released on December 5, 2019, as part of their album "Plagiarism." I really enjoyed the intro of the song, with a gentle guitar riff, which sets the tone for the entire piece, poetic and introspective. <!--more--> Despite the warped neck issue of my old Ovation guitar, I was determined to play it for the **last time**.
+「[言って。](https://www.youtube.com/watch?v=YdNnwBDgDAw)」(Say it) is a song by the Japanese duo Yorushika, consisting of vocalist **n-buna** and guitarist **suis**. The song was released on December 5, 2019, as part of their album "Plagiarism." I really enjoyed the intro of the song, with a gentle guitar riff, which sets the tone for the entire piece, poetic and introspective. <!--more--> Despite the warped neck issue of my old Ovation guitar, I was determined to play it for the **last time**.
 
 ### About the Song
 
